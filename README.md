@@ -59,27 +59,39 @@ We analyze 5 representative C++ distributed systems selected based on GitHub sta
 
 ### Installation
 
+### Prerequisites
+
+- **Python 3.7+**
+- **Git** (for cloning repositories)
+- **Libraries:** (install via pip)
+  ```bash
+  pip install pandas matplotlib scipy
+  ```
+
+### Installation
+
 1. **Clone this repository:**
-```bash
-   git clone https://github.com/yourusername/SWEN-Capstone-bp6191.git
+   ```bash
+   git clone https://github.com/bp6191/SWEN-Capstone-bp6191.git
    cd SWEN-Capstone-bp6191
-```
+   ```
 
 2. **Clone the target systems:**
-```bash
+   ```bash
    mkdir repos
    cd repos
-   git clone https://github.com/redis/redis.git
-   git clone https://github.com/ClickHouse/ClickHouse.git
-   git clone https://github.com/facebook/rocksdb.git
-   git clone https://github.com/envoyproxy/envoy.git
-   git clone https://github.com/tikv/tikv.git
+   git clone https://github.com/ClickHouse/ClickHouse.git clickhouse
+   git clone https://github.com/facebook/rocksdb.git rocksdb
+   git clone https://github.com/envoyproxy/envoy.git envoy
+   git clone https://github.com/apache/kudu.git kudu
+   git clone https://github.com/scylladb/scylladb.git scylladb
    cd ..
-```
+   ```
 
 ### Running the Analysis
 
 #### Option 1: Run Complete Analysis (All Systems)
+
 ```bash
 # Make script executable (Mac/Linux)
 chmod +x scripts/run_analysis.sh
@@ -89,6 +101,7 @@ chmod +x scripts/run_analysis.sh
 ```
 
 #### Option 2: Run Analysis on Individual Systems
+
 ```bash
 # Extract logging commits from RocksDB
 python scripts/extract_log_commits.py repos/rocksdb results/rocksdb_commits.csv
@@ -99,7 +112,8 @@ python scripts/analyze_evolution.py results/rocksdb_commits.csv results/rocksdb_
 
 ---
 
-## Methodology
+
+##  Methodology
 
 ### RQ1: Current Logging Practices (Static Analysis)
 
@@ -137,9 +151,35 @@ python scripts/analyze_evolution.py results/rocksdb_commits.csv results/rocksdb_
 - Statistical comparison (Chi-square, t-tests)
 - Domain-specific patterns (databases vs service mesh vs storage)
 - Evolution pattern comparison
+
 ---
 
-## Tools & Scripts
+## Preliminary Results
+
+### RocksDB Analysis (Completed)
+
+**Git Mining Summary:**
+- **Total commits analyzed:** 16,312
+- **Logging-related commits:** 3,958 (24.26%)
+- **Time span:** 2012-2025 (13 years)
+
+**Commit Categories:**
+- Bug fixes: 807 (20.4%)
+- Feature additions: 878 (22.2%)
+- Refactoring: 173 (4.4%)
+- Logging improvements: 78 (2.0%)
+
+**Logging Changes:**
+- Logs added: 964
+- Logs removed: 273
+- Logs modified: 492
+- Net change: +691
+
+**Key Insight:** Most logging changes are reactive (tied to bug fixes and features) rather than proactive logging improvements.
+
+---
+
+##  Tools & Scripts
 
 ### `extract_log_commits.py`
 
@@ -147,12 +187,12 @@ Mines git history to identify and extract logging-related commits.
 
 **Usage:**
 ```bash
-python scripts/extract_log_commits.py  
+python scripts/extract_log_commits.py <repo_path> <output_csv>
 ```
 
 **Example:**
 ```bash
-python scripts/extract_log_commits.py repos/redis results/redis_commits.csv
+python scripts/extract_log_commits.py repos/clickhouse results/clickhouse_commits.csv
 ```
 
 **Output:** CSV file with columns:
@@ -178,12 +218,12 @@ Analyzes temporal trends from extracted commit data.
 
 **Usage:**
 ```bash
-python scripts/analyze_evolution.py  
+python scripts/analyze_evolution.py <input_csv> <output_dir>
 ```
 
 **Example:**
 ```bash
-python scripts/analyze_evolution.py results/redis_commits.csv results/redis_analysis
+python scripts/analyze_evolution.py results/clickhouse_commits.csv results/clickhouse_analysis
 ```
 
 **Output Files:**
@@ -191,8 +231,7 @@ python scripts/analyze_evolution.py results/redis_commits.csv results/redis_anal
 - `category_distribution.csv` - Commit category breakdown
 - `churn_analysis.txt` - Churn rate and net change metrics
 
----
-
+--
 ## License
 
 This project is for academic purposes as part of a graduate capstone requirement at Rochester Institute of Technology.
