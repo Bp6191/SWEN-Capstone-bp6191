@@ -50,6 +50,9 @@ def is_logging_commit(diff, commit_message):
     # Logging patterns in code
     log_patterns = [
         r'LOG\(',           # General LOG macro
+        r'ROCKS_LOG_',      # RocksDB logging
+        r'ENVOY_LOG\(',     # Envoy logging
+        r'logger\.\w+\(',   # ScyllaDB/Seastar logging 
         r'DLOG\(',          # Debug log
         r'VLOG\(',          # Verbose log
         r'spdlog::',        # spdlog framework
@@ -108,7 +111,8 @@ def analyze_diff_changes(diff):
     removed_logs = 0
     modified_logs = 0
     
-    log_pattern = re.compile(r'LOG\(|spdlog::|glog::|LOG_INFO|LOG_ERROR|LOG_WARN|LOG_DEBUG')
+    # log_pattern = re.compile(r'LOG\(|spdlog::|glog::|LOG_INFO|LOG_ERROR|LOG_WARN|LOG_DEBUG')
+    log_pattern = re.compile(r'LOG\(|ROCKS_LOG_|ENVOY_LOG\(|logger\.\w+\(|spdlog::|glog::|LOG_INFO|LOG_ERROR|LOG_WARN|LOG_DEBUG')
     
     for line in lines:
         if line.startswith('+') and log_pattern.search(line):

@@ -1,0 +1,721 @@
+hash,author,date,message,category,logs_added,logs_removed,logs_modified
+99d498fb5fe30828a2f52b4b6b8609f2c97ddaeb,Marton Greber,Fri Mar 20 15:20:07 2026 +0100,KUDU-3755 tool: add leave_files to control shell,feature,1,0,0
+737e339d3813d1a520eb46b96ab91eb44555c025,Alexey Serbin,Fri Mar 27 21:03:14 2026 -0700,KUDU-3757 usability improvement for unsafe/experimental flags,refactor,0,0,0
+2991ce9722f692a4d964b0d92e9e200309fee2ad,Yan-Daojiang,Tue Mar 10 15:31:08 2026 +0800,KUDU-3692 Export entity attributes as Prometheus labels,other,1,0,0
+7787e6615480130620f6acc79b99a7d9ef9b351d,Gabriella Lotz,Tue Mar 10 16:49:22 2026 +0100,KUDU-3749 Fix range key hex encoding,bug_fix,0,0,0
+73a05c4b0843bc79f9073432a8357c6847eec550,Yan-Daojiang,Wed Jan 7 18:59:02 2026 +0800,[tools] Add --preserve_table_ids flag to unsafe_rebuild,feature,9,0,0
+b0273b01f0e3180a3d6e9adc2d65b135a837d8af,Gabriella Lotz,Mon Jan 5 18:05:47 2026 +0100,KUDU-3728 Add range-aware rebalancing to auto_rebalancer,feature,1,0,0
+63d9c39267bc7f35dc3a2e7535148b28088b229a,Ashwani,Tue Aug 26 18:35:07 2025 +0530,KUDU-3734 include undo size while picking rowsets,other,0,0,0
+73ae1d78fc631e5b27e44f8ca33d1eb1988ca70a,Alexey Serbin,Thu Feb 19 14:25:42 2026 -0800,[java] update log4j from 2.24.3 to 2.25.3,other,0,0,0
+0a63f0318421e4ec58f79e3c185b496db8025d42,Alexey Serbin,Mon Feb 9 22:42:54 2026 -0800,[tserver] log errors on invalid schemas,other,0,0,0
+5c07add3c06a23a7333ff87daccd1ac79ae7d855,Zoltan Martonka,Mon Feb 9 09:01:54 2026 +0000,[consensus] Fix heartbeat batching upper limit.,bug_fix,0,0,0
+2c7757b26a649864d64be0494820ae3678a8663b,Alexey Serbin,Thu Jan 22 23:21:49 2026 -0800,KUDU-3736 add CodegenTest.CodegenRandomSchemas scenario,feature,3,0,0
+0efbebd487e7d0c7f21ab0d5a91e0fa70046af83,Alexey Serbin,Fri Jan 30 00:53:45 2026 -0800,KUDU-3736 fix SIGSEGV in codegen with libgcc-11.5.0-10+,bug_fix,9,0,0
+6dc40cf777cf7c7ac02d2c323748b12f8c79a143,Ashwani Raina,Tue Nov 25 00:39:02 2025 +0530,KUDU-1457 [6/n] Enable IPv6-only mode for webserver,other,0,0,0
+f8e57b5131bae879e537595893269dcd2c52c7d9,Alexey Serbin,Fri Jan 23 11:15:44 2026 -0800,[test_util] report random seed only with verbose logging,logging_improvement,0,0,1
+79812b258e87abf35f95177021c07b785f402bd6,Gabriella Lotz,Fri Dec 5 18:13:02 2025 +0100,auto_rebalancer: enforce max_moves_per_server per tserver,other,3,0,0
+76ee290123ebe2d7d6aa45c288d626b3b5ad06bb,Alexey Serbin,Mon Dec 15 00:48:13 2025 -0800,[codegen] encode projection key once,other,1,0,0
+8ae4fe1b04a0625aae59269f675cee424196603d,Ashwani Raina,Sat Nov 8 20:07:43 2025 +0530,KUDU-1457 [5/n] Enable IPv6-only mode for rpc,other,1,0,1
+dc741732bb6a40213e11a13869fad06a49a209a3,Alexey Serbin,Fri Dec 12 21:48:21 2025 -0800,KUDU-3545 fix race condition when (un)registring EH frames,bug_fix,1,0,0
+468897755969d686fb08386f42f7835685e7953a,Alexey Serbin,Thu Dec 4 19:46:51 2025 -0800,KUDU-1261 fix logging in AsyncAlterTable::SendRequest(),bug_fix,0,0,0
+8bbf0d2f05a5cd31850eaecd618ba582d9221a23,Alexey Serbin,Wed Nov 19 15:16:09 2025 -0800,"[rpc,util] __thread --> thread_local",other,0,0,0
+dc11e1c0c9b35f6563bb6f6df35e5d45738db705,Alexey Serbin,Fri Oct 31 17:53:42 2025 -0700,[java] log test scenario name in TestKuduClient,other,0,0,0
+ae8498e8a7fa8d034c8e607fe729119740c6bce5,Alexey Serbin,Mon Nov 3 13:23:25 2025 -0800,[java] log information on random seed in DEBUG level,bug_fix,0,0,0
+ac505c986987e9079acf9cbd74d3ef56f728a94d,Alexey Serbin,Mon Oct 20 21:35:36 2025 -0700,KUDU-1261 use empty validity vector when no nulls in array,other,1,0,0
+c1759a99d609d7485bb8d928fb58da7bbe7dca9f,Alexey Serbin,Thu Oct 16 23:28:25 2025 -0700,KUDU-1261 introduce ARRAY_1D_COLUMN_TYPE feature for tservers,feature,1,0,0
+cd9e59ebdf2bc644b2d76a76f64886397e884771,Yan-Daojiang,Fri Aug 15 17:36:55 2025 +0800,OpenSSL 3.x compatibility adaptation,other,0,0,0
+ad5446fff129bf1814e8fbfe43958384959d22eb,Alexey Serbin,Fri Oct 10 15:56:58 2025 -0700,KUDU-1261 control the maximum number of elements in an array,other,4,0,0
+f8ab470c7f6e4217b5a148149c59bfb99b9ea542,Marton Greber,Thu Oct 9 15:24:51 2025 +0200,KUDU-1261 Add HMS integration for array datatype,feature,0,0,1
+1daeefb93e6c47928fabf9c1b5db0cf5206f1061,Ashwani Raina,Wed Sep 10 16:52:01 2025 +0530,KUDU-1457 [4/n] enable webserver for IPv6,other,0,0,1
+913b17b2dee395f870ea794181f68ff22007f714,Alexey Serbin,Sat Oct 4 13:58:01 2025 -0700,KUDU-3704 fix crash in C++ client,bug_fix,0,0,1
+95abb8d6525d093b5961a7b9f2dc8c6193a47c33,Alexey Serbin,Fri Sep 19 11:48:47 2025 -0700,KUDU-1261 update C++ client example with array column,other,0,0,0
+82c854ff14d0a14f64d3fb2c0c6575042d2f4073,Alexey Serbin,Tue Sep 30 23:39:19 2025 -0700,KUDU-1261 make DICT_ENCODING work for string array cells,other,0,0,1
+9a1c19fd0853aef54bdd52af69194ee43f2a33b6,Alexey Serbin,Wed Apr 23 07:32:55 2025 -0700,KUDU-1261 writing/reading of array data blocks,other,11,0,3
+4999c30d1fc04123d19258ebda5478303d8e6644,Zoltan Martonka,Fri Aug 22 15:25:26 2025 +0000,KUDU-1973: Send no-op heartbeat operations batched - PART 1,other,3,0,0
+5db5af1decc8fb6764af28ff6169d41241e3c59c,Alexey Serbin,Fri Sep 26 16:59:20 2025 -0700,KUDU-1261 add GetArray/SetArray C++ client API,feature,0,0,1
+d86f992fc8d460970f73d065c860d765e86e5b93,Alexey Serbin,Thu Sep 25 23:33:49 2025 -0700,KUDU-1261 introduce serdes utilities for scalar arrays,other,2,0,0
+c5dc22d175eee8ece16420ecf8f56d824de5861c,Alexey Serbin,Fri Sep 19 17:17:36 2025 -0700,[thirdparty] upgrade cpplint up to 1.6.1 release,other,0,0,0
+ed9ebd6ad41bedc519b29a050e2243970018b409,Alexey Serbin,Mon Sep 22 17:22:22 2025 -0700,[style] updates to prepare for cpplint upgrade,other,0,0,0
+90ccc17e861d74bb625cbb1d9c52ac9073f21d40,Alexey Serbin,Tue Jun 10 10:33:44 2025 -0700,"KUDU-1261 update CFile {en,de}coders for array data type",other,1,0,0
+aabe09da6ffbeaafa040bb00657ec285426c8eaa,Alexey Serbin,Mon Jun 9 20:07:30 2025 -0700,KUDU-1261 introduce 1D arrays into ColumnSchema,other,0,0,0
+43abc0b1ea9c31d2fa67cb187af0c0364f638e49,Alexey Serbin,Wed Sep 10 14:05:45 2025 -0700,KUDU-3660 do not run AdminCliTest.TestRebuildTables under TSAN,other,0,0,0
+dd4fcccf5a7c6a0ede70ab77f79df6277f6c0115,Alexey Serbin,Tue Sep 9 22:21:02 2025 -0700,[client] fix ClangTidy warning in schema.cc,bug_fix,0,0,0
+e2e116a9cb215058aad161061214d11c617cedac,Alexey Serbin,Mon Jun 9 19:26:04 2025 -0700,KUDU-1261 support 1D arrays in TypeInfo,feature,0,0,0
+3c41631a053dd70276b7f52ae37ebb5dd0e84eac,Alexey Serbin,Tue Jun 17 18:34:18 2025 -0700,KUDU-1261 introduce Flatbuffers into thirdparty,other,6,0,0
+6ab3f249351a4ee5d73eb8bda3585c4dcd85d070,Abhishek Chennaka,Wed Aug 13 22:25:41 2025 -0700,Fix compilation if using OpenSSL < 1.1.1,bug_fix,3,0,0
+991e8802a884abc02653bbc35cebef9f196cfe41,Ashwani Raina,Thu Jun 5 18:07:04 2025 +0530,KUDU-1457 [1/n] add IPv6 support to net utils,feature,2,0,1
+6307ab29b78ebc064971e01ca1da31590298dcda,Alexey Serbin,Tue Aug 12 15:50:42 2025 -0700,[rpc] make Messenger::ShutdownInternal() safer,other,0,0,0
+69cd6ed63f1a62133b0bb021015c66e1516002dc,Alexey Serbin,Sun Aug 10 01:07:21 2025 -0700,KUDU-3635 fix compilation with OpenSSL prior to v1.1.0,bug_fix,0,0,1
+8e873eb37b157a0cf7cb97cc7690367de9707107,Alexey Serbin,Sun Aug 10 12:03:58 2025 -0700,KUDU-2439 properly update Messenger instance counter,other,1,0,1
+d1413014255df62a6e38550552a8596644aa0033,Alexey Serbin,Wed Aug 6 20:09:28 2025 -0700,KUDU-2439 address the issue up to some extent,bug_fix,1,0,0
+bda99a38bb7da12959a99ffc9a79de02acdacf2a,Alexey Serbin,Mon Jul 28 16:24:44 2025 -0700,KUDU-3635 call OPENSSL_cleanup() explicitly,refactor,0,0,4
+73a4adc889863e3194fe97d7f75cc1198dfa4569,Alexey Serbin,Thu Jul 24 18:36:45 2025 -0700,[tserver] more detailed trace on early scan response,logging_improvement,0,0,1
+00eecabdcfe98cee9e954d4e1c10706e5a5c6a15,Gabriella Lotz,Thu Jul 10 11:19:45 2025 +0200,[webserver] Mapping Kerberos principals to local usernames,other,1,0,0
+804d207eb831d702d30cd27dcc1fc2d96b680917,Zoltan Martonka,Fri May 10 14:02:22 2024 +0000,[glog] Fix minidump-test for cold symbols.,bug_fix,0,0,0
+eb5a54dcac6d93b328fdf5850075fc6988722f78,Alexey Serbin,Thu Jul 10 11:12:12 2025 -0700,[webserver] avoid memory alloc&copying for HTTP status,other,0,0,1
+675a571201ad4ae2a2e36f7aa27b604ebbf3a180,Alexey Serbin,Wed Jun 11 00:53:41 2025 -0700,[tablet] less re-allocation of vectors in RowsetTree,other,0,0,0
+fe0410d03bfda8487cd11b13a068d403ba6a46cc,Alexey Serbin,Mon Jun 2 17:31:46 2025 -0700,[common] introduce ColumnSchemaBuilder,other,0,0,0
+7a3868519f1eed9617ee0e4c1a20154b55f85063,kedeng,Fri Jun 6 10:53:11 2025 +0800,[util] Remove SchedulerThread code and tests,other,0,1,0
+bd5e785e40b90023652990b341e730311efd116b,Alexey Serbin,Thu May 29 17:37:53 2025 -0700,[tablet] simplify ApplyMutationsAndMergeDuplicateHistory,refactor,0,0,1
+01e0aa93211c968d2dead9cf85bf54d8f9fec18c,Ashwani Raina,Mon May 12 21:27:15 2025 +0530,[socket] Fix test failure caused due to unsupported socket option,bug_fix,1,0,0
+0fcdb326aecaa47815ce0425546a0a20ae7f36dd,Alexey Serbin,Thu May 22 12:42:08 2025 -0700,"[common] clean-up on types.{h,cc}",other,0,0,3
+d5f83c31525112be3155cdc67105ed76a6caa77c,Alexey Serbin,Mon May 12 14:20:45 2025 -0700,[util] optimise RLE a bit,other,0,1,0
+295b8c22b0502b5ed258be5c3f4189933e5a822f,Ashwani Raina,Thu Mar 27 20:31:16 2025 +0530,[compaction] Add memory tracking for better OOM issues triaging,bug_fix,0,0,0
+4e5cd21da441444cf960e8fa53a71042b7be17c9,Abhishek Chennaka,Wed Apr 23 12:20:41 2025 -0700,KUDU-3661 Ranger policy not honored in Kudu,other,0,0,0
+d09bf07b3162bccba3805b9db3c7a17ac44197b6,Alexey Serbin,Tue Apr 22 17:37:47 2025 -0700,[common] ColumnPredicate clean-up,other,0,0,1
+887a87dd9c6cfc29999e0eb9c55e559cdeefe59f,Alexey Serbin,Thu Mar 6 20:42:41 2025 -0800,[webserver] reduce memory allocations and copying for responses,other,0,0,0
+5ec9e470951c88d034e5e8d1c113923ada822128,Alexey Serbin,Fri Mar 28 21:10:06 2025 -0700,[tools] fix result status handling,bug_fix,2,0,0
+5be85284e9e6b0819374c93ef83f62ba0ca07d5f,Alexey Serbin,Tue Apr 1 12:00:48 2025 -0700,[integration-tests] fix result status handling,bug_fix,1,0,1
+97df171f849a10ecbc3613962440f5d84b18314a,Alexey Serbin,Mon Mar 31 14:37:47 2025 -0700,[master] fix result status handling,bug_fix,0,0,0
+d17ea9f836b650c96cfcc0b9d3c6306fb6843899,Alexey Serbin,Thu Mar 27 22:41:59 2025 -0700,[tablet] fix result status handling,bug_fix,0,0,2
+f554dd664e4bf792f277fe3390d041dfbda9ade5,Alexey Serbin,Thu Mar 27 18:51:31 2025 -0700,[map-utils] micro-optimisation on FindWithDefault invocations,other,0,0,0
+1bfdd6ff826d224cf94cd8e60d02e4a32a0d3ddb,Alexey Serbin,Wed Mar 26 16:12:35 2025 -0700,[rpc] fix result status handling,bug_fix,0,0,0
+500a7b778be9c032d24568f42e9b94da6b29ce5f,gabriellalotz,Wed Sep 18 11:55:55 2024 +0200,KUDU-3608: REST API for Metadata Management,other,1,0,0
+00619af3070a41b8eaba50290807e378a0285152,Alexey Serbin,Thu Feb 27 18:45:37 2025 -0800,[tserver] fix result status handling,bug_fix,0,0,0
+7241bfb2532d80e66d61930e3da3306b5172cbe6,Alexey Serbin,Thu Feb 27 18:36:02 2025 -0800,[fs] fix result status handling,bug_fix,0,0,0
+e8a8325b0fd1afaa60394a91b55a31fa63a25516,Alexey Serbin,Fri Mar 21 17:01:25 2025 -0700,KUDU-3481 more diagnostics on non-monotonic event IDs,other,1,0,0
+bde9cbad115deb1cd689eb583a1c7a8d3440b156,Alexey Serbin,Thu Feb 27 18:19:12 2025 -0800,[consensus] fix result status handling,bug_fix,0,1,0
+cf95975114e2ae38ad4e4cf0d81e2e59bafa49af,gabriellalotz,Mon Feb 24 09:59:20 2025 +0000,KUDU-3639 Add table operation functions follow-up,feature,0,0,0
+b6e0da9b20e4b96b2be1d34342dd9f7c595d8686,Alexey Serbin,Fri Feb 21 12:20:41 2025 -0800,KUDU-3645 do not retry close() syscall on EINTR,other,12,0,7
+73b717b7357b08fb0e8c0f0e9979a466eef0495e,Alexey Serbin,Wed Feb 19 20:58:16 2025 -0800,[util] fix result status handling,bug_fix,0,0,0
+7dbf89e9ecff1c05e78e522fc77c409387b88ca5,gabriellalotz,Thu Jan 23 15:32:44 2025 +0000,KUDU-3639 Add REST-compatible table operation functions,feature,3,0,3
+97207aab577448ae426ecba3764eaed81a38d5cd,Alexey Serbin,Tue Feb 4 13:06:37 2025 -0800,[tablet] fix compilation warnings on macOS,bug_fix,0,0,0
+83e5a73e2f6ac42925a7a97a203644438cffe6da,Alexey Serbin,Thu Jan 30 12:22:33 2025 -0800,[util] introduce ScopedCleanup::run(),refactor,0,0,0
+271ce3c91d61c54732f8bcb8e08b121b2f5e6b57,Alexey Serbin,Thu Jan 30 18:50:13 2025 -0800,[master] tablet_id() accessors return const reference,other,0,0,0
+691c3e68ecf58c83cbb5fc5448fc2d7a51196311,Alexey Serbin,Thu Jan 30 16:42:48 2025 -0800,[maintenance_manager] micro-optimisation on LogPrefix,bug_fix,0,0,0
+d405ad33080cc5b203e3789363a202d472aca795,Ashwani Raina,Tue Nov 19 19:50:42 2024 +0530,[compaction] Add memory tracking for better OOM issues triaging,bug_fix,0,0,0
+0ddaac556f7bc7aeb47db740300921d10eabd856,Alexey Serbin,Tue Jan 14 12:14:58 2025 -0800,[tserver] disable KUDU-3486 behavior by default,other,0,0,0
+5f977935d59b15f1b51622084ed748283f2db833,Alexey Serbin,Sun Dec 29 11:26:31 2024 -0800,[thirdparty] fix building breakpad with GCC13,bug_fix,4,0,0
+a24fd5bb1a7434b8f8230121ba3e2145c1b8205b,Alexey Serbin,Fri Dec 20 21:56:41 2024 -0800,[common] remove std::unique_lock template parameter,other,0,0,0
+1f89113a618a84d2610410600c012c6180332adc,0xderek,Thu Dec 19 10:25:50 2024 +0800,[tools] Run range aware cluster rebalance with multiple tables,other,0,0,0
+95894ffa0e2a0390c209f415b25f7caee8a51015,Alexey Serbin,Tue Oct 1 13:56:21 2024 -0700,[common] remove std::shared_lock template parameter,other,0,0,0
+e4bfac1c297dd5473fd71025d1f469f2887b33d1,Abhishek Chennaka,Wed Dec 4 20:29:40 2024 -0800,[thirdparty] KUDU-3626 update PostgreSQL and its JDBC driver,other,0,0,0
+8025576523ecff7429ddf0778729b0afe738bbc6,Alexey Serbin,Mon Nov 25 12:39:53 2024 -0800,[tablet] create CompactionOrFlushInput wrapped into shared_ptr,other,0,0,0
+d64533ffadc399182ce6910f5bf2f783ff693554,Alexey Serbin,Mon Dec 9 19:01:09 2024 -0800,[thirdparty] upgrade chrony up to 4.6.1 version,other,0,2,0
+e1e7079e7541559c34742cb311ba806f35efbd54,Alexey Serbin,Tue Dec 10 15:27:54 2024 -0800,[jwt] do not leak temporary test file,other,0,0,0
+5b6aa7f6baac3eb4c14d9d349f81da5f5b8714c1,Mahesh Reddy,Tue Nov 26 17:52:09 2024 -0800,KUDU-613: Don't modify refs when moving entries,other,0,0,0
+8806416603d70b14ef0432461fb035a39a5074e0,Alexey Serbin,Wed Nov 6 19:45:01 2024 -0800,[client] remove chromium Atomics from C++ client,other,0,0,0
+e471f58f76d1b7358f3ef58d1c7d517c95884e62,Alexey Serbin,Wed Nov 6 20:36:13 2024 -0800,[consensus] replace chromium atomics with STL ones,other,0,0,0
+87e53ae41fa0e68cb5f9d4e65385dc513f864774,gabriellalotz,Thu Oct 10 13:38:55 2024 +0200,Implement path parameter handling in webserver,feature,0,0,1
+edb51241c154e411d84a52cd88400aab680f7639,Alexey Serbin,Thu Oct 31 20:17:26 2024 -0700,KUDU-3613 fix flakiness in replace_tablet-itest,bug_fix,0,1,0
+89ebb94e4a1b79557b3d3e8482edcd0352bf6968,Alexey Serbin,Wed Oct 30 12:43:37 2024 -0700,KUDU-3623 do not crash on invalid input for 'kudu table copy',other,0,1,1
+66794ac0970a6313e7a081720424228fdf8a5617,Ashwani Raina,Mon Jul 29 23:28:28 2024 +0530,KUDU-3595: Add interface to set rpc_max_message_size for C++ client,feature,0,0,0
+c51e1354322a4d2cad268de26f254dd52b0c9df1,Alexey Serbin,Wed Oct 16 18:19:39 2024 -0700,KUDU-3620 fix heap-use-after-free and undefined behavior in OpDriver,bug_fix,2,0,0
+446861c68cb3cc5e8ef8caaadf7d8eefc2ec1387,Alexey Serbin,Tue Oct 8 15:24:42 2024 -0700,[security-itest] stop polluting TEST_TMPDIR with logs,other,0,0,0
+bfa875c00d657b8d5c37ed2032cf82c6c5704f37,Alexey Serbin,Wed Sep 25 21:25:41 2024 -0700,[tablet] reduce lock contention in OpTracker::Release(),other,0,0,1
+60a5cb66a986b3a6901b7737253c10094fe6318b,kedeng,Wed Aug 14 17:10:49 2024 +0800,[ranger] enhance the robustness of key retrieval,other,1,0,0
+3307375aaadda9fdd5d34f014c68cee1586cfbf3,Alexey Serbin,Fri Sep 20 16:09:53 2024 -0700,[tserver] don't spam logs about slow scanners,other,0,1,0
+1c69ec6081a88dc531ebaa60b19abd4c0e54ae47,Alexey Serbin,Tue Sep 10 09:42:55 2024 -0700,[tablet] fix race in RowSetMetadata::id(),bug_fix,0,0,0
+f6c32e991cb94a06d62ee6af167350496f9a51af,Yingchun Lai,Tue Aug 13 20:53:46 2024 +0800,KUDU-3606 [tools] Check column IDs when --strict_column_id is enabled,other,3,0,0
+4c83217d95ec97801675feb36be3d70984eb29f7,Alexey Serbin,Fri Sep 13 17:49:15 2024 -0700,[test] leave generated files on a non-fatal failure as well,other,0,0,1
+a0b7a52800de1a03f66c963e25feee8c63041acd,Alexey Serbin,Mon Sep 9 14:46:10 2024 -0700,[tablet] report per-thread status in mt-tablet-test,other,0,0,0
+7acd71e9a5a33a92ab55122c316c89a8be61b3e1,Alexey Serbin,Fri Sep 6 11:18:05 2024 -0700,[rpc] micro-cleanup on InboundCall and ServicePool,refactor,0,0,0
+f17ae080413f4f62046d6732d05ea4f5fdddefb0,Alexey Serbin,Mon Aug 26 12:47:01 2024 -0700,[rpc] instantiate DiagnosticSocket only if sock_diag available,other,1,0,0
+d2b70fef79d963099c8def7632521d3f31da81ff,Marton Greber,Mon Aug 12 14:46:11 2024 +0000,KUDU-3543: Add JSON Content-Type Header,feature,0,0,0
+4b5003add94e382278942489ef51662967b66197,Mahesh Reddy,Tue Apr 2 15:36:42 2024 -0400,KUDU-613: Integrate SLRU cache into block cache,other,7,0,2
+145d34b11bc6d0d91401d237bf021d37c3e51632,Yingchun Lai,Sat Aug 17 10:57:53 2024 +0800,KUDU-3462 [UT] Fix a flaky test in log_block_manager-test,bug_fix,0,0,0
+a9d42cdb8438858cf1bd18c203d1687ed5734346,xinghuayu007,Fri Aug 2 17:57:02 2024 +0800,Table copy supports creating empty range partition,feature,0,0,0
+ae4a3a9b88a9b6016b1221f4f7cd0e41772a65ac,Alexey Serbin,Mon Aug 12 22:50:46 2024 -0700,[cfile] modernize CFileWriter,other,0,0,5
+b8b080651e528080b8b4b5b58c6f1021b2dd01da,Mahesh Reddy,Thu Jun 13 16:01:01 2024 -0400,KUDU-613: SLRU Cache Benchmark,other,2,0,0
+7ecad355065e4d0eb891c87813f347bb7d6819b2,Marton Greber,Sat Jan 6 00:50:16 2024 +0100,KUDU-3543 Fix Content-Type headers,bug_fix,0,0,0
+780f6d27ce292473dda2b728a10b6296cb2a20df,Alexey Serbin,Thu Aug 1 17:57:31 2024 -0700,[cfile] minor clean-up,other,0,0,0
+21af28ea6ab8ad4344e3522026a786a99c97afc2,Mahesh Reddy,Tue Jul 30 02:33:24 2024 -0400,[common] Remove std::lock_guard template parameter,other,0,0,0
+39b70ee1ce0ee976b4c2a956ca3f82e4a0d47dca,Yingchun Lai,Sun Jul 7 23:53:04 2024 +0800,KUDU-3371 Parameterize some options of RocksDB,other,1,0,0
+065acfbff08ab7d77308ebe9f874d9e1d08d608d,kedeng,Thu Jul 11 17:37:06 2024 +0800,[log] fix the Ranger client log count limit not working,bug_fix,1,0,0
+0967b895a06f2b5b509db0ea2786d1ba721030d1,Alexey Serbin,Wed Jul 24 18:03:49 2024 -0700,[tests] re-enable ReplaceTabletsWhileWriting scenario,other,0,0,2
+50171fc752911c8b83972bd57d7873f5cbcc3b7c,Yingchun Lai,Sun Jun 30 23:24:04 2024 +0800,KUDU-3371 Add NO_ROCKSDB build option,feature,1,0,0
+794a681bfdb83fd902f953da6558fe462ee17aba,Yingchun Lai,Mon Apr 8 00:29:35 2024 +0800,KUDU-3371 check for RocksDB dir presence upon opening FSManager,other,2,0,0
+5977402e3701b52888f91b7bb1e351f957e3c562,Alexey Serbin,Fri Jun 14 21:08:28 2024 -0700,[fs] remove chromium Atomics from FS,other,0,0,0
+f49a548fe4bac91679744b4dd0efa895ff9c09e2,Mahesh Reddy,Fri Oct 20 16:24:45 2023 -0400,KUDU-613: Introduce SLRU cache,other,1,0,0
+2161950da43f9daa71f2297683e60e3ff7fcd1db,Zoltan Martonka,Wed Jun 5 03:16:39 2024 -0400,[ARM] Concurrent binary tree memory barriers fixed.,bug_fix,0,0,0
+d370e0e4511508790c065340a52242ee09ecfea3,kedeng,Thu Apr 25 11:41:19 2024 +0800,[metrics] Add metrics for tablet copy op time,feature,0,0,0
+f4a47fe041b7f547fd4816706347523e06f94f6d,Zoltan Martonka,Wed May 29 13:23:17 2024 +0000,Add a benchmark for CBTree concurrent writes.,feature,0,0,0
+d7fb77f4cfbf6d638c6d11009ce3728ae30e01e3,xinghuayu007,Wed May 8 14:51:20 2024 +0800,Leader rebalance ignores soft deleted tables,other,0,0,0
+eb0a41fdb0642baa61a58f925bb82157330abe7a,Alexey Serbin,Wed May 8 17:43:57 2024 -0700,[common] get rid of MutexLock,other,0,0,0
+a3ed48d932d203e9310cca396e5530d6ed6eaa87,Alexey Serbin,Wed May 8 15:51:27 2024 -0700,[common] switch from unique_lock to lock_guard,other,0,0,0
+b607633fd3c2b676fbd2cbe57c44bddf818dc457,Ashwani Raina,Thu May 9 22:23:14 2024 +0530,KUDU-3568 Fix compaction budgeting test by setting memory hard limit,bug_fix,0,0,1
+b72fc6255a77418ef87fc5f07476528b027c6f99,kedeng,Wed Apr 17 14:10:27 2024 +0800,[metrics] Add metrics for create and delete op time,feature,0,0,0
+732f0c1e51bca04091431859918a3b84866373a0,Alexey Serbin,Thu May 2 18:48:50 2024 -0700,[tserver] limit number of trace metrics for TabletCopyClient,logging_improvement,0,0,0
+c39e72a98e124e5a12080bac42105b996594d806,Alexey Serbin,Tue Apr 30 21:33:12 2024 -0700,[tablet] fix WriteOp::ToString() for non-started ops,bug_fix,0,0,0
+b2a6fe26266e170b5e885d1ddac6a5f03ded1759,Alexey Serbin,Wed Apr 24 19:03:27 2024 -0700,[util] fix TidyBot warnings in ScopedTracer,bug_fix,0,0,0
+d8c315782bcd64e6c512885cc3ba578acbd6f45c,Alexey Serbin,Thu Apr 4 13:04:13 2024 -0700,[c++17] fix unsorted compilation warnings with CLANG15,bug_fix,0,0,0
+48ee1e8b5d7792384178c75840a998e413aaa512,Ashwani Raina,Tue Jan 23 17:50:11 2024 +0530,[compaction] Code cleanup and readability improvement,refactor,0,0,3
+4da8b20070a7c0070a1829dfd50fdc78cad88b6a,Yingchun Lai,Sun Mar 12 22:41:48 2023 +0800,KUDU-3371 [fs] Use RocksDB to store LBM metadata (2nd try),other,4,0,2
+647726ad6b2aab0c6a6d34e16e027debd8a827eb,Ashwani Raina,Fri Mar 1 16:51:27 2024 +0530,[ranger] KUDU-3558 Error out early when keytab file flag is empty,other,1,0,0
+d7fa4f9e62c4e9d87246656d1aea1b450cbf90fd,xinghuayu007,Thu Feb 29 15:12:14 2024 +0800,[Tool] Return not OK status when copying tablets failed,other,0,0,0
+c11c028b43349a69cce29653e8db4032825e5aa9,Alexey Serbin,Fri Jan 26 16:14:08 2024 -0800,[rpc] validate security-related parameters earlier,other,0,0,0
+7b35b1d4e6743743f1497d08880ab246db5c5f58,Alexey Serbin,Tue Feb 20 21:22:46 2024 -0800,[rpc] fix typo in branch prediction,bug_fix,0,0,0
+86b4f784d74b8746d1da5563c433702fa1f2ed39,Marton Greber,Fri Feb 9 18:09:20 2024 +0000,"Revert ""KUDU-3371 [fs] Use RocksDB to store LBM metadata""",other,0,4,2
+58d2338de8d586106ea29cfa281ee653392a9145,Yingchun Lai,Sun Mar 12 22:41:48 2023 +0800,KUDU-3371 [fs] Use RocksDB to store LBM metadata,other,4,0,2
+89e2715faf96afe0b67482166fda9c8699e8052f,Ashwani Raina,Tue Dec 19 17:32:31 2023 +0530,[compaction] Add tests to generate high memory rowset compaction,feature,1,0,0
+366596389b12df977a93408eebdc7dc9e30be3b3,Zoltan Martonka,Mon Jan 29 16:07:49 2024 +0000,KUDU-3527 Fix block manager test when using 64k container block alignment,bug_fix,1,0,0
+c0c44a8acd8d6366987af687d5665f751249a95a,Alexey Serbin,Tue Jan 16 14:19:47 2024 -0800,[rpc] introduce rpc_listened_socket_rx_queue_size metric,other,6,0,1
+ec6cf7b12047f8a30884a5c4aa6c1dbdb6aabad6,Ashwani Raina,Tue Nov 21 20:16:20 2023 +0530,[compaction/flush] Cleanup of compaction and flush code paths,refactor,0,0,0
+264510c877a4ef23b223552af3027a478db51f67,Yingchun Lai,Tue Jan 9 23:40:26 2024 +0800,Use GTEST_SKIP() to skip tests,other,0,25,0
+1214a38e55231ff3aad342ef9efbc326f7a6e659,Alexey Serbin,Mon Dec 18 17:55:08 2023 -0800,[log] use THROTTLE_MSG for KLOG_EVERY_N_SECS when necessary,other,0,2,0
+b88e3e9e46aaa710d7c32558a1aa355d0bee7913,Alexey Serbin,Thu Jan 4 09:48:17 2024 -0800,[java] add sequenceId into the tracked RPCs' trace,feature,0,0,0
+0c8d2eee1ee2b03d0de369d5975f153b00e26b36,Alexey Serbin,Thu Dec 7 10:22:37 2023 -0800,[rpc] extra test scenarios for exactly-once RPC logic,other,0,0,0
+1f6f7e5bafb6a9f497ea92b62c1f268a2fe6c3c3,Ashwani Raina,Thu Dec 14 18:18:32 2023 +0530,KUDU-3534 [compaction] Log timestamp of two matching DELETE REDO mutations.,other,0,0,0
+26ad5ad962fe05af4b69730ffded9414fd13a5e5,Alexey Serbin,Thu Feb 17 17:54:11 2022 -0800,[webserver] add security-related HTTP headers,feature,0,0,2
+19bade3d6ed8422591d32f48df64d3b4cdf5dc55,Alexey Serbin,Fri Dec 15 19:57:38 2023 -0800,[rpc] modernize code a bit,other,2,0,24
+e8f459284164b0d82d6120684b17d2f30b4ddb4a,Alexey Serbin,Mon Dec 18 19:16:33 2023 -0800,[logging] simplify and improve LogThrottler,refactor,1,0,0
+6c02274ce275615fbbc83703b6f695a0a53c87f1,Alexey Serbin,Thu Dec 14 10:36:31 2023 -0800,[rpc] increase listened socket backlog up to 512,other,5,0,0
+8bc0be58ef0a02f33d2ecd71cfe721fd16db1730,Alexey Serbin,Mon Dec 4 11:47:36 2023 -0800,[tserver] unify logging on rejected write requests,logging_improvement,0,1,0
+6bcda5eff94ea7c7f96c38d67ade3f83111e6743,xinghuayu007,Wed Nov 29 15:45:16 2023 +0800,KUDU-3524 Fix crash when sending periodic keep-alive requests,bug_fix,1,0,0
+2a07d95986f125b9186bff183f03d544a441d64d,Alexey Serbin,Tue Dec 12 19:38:15 2023 -0800,[rpc] add metric for AcceptorPool's dispatch timing,bug_fix,0,0,0
+a7e0a36dda2fd2c0545fa8f00f4bc1711059224d,Alexey Serbin,Wed Dec 13 10:35:19 2023 -0800,[rpc] modernize AcceptorPool's code,other,0,0,3
+66815148adb79cdd25cfc0399dc1e1fa9622bff5,Alexey Serbin,Mon Dec 4 15:41:00 2023 -0800,[rpc] micro-optimizations on RpczStore::LogTrace,logging_improvement,1,0,4
+864c26007625397d5edd4e5b3b9205545a3a5be1,Alexey Serbin,Tue Dec 5 20:17:37 2023 -0800,[util] a few test scenarios for KLOG_EVERY_N_SECS() macro,other,0,0,0
+50f8729860e6e8e3081ea3de5fcc5c016d4b2215,Alexey Serbin,Fri Dec 1 19:35:01 2023 -0800,[security] a small style-related code cleanup,refactor,0,0,1
+7f1bfb59210d8298aacbaa6ce2937adb359d802e,Alexey Serbin,Wed Nov 29 12:19:26 2023 -0800,[tools] disambiguate parse_metrics' output,other,0,0,0
+18ff6d979d74c59b4412c210ec22f4c5772e311d,Alexey Serbin,Wed Nov 29 14:56:48 2023 -0800,[cfile] remove redundant StringPrintf in status messages,other,0,0,0
+3d5497cf299ee18f937efb9176190c35a33a9215,Alexey Serbin,Wed Oct 25 15:15:13 2023 -0700,"[cfile] clean up on IndexBlock{Builder,Iterator,Reader}",other,1,0,4
+63dcd56985516e554e8f00474b070b318a598008,Alexey Serbin,Mon Nov 13 21:40:01 2023 -0800,[tablet] modernize MultiColumnWriter's code,other,0,0,2
+aee98702cb8131f92ae18f9d6862ddc618145bdb,Alexey Serbin,Mon Nov 6 15:11:18 2023 -0800,[master] fix typo in MasterAddrsToCsv(),bug_fix,1,0,2
+ee9e0f04b8e9163898c032edeac65d143cc5195f,Alexey Serbin,Mon Nov 6 17:59:48 2023 -0800,[util] fix compilation warning,bug_fix,0,0,0
+3bdaf50b5565bb9f8b4a0652f94102c7f272ebb1,Ashwani Raina,Sat Oct 7 19:02:45 2023 +0530,[compaction] Skip memory allocation for ancient undo deltas,other,0,0,1
+7be030baee38ea971f5e3afddcff4c61cbe2acf3,Attila Bukor,Thu Oct 26 15:35:15 2023 +0200,KUDU-3519: List masters in /dump-entities,other,4,0,0
+09d185cce0f223feebfa4e2b00f70cb4103fe808,Alexey Serbin,Tue Oct 31 15:42:20 2023 -0700,[util] check if EVP_CIPHER_CTX_new() returns null,feature,0,0,0
+4a1ce1b0225d3416dcd753b915c3f4b3d65056e5,Alexey Serbin,Tue Oct 24 19:15:18 2023 -0700,[tablet] fix compilation warnings,bug_fix,0,0,0
+3932a7780b8005b7204b3058302600ea67cd1f2b,Alexey Serbin,Fri Oct 20 16:29:44 2023 -0700,[rpc] add hostname in Messenger to use it in ServerNegotiation,feature,2,0,0
+d317baf6cbb8223b9057e2814de1e47be8d2cac8,Yingchun Lai,Wed Oct 18 23:41:56 2023 +0800,refactor: move SetEncryptionFlags to constructors,refactor,0,0,0
+9c68353839efcbf639cffbd22f65b6d3855d3463,Alexey Serbin,Fri Oct 20 16:56:26 2023 -0700,[server] cleanup on setting JWT verifier for messenger,refactor,0,0,1
+19fbacfc3685b1ec2ed7f20c0dc22d4bd0618135,Alexey Serbin,Mon Oct 16 16:37:07 2023 -0700,KUDU-3507 instruct mini-ranger-{kms} JVM to use IPv4,other,0,0,0
+8c5d195c340360dd962207eaa6969604c65ba9c1,Yingchun Lai,Sat Sep 23 23:58:31 2023 +0800,KUDU-3371 [fs] make LBMCorruptor a base class,other,1,0,3
+cd0d93d4dc52a71c3197e6a917761155de32dd78,Alexey Serbin,Fri Oct 13 19:21:55 2023 -0700,[style] clean-up on virtual & override specifiers,other,0,0,0
+05d631e4a1035a04fe0c4e11c7c1b1e6b9530d99,Alexey Serbin,Mon Oct 16 19:50:49 2023 -0700,[ranger] disable Tomcat's shutdown port,other,0,2,3
+ad32f5c34734f88d11029dba0ced57979dfc29b9,Alexey Serbin,Wed Oct 11 20:20:11 2023 -0700,[rpc] add local address into connection negotiation trace,feature,0,0,0
+8e790439d57e939ef3dc992b327ae3d1ac18b0fa,Alexey Serbin,Fri Oct 6 18:03:29 2023 -0700,[thirpdarty] upgrade gperftools to 2.13,other,0,0,0
+71ffac30f2869671e22af44739afc6c824918a09,Alexey Serbin,Fri Oct 6 16:49:49 2023 -0700,[thirdparty] build gperftools with libunwind support,feature,0,0,0
+9ae68af0dcd7a58c9fe754f69fb99861ba26e2ff,Alexey Serbin,Fri Sep 29 13:02:01 2023 -0700,KUDU-3515: fix incompatibility introduced with KUDU-2671,bug_fix,3,0,3
+a0c4bcab674351ba208e8affb5bfa43a67b2b4fc,Alexey Serbin,Wed Sep 20 15:36:57 2023 -0700,[server] log information on OpenSSL version,other,1,0,0
+605e171515ec251d9741e09de0a5a08814705e5b,Alexey Serbin,Tue Sep 19 11:58:55 2023 -0700,[rpc] detect HTTP client on RPC port,other,0,0,0
+438216ad33a7d096f276eef6cc52981c3b2fc2c9,Ashwani Raina,Wed Jul 26 20:48:05 2023 +0530,KUDU-3461 [client] Avoid impala crash by returning error if invalid tablet id found,other,6,0,10
+86bdc679f6a5435c649d2ac0f6557daab632b953,Alexey Serbin,Thu Aug 10 15:11:53 2023 -0700,"[util] deprecate {MonoTime,MonoDelta}::Equals() methods",other,0,1,0
+ecb51af801bd1bf40d0216b0697bf7e5765461d5,Alexey Serbin,Mon Aug 28 14:54:50 2023 -0700,KUDU-3508 increase Ranger start timeout to 120 seconds,other,0,0,0
+72430fb15b076e32d94eb75a850569d630785823,Alexey Serbin,Mon Aug 28 15:34:13 2023 -0700,[clock] instantiate 'clock_ntp_status' first thing in SystemNtp::Init(),other,0,0,0
+36120ffe02fd91e21247adc3eaf61591ada51b4a,Alexey Serbin,Tue Nov 29 22:49:34 2022 -0800,[cfile] use std::move where appropriate,other,0,0,0
+b46bbddb42714706725254aa87e21b354611eeb3,kedeng,Mon Jul 10 19:19:23 2023 +0800,KUDU-3326 disable compaction for soft-deleted table,other,2,0,0
+fd98e9e7331a0e8fc6b091faa2d2744a7787e6d7,Attila Bukor,Tue Aug 15 16:55:39 2023 +0200,KUDU-3504 Crash master on subprocess death,other,3,0,0
+6b1240afc7e7d4c5730ff6fc61927177df607b2a,Attila Bukor,Mon Aug 14 13:51:58 2023 +0200,KUDU-3359 Allow multi-JAR cp for Ranger client,other,0,0,2
+c96a8377038e4dea7ebafb2afe6afe1fb8da245d,Alexey Serbin,Wed Aug 9 14:48:56 2023 -0700,[clock] clearer logging on the hybrid clock time source,logging_improvement,1,0,1
+a5674dd186f8df5f8c7d67003af960513af7c0b3,Alexey Serbin,Fri Aug 4 17:47:30 2023 -0700,[consensus] clean-up on OpId utilities,other,0,0,0
+34bf62310b0631ae3ee39ccce729fe83103de9cc,Alexey Serbin,Thu Aug 3 15:22:15 2023 -0700,[test_util] more accurate status codes for WaitForBind(),other,0,0,0
+bee1283718fda9d9d28455e62501e52f78fbf565,kedeng,Thu Jun 29 15:23:39 2023 +0800,[multi-tenancy] add add/remove tenant api in fs layer,feature,3,0,1
+4d2af992224b13006a94fde2c67acd004e138835,Alexey Serbin,Wed Jul 19 17:26:03 2023 -0700,[tablet] add more details for operation's APPLY trace,feature,0,0,0
+d9fc68f62bf160249f578d2a7e052a732fa5cc1f,Zoltan Martonka,Wed Jul 19 16:17:59 2023 +0000,KUDU-3402 Update trace-viewer with newest catapult changes.,feature,0,0,0
+14e16f0d910fd5b50f675178067f4e9c770d9dc3,kedeng,Thu Jul 6 10:56:31 2023 +0800,[multi-tenancy] support different tenants use their own env,feature,2,0,0
+277586441c849ac639d24d78b98c0c3bfcce06c8,xinghuayu007,Wed Mar 15 11:25:02 2023 +0800,KUDU-3459 Download superblock piece by piece,other,1,0,0
+ebcd295752a52f35744302fd1081edd705e35fc0,kedeng,Tue Jul 4 17:32:05 2023 +0800,[multi-tenancy] standardize the use of tenant's api,other,0,0,0
+10fdaf6a93a4bd3289d162b5f8351c4f0f5928c8,Mahesh Reddy,Tue May 2 13:33:40 2023 -0400,KUDU-3476: Make replica placement range and table aware,other,4,0,0
+68797aab6a1740da15a24cb0681fe9be7685b787,Yingchun Lai,Sun Mar 12 22:41:48 2023 +0800,KUDU-3371 [fs] make LogBlockContainer a base class,other,0,0,3
+5d6774b1022f26d33abd6cc9fb99507490849428,duyuqi,Thu Mar 30 10:43:07 2023 +0800,[cpp-client] KUDU-3455 Reduce space complexity and speed up hash partition pruning for in-list predicate,other,1,0,0
+39302dfa8edc1fd1268f78f3ddd3f34ca26cc43f,Abhishek Chennaka,Thu Jun 15 21:36:58 2023 -0700,[client] KUDU-1945 Add UPSERT support,feature,0,0,0
+61d2296783a8392763f088d65a03376eb3e6463b,Attila Bukor,Mon Jun 12 18:57:18 2023 +0200,KUDU-3448 Add support for encrypting existing keys,feature,2,0,0
+2d4ea1de6afc6af7883a0f1d08788dda8d4df320,Alexey Serbin,Tue Jun 20 16:09:52 2023 -0700,[util] fix expected/actual arguments for ASSERT_EQ(),bug_fix,0,1,0
+570936fa84f3d652a88830425e29cc486526d72a,xinghuayu007,Mon Feb 20 15:58:07 2023 +0800,[Client] Add query id to trace the whole query process,feature,0,0,0
+fdd373ab1be38f4eeb65360661ec039c5ab4a572,xinghuayu007,Tue May 23 11:15:16 2023 +0800,[KUDU-3483] Log requestor info and request id for write interface,other,0,0,1
+8e8a397415c819c5a454460028b4f4397fd18ae8,kedeng,Fri Mar 10 15:58:14 2023 +0800,KUDU-3413 add tenant info in metadata for multi-tenancy,feature,5,0,1
+4734d6f167333e67483d45bbeaf7509180641414,Alexey Serbin,Wed Jun 14 14:47:54 2023 -0700,[util] KUDU-3392: add validator for --trusted_certificate_file,feature,2,0,0
+6b2077e48e1e96cf6520db09ddd8c2d3ca97334d,Alexey Serbin,Wed Jun 14 19:10:30 2023 -0700,[rpc] clean up JWT-related client-side negotiation code,other,2,0,0
+1e7d1b3d117ca137bdce3d2ec549416d242bdd02,Alexey Serbin,Wed Jun 7 20:38:10 2023 -0700,[webserver] handlers for application/octet-stream content,other,1,0,0
+d49b34aff722fac813ca147eb9cb9a0d263a2f70,Zoltan Chovan,Mon May 22 16:37:39 2023 +0000,[jwt] switching JWT verification to KeyBasedJwtVerifier,other,0,0,0
+195e1b51b141a78c20e5846273624b825c4d40fb,kedeng,Wed May 17 17:10:26 2023 +0800,KUDU-3413 [multi-tenancy] add some renames for multi-tenancy,feature,0,0,0
+b65b95af3c90964ee706967f570bff99897dcec8,Alexey Serbin,Thu May 18 11:42:30 2023 -0700,[master] add /ipki-ca-cert webserver end-point,feature,1,0,0
+41ff1304b573acbeb26df948009f6ff24f00b06b,Mahesh Reddy,Thu May 4 17:45:25 2023 -0400,[tests] Fix flakiness in log-rolling-itest.cc,bug_fix,0,0,0
+1f00b0f42062629646d0e892436198893d89de36,Alexey Serbin,Tue May 16 07:35:11 2023 -0700,[util] clear OpenSSL error queue on jwt-cpp activity,other,0,0,0
+e734ae0216749c6aa7d85756eecf2b8be907de5a,xinghuayu007,Tue Mar 7 11:42:11 2023 +0800,[KUDU-3452] Make validate tablet creating task not affected,other,1,0,0
+cc646190d3a16bf4f22ac9c32253cf7d4ad05cca,Alexey Serbin,Thu May 4 23:43:27 2023 -0700,[thirdparty] handle OpenSSL errors properly in curl and squeasel,other,0,0,0
+a7684eacf26bf84c415b8bb32228d026b639f7a8,Alexey Serbin,Fri Apr 28 16:52:12 2023 -0700,[security] handle BIO_new,feature,1,0,0
+5a3d116f302bde07e86bf80c237f8a595d5003b4,Alexey Serbin,Mon Apr 24 22:42:56 2023 -0700,[util] handle OpenSSL errors in JWT code,other,2,0,0
+96606dec9be2ac418747ec8856de4a354f78f581,duyuqi,Fri Mar 10 19:44:08 2023 +0800,[master] Exclude tservers in MAINTENANCE_MODE when leader rebalancing,other,0,0,0
+8595384de007963181cca59b0248b85169f18792,Zoltan Chovan,Mon Apr 3 15:38:50 2023 +0200,[jwt] Verify JWKS URL server TLS certificate by default,other,2,0,0
+3019848d00ac721b30d98a1aeb77bc205352b7b5,Marton Greber,Thu Mar 30 17:32:52 2023 +0000,KUDU-1945 Add C++ example for non-unique PK,feature,19,0,0
+555854178b9b498701619f4bb0dbbbbeab8e69e7,Alexey Serbin,Wed Feb 1 08:33:51 2023 -0800,[clock] add sanity check to detect wall clock jumps,feature,6,0,0
+8273792156d26c46f788558c896a0729ac2fedd1,Abhishek Chennaka,Fri Jan 27 00:03:13 2023 +0530,KUDU-1945 Update auto incrementing counter during bootstrap,other,1,0,0
+60d5a710f598edbffe9e6e3193b0135f904b04f3,Ashwani Raina,Mon Mar 27 15:09:59 2023 +0530,[client] Improve logging in client metacache,refactor,11,0,0
+5542d1db30cb67a6b224ae4d4539a4e022856c98,Attila Bukor,Mon Mar 13 16:37:02 2023 +0100,KUDU-3448 Add support for encrypting IPKI keys,feature,1,0,0
+f579eaebdae9b63a6e028cbf07c49e62b827def9,Yingchun Lai,Mon Feb 20 17:23:15 2023 +0800,[LBM] append CREATE/DELETE records in batch to metadata,other,0,0,2
+adc1cc64e3fa26227b1400ec5a7ede870f03d39d,Alexey Serbin,Mon Mar 6 19:09:34 2023 -0800,[tools] update 'kudu table copy' CLI tool,other,0,1,0
+614eba154da5f4c3ad13ae85925ccc0e5316bdf8,Alexey Serbin,Wed Mar 1 20:01:14 2023 -0800,[fs] update on FsManager's constructor,other,0,0,0
+80009d6af30f3b19bb547efc92d6558a30d49db3,shenxingwuying,Wed Jan 4 15:52:06 2023 +0800,[compaction] support turn on/off FLAGS_enable_maintenance_manager at runtime,feature,0,1,0
+97ec58742182bb8175dbf38a94027f845e806926,kedeng,Tue Feb 7 17:07:49 2023 +0800,[www] add slow scans show control,feature,1,0,0
+834de7fccdb5faadb2ca9e1d1e07d4c7882ae0fa,xinghuayu007,Sun Aug 14 16:00:02 2022 +0800,[Client] Add query id to trace the whole query process,feature,0,0,0
+ae22d32ef5895a02a763665cfd2812aa61be5ab3,Alexey Serbin,Tue Feb 14 17:11:33 2023 -0800,KUDU-3450 handling of oversized messages in subprocess server,other,2,0,0
+4883497ce072bcb5a904275662c8f855e5cbcfcb,Yingchun Lai,Thu Jul 7 00:32:07 2022 +0800,KUDU-3371 [fs] make LogBlockManager a base class,other,1,0,0
+e65ea38a4860c007d93ada9c991bccec903a80b1,Alexey Serbin,Sun Feb 5 22:11:14 2023 -0800,[clock] output more info in SystemNtp::DumpDiagnostics(),other,0,0,0
+3d496deec61b5d44ef133b553e282f5014a8b36f,kedeng,Wed Dec 28 15:25:39 2022 +0800,[www] add slow scans section,feature,1,0,0
+57aa482673d97506c22273e5e0f37c4b43c7fb64,Attila Bukor,Wed Nov 23 12:33:59 2022 +0100,KUDU-3423 Add support for Ranger KMS HA,feature,0,0,0
+4f5d0997ff9fe2d7d73e98bcda5b8cf7b80fe578,zhangyifan27,Wed Jan 11 12:02:28 2023 +0800,[tools] add --tables flag to 'local_replica delete',feature,0,0,2
+fa1b1837ab02b326f8f7e7e3126f72d4929a950e,Zoltan Chovan,Tue Jan 17 15:07:31 2023 +0100,plumb JWT authentication into clients,other,3,0,0
+ef2a5c39dff75736c11ae51a9b86ba943796e873,Alexey Serbin,Tue Jan 10 15:32:08 2023 -0800,KUDU-3406 corrected estimate for ancient UNDO delta size,bug_fix,0,0,0
+a1f13f93413e23674b11b9a308e69c95ef6ce97c,Yingchun Lai,Sat Dec 17 16:55:51 2022 +0800,[tools] Return immediately after the limit number of rows have been dumped,other,0,0,1
+76ac5b89af3f0fe6e79541fb24ca734d2a8a30de,xinghuayu007,Thu Dec 29 11:49:33 2022 +0800,[KUDU-3430] Implement getting flags filter logic in tool side,feature,0,0,0
+cdc97be9aaecb3232f174786ad60d9e30d6a78dd,Alexey Serbin,Fri Jan 6 16:03:37 2023 -0800,KUDU-3357 proxied RPCs for multi-master Kudu clusters,other,3,0,1
+57d3abc1f335e1d6cb6b6d430e84bd18b937500b,Yingchun Lai,Mon Jan 9 14:19:36 2023 +0800,[refactor] fix some tidy warnings on fs module,bug_fix,0,0,0
+27072d3382889b1852f4fef58010115585685bd3,Yingchun Lai,Mon Dec 5 02:01:52 2022 +0800,[tools] Add 'kudu local_replica tmeta delete_rowsets' to delete rowsets from tablet,feature,4,0,0
+986f1a0cd0427e548a8bff7ccc53b626335ebc57,kedeng,Mon Dec 19 11:42:37 2022 +0800,[log] Reduce prompt log printing frequency,other,0,0,0
+f855dcb6d9afa21db79d19e1429005270e828f37,Yingchun Lai,Sat Dec 17 19:26:07 2022 +0800,[tools] Support to dump rowset primary key bounds and in readable format,feature,2,0,0
+1556a353e60c5d555996347cbd46d5e5a6661266,Alexey Serbin,Fri Nov 25 18:20:38 2022 -0800,KUDU-3406 memory budgeting for CompactRowSetsOp,other,5,0,1
+3f29b5da5f59ea96cfec0608226d5c35740884a6,Alexey Serbin,Fri Oct 14 14:06:05 2022 -0700,KUDU-3357 endpoints for proxied RPCs,other,6,0,3
+21f249b867e1f6bb3a9276c6b55d811a7068d19e,Alexey Serbin,Tue Dec 13 12:22:21 2022 -0800,[tablet] clean up on Tablet::FlushBiggestDMS(),other,0,0,0
+94674af42eac9583f8bebc953d289ad6135c7ecf,Alexey Serbin,Sat Dec 10 09:29:09 2022 -0800,"[util] introduce WaitFor{Tcp,Udp}BindAtPort()",other,0,0,0
+ccecc51f07d9d4698e6104c9cb75939753c14061,Andrew Wong,Thu Apr 21 16:58:06 2022 -0700,rpc: plumb JWTs into the RPC layer,other,0,0,0
+6fdd8b4539b4aa46a059578e84b17d49da562846,Alexey Serbin,Fri Dec 2 17:58:17 2022 -0800,[thirdparty] skip building trace tools for RocksDB,logging_improvement,0,0,0
+f413f09b295e825a75371ac928c6a28323f6d45c,Alexey Serbin,Wed Nov 23 00:51:18 2022 -0800,[tablet] minor optimization on DeltaFileIterator,other,0,0,1
+55256681bac4f59137988e3351f6487f101b1e50,Alexey Serbin,Tue Nov 22 15:55:48 2022 -0800,[tablet] a small cleanup on DeltaTracker and around,refactor,0,0,0
+aec4c62de56b8768b1ecc24fc6c08079f972df1f,Abhishek Chennaka,Tue Nov 22 17:08:50 2022 -0500,KUDU-1945 [client] Add UINT64 support to cpp client,feature,0,0,0
+98fa157bb72939c285094152d83f822431347e7a,Andrew Wong,Wed Apr 20 15:31:43 2022 -0700,jwt: add test for fetching JWKS via URL,feature,0,1,1
+943414d3658ede971eddd373bbb80d8a50f4e8c8,xinghuayu007,Sat Nov 12 21:38:11 2022 +0800,[Flag] Check flags consistency when setting a flag,other,1,0,1
+43ba1013149b7811e4f77ae8bc8e65b1b5ea3d10,shenxingwuying,Tue Aug 9 20:20:46 2022 +0800,[client] Fix a kudu c++ client bug when using replica_selection policy,bug_fix,3,0,0
+10efaf2c77dfe5e4474505e0267c583c011703be,shenxingwuying,Tue Mar 15 16:49:23 2022 +0800,[master] KUDU-3390 support auto rebalance tablet leaders across TServers,feature,10,0,0
+ebb6d481f7c783a1c63b46e5ec08f0a6d38d32b5,Alexey Serbin,Sat Nov 12 11:45:24 2022 -0800,[rpc] fix typo --rpc_max_message_size flag validator,bug_fix,0,0,0
+cef110b314f94aadfd3274932e710d05b7cec97c,kedeng,Wed Sep 7 16:56:33 2022 +0800,KUDU-3393  C++ client support split a tablet to mutil ranges and concurrent scan data,feature,1,0,0
+df5d75c1f6f140a7f5eb2aa77005b941ac5d397d,Alexey Serbin,Thu Nov 10 11:23:53 2022 -0800,[util] a function to check if IP address is among specified,feature,1,0,0
+4a8931636eb79d2a3fdee478d7b9e3bc890758b7,xinghuayu007,Fri Nov 4 18:41:12 2022 +0800,[KUDU-3419] Fix the stuck of starting tablet server,bug_fix,0,0,0
+e70b34d0361f29ac5a5dd99c179ef8c8443ce53b,Andrew Wong,Wed Apr 20 11:15:52 2022 -0700,util: pull jwt code from Impala,other,11,0,0
+2b45ee08ee9cd7870d9122c75c3845efe4bc26c6,xinghuayu007,Mon Oct 24 19:49:45 2022 +0800,[KUDU-3412][Tools][Bugfix] Fix core dump of tablet copier,bug_fix,0,0,0
+64d033d58a5f8bbcaf0f7d7afa37c53d67872170,Alexey Serbin,Wed Oct 19 16:20:34 2022 -0700,[rpc] avoid crashes on malicious negotiation attempts,other,4,0,0
+20be4ede1e0dc2f74d583373a3a0e3062529c6fe,Alexey Serbin,Tue Oct 18 15:17:44 2022 -0700,[tserver] validate scanner TTL vs RPC connection timeout,other,1,0,0
+e5ace5fa28154fa906c1b087e3b80461b6d85337,Andrew Wong,Sat Sep 15 21:26:27 2018 -0700,KUDU-2353: tool to parse metrics out of diagnostic logs,other,4,0,0
+eacfee6fe2a9d323985225af0174ea6bb161f090,Marton Greber,Tue Oct 4 22:07:43 2022 +0200,KUDU-3404 disable TLS in glog,other,0,0,0
+e39411e086eeff6d77bcc640aaac34fdf8ca16df,Abhishek Chennaka,Wed Aug 17 17:40:26 2022 -0400,[master] KUDU-3322 / KUDU-3319 HMS event logging,logging_improvement,2,0,0
+89e1ee3202b47e0f0e247ae7beb91ac344a012a6,kedeng,Fri Aug 19 11:03:25 2022 +0800,KUDU-3326 [master] add flag FLAGS_deleted_table_reserve_seconds to change the cluster-wide behavior of the DeleteTable() RPC.,feature,1,0,0
+ff2bc835d3e77374b01235360c1ea3fb57233f4d,Alexey Serbin,Mon Sep 12 14:40:12 2022 -0700,[tablet] make compaction-test more robust,other,0,0,0
+1ad8c1f18a35e06d4aafd7813de71ee335c68ea1,Alexey Serbin,Fri Sep 9 19:14:02 2022 -0700,"[cfile] unsorted updates on cfile_reader.{h,cc}",other,0,0,3
+a4dde3cdfb4ab2d39d364c96c7ec6ac1d607a363,Alexey Serbin,Mon Sep 12 15:36:53 2022 -0700,[compaction] style guide-related updates,other,0,0,0
+ec3a9f75b6924a70ecbf08e3805228ad9b92b9f0,Yingchun Lai,Thu Aug 11 15:23:08 2022 +0800,KUDU-3353 [schema] Add an immutable attribute on column schema (part 2),feature,0,0,0
+6d6cdd3524b7a57ecf0f05ea23874f1bfb890217,Alexey Serbin,Fri Sep 9 17:05:37 2022 -0700,[consensus] fix units for log_reader_read_batch_latency metric,bug_fix,0,0,0
+51d6ed46b7c9526ae396eaa336468bd45ac105b9,Alexey Serbin,Fri Sep 9 22:16:36 2022 -0700,"[cfile] style-guide updates on cfile_reader.{h,cc}",other,0,0,0
+2a4b48bc7cd8a236fdce841e15f1d48941be8af8,kedeng,Thu Aug 11 14:24:20 2022 +0800,[tool] Add output format for 'table list' CLI tool.,feature,1,0,0
+0e7a5ec6991ba86965c81a5b3c337753ee5f395e,Marton Greber,Wed Aug 24 15:28:58 2022 +0200,Fix glog linker flags for ARM Mac,bug_fix,0,0,0
+2f9f62c7a74661b781550216302eb90833516ad7,Alexey Serbin,Thu Aug 11 16:30:29 2022 -0700,[tests] fix flakiness in TestTabletCopyEncryptedServers,bug_fix,0,0,0
+7b6b6b636818d3e22a3939fde77689dce84e88b2,kedeng,Tue Oct 12 16:15:31 2021 +0800,KUDU-3326 [delete]: Add soft delete table supports,feature,8,0,1
+77d3ea465bb1a1fa778cccd8432553032f51bd27,zhangyifan27,Thu Jul 14 20:36:24 2022 +0800,KUDU-3306: fix PartitionSchema::DecodeRangeKey,bug_fix,0,0,0
+8a9a8033e819352b59f5675b0c496c624b05b90c,Alexey Serbin,Wed Aug 10 16:13:11 2022 -0700,[tools] fix misprint in one of 'kudu table list' validators,bug_fix,0,0,0
+b6eedb224f715ad86378a92d25f09c2084b0e2b7,Yingchun Lai,Sun Jul 17 23:48:26 2022 +0800,KUDU-3353 [schema] Add an immutable attribute on column schema (part 1),feature,0,0,0
+543e128d473f8f7836e605bba8cd6512fa918550,Marton Greber,Wed Nov 18 14:10:36 2020 -0600,KUDU-3374 Add support for M1 and macOS Monterey,feature,0,0,0
+76d540c137c991127865d5d2455d113677a9afe9,kedeng,Fri Jul 29 11:52:54 2022 +0800,[tool] Add gflag to control the display of hash info when show partition info.,feature,1,0,0
+17528c7a8ab1e44a421d535346e849cfaf37d3d1,xinghuayu007,Thu Jul 14 18:40:50 2022 +0800,[Tools] Copy tablets from a remote server in batch,other,0,0,6
+e572e59673f6dade62f96eb38b6417ef018bc7bf,Alexey Serbin,Tue Jul 26 16:44:42 2022 -0700,[catalog_manager] KUDU-2671 fix bug in CreatePartitionsForRange(),bug_fix,0,0,0
+a6e8aa2fd5063abb2cc5c8944c9d19fdb38b8aa0,kedeng,Tue Jun 14 15:43:05 2022 +0800,[tool] Add partitions show with tablet id,feature,1,0,0
+6e48a43c4505b4a4d281f7f732c63f51cec6bc63,shenxingwuying,Tue Jun 28 18:13:37 2022 +0800,[threadpool] Fix scheduler thread a coredump bug,bug_fix,1,0,0
+a699e6a95e32459467270b389633d1fe2f815145,Attila Bukor,Sat Jul 2 00:22:56 2022 +0200,KUDU-3385 Integrate Kudu with Ranger KMS,other,8,0,2
+f9517b181101bd122b73d9826d80d3b31641542d,Zoltan Chovan,Tue May 3 20:47:20 2022 +0200,[ranger-kms] KUDU-3385 - part2: mini_ranger init,other,16,0,0
+81f7c5b43fe4546ee1b7526b51a13126da706980,xinghuayu007,Thu May 26 09:52:28 2022 +0800,[Tools] Rebuild master according to part of tables not all tables,other,0,0,0
+7618d34e4c60ee1c14f5cb734ea0c4cfa581dfde,Alexey Serbin,Tue Jul 19 20:28:34 2022 -0700,[tserver] add TabletServerTest.InvalidScanRequestNoGreaterKey,feature,0,0,1
+23908bdbe753c25aa2a33796559ecf64f0197949,Alexey Serbin,Fri Jul 8 17:01:34 2022 -0700,KUDU-2671 fix consistency check in KuduScanner::NextBatch(),bug_fix,0,0,0
+aba975b2c0ea676b8637c7935e749dbf2478b750,shenxingwuying,Mon Jul 4 18:38:31 2022 +0800,"[unittest] LogRollingITest offen failed at asan, because of glog' leak",other,1,0,0
+00a2c7f29408968ab989215d56fc01dab4edac5b,xinghuayu007,Mon May 23 16:47:31 2022 +0800,[Catalog] Make DNS name of Kudu master case insensitive,other,0,0,0
+936d7edc4e4b69d2e1f1dffc96760cb3fd57a934,zhangyifan27,Mon Apr 18 21:17:00 2022 +0800,KUDU-1644: Simplify InList predicate values based on rowset PK bounds,refactor,3,0,0
+f55dd22bfea4beee99d72891efbbc67307b19d1e,Alexey Serbin,Mon Jun 20 20:34:20 2022 -0700,KUDU-2671 update partition schema in catalog when dropping range,other,0,0,0
+3f0c434143ad6daa8ed4f39d8ceacbe58604dd29,Alexey Serbin,Fri May 20 16:50:16 2022 -0700,[common] switch to std::optional,other,0,0,1
+6909ee4f800da192b72e59680916e5004527b6db,Alexey Serbin,Mon Jun 13 15:10:13 2022 -0700,KUDU-2671 update partition schema in catalog when adding range,feature,0,0,0
+abe2a73cdbe6438e34f825594d66aec53a329840,Attila Bukor,Thu May 26 17:17:37 2022 +0200,KUDU-3373 Key provider interface,other,0,0,0
+b6aaf2b71da05c5427e1bee0dccc0e66101c684d,Attila Bukor,Thu May 12 01:20:38 2022 +0200,KUDU-3368 Encrypt file keys with server keys,other,4,0,0
+54855326b66dea649215702dc936988638205345,xinghuayu007,Mon May 9 19:48:42 2022 +0800,[Tools] Set all masters/tservers flags in a cluster in batch mode,other,3,0,0
+5f29e04230dadd840b12887423fb76ac62d96538,Yingchun Lai,Fri May 6 00:47:36 2022 +0800,[tools] update schema if needed when rebuilding master,other,3,0,2
+d32ea18f017582e1d052ded617a2c13608b0d54b,Yingchun Lai,Mon Apr 25 20:05:31 2022 +0800,[tools] use thread pool for 'kudu local_replica copy_from_local',other,5,0,1
+f736c6bbab1ca6290808bbe8fad205958a955bd7,shenxingwuying,Wed Apr 20 16:27:25 2022 +0800,[master_log] Correction for the value of `table_rows_limit`,bug_fix,0,0,0
+50b1cc45f9fde3deac5aa0fef216f4950246b2c9,Yingchun Lai,Mon Apr 25 16:43:59 2022 +0800,[tools] Add '--create_table_replication_factor' flag for 'kudu table copy',feature,1,0,0
+d216e417f7fa7daef59ec7eb2c15aadfd4e1c563,shenxingwuying,Wed Apr 20 17:57:43 2022 +0800,[unit test] KUDU-3361 Fix SocketTest.TestRecvReset,bug_fix,0,0,0
+6521248a2f4df4f98fa3b876609408617bc9d701,Yingchun Lai,Fri Mar 25 15:04:45 2022 +0800,[tool] Add tool to copy replica from local filesystem,feature,3,0,0
+01ca8c3f2bb38bc8b738d86d3d88aa8d1ffaad87,Alexey Serbin,Wed Mar 9 14:57:45 2022 -0800,[tools] range rebalancing for 'kudu cluster rebalance',other,0,0,0
+66fe33642ac9662b8d2a3e52a90168b2184e4d88,Alexey Serbin,Thu Mar 10 16:57:23 2022 -0800,[tools] add beginning of the key range into TabletSummary,feature,1,0,1
+a31a2512c90193a2d972c6826a3ad30ab23c95c8,Yingchun Lai,Wed Sep 15 20:47:48 2021 +0800,KUDU-3318 [LBM] Runtime compact log container metadata,other,2,0,0
+8409d28a5ace591f635b029cb37ebd70f3b8eb10,Yingchun Lai,Mon Feb 21 18:08:30 2022 +0800,[metrics] Add table level metrics column_count and schema_version on master,feature,0,0,0
+9a53fec14b9aaa811732f2b7a87da36d893203da,Abhishek Chennaka,Sun Feb 27 23:23:07 2022 -0500,[tools] KUDU-3333 Include Table Counts in kudu hms Dryrun,other,3,0,0
+91d3101008961338078d0b80e5f2e3d1dc552133,Alexey Serbin,Wed Mar 9 14:57:45 2022 -0800,[tools] run intra-location rebalancing in parallel,other,0,0,1
+df65b3a3d04115fc38bdb739207123816999557d,Alexey Serbin,Mon Mar 14 17:13:16 2022 -0700,[write_throttling-itest] relax threshold to avoid flakiness,other,0,0,0
+7189b519625d8f6ef7f70bc259733a672a28267f,zhangyifan27,Mon Mar 14 23:08:00 2022 +0800,[tools] Support copying unpartitioned table,feature,0,0,0
+2a5e56594a9dac28df9b02365d340bbd6a8e480f,Alexey Serbin,Fri Mar 11 14:16:27 2022 -0800,[tablet] add tablet_id into trace of a slow write op,feature,0,0,0
+8e704f28b172e211477bd06409a429b20a1e55a1,Alexey Serbin,Mon Mar 7 19:47:36 2022 -0800,[tablet] output more info for long row lock waits,other,0,0,1
+9e952ad9d87eefc9ef840cd3edbdd62dd9f0243e,Alexey Serbin,Mon Mar 7 12:27:35 2022 -0800,[tools] correct rebalancer's initial status message,bug_fix,0,0,1
+f4b6d8917b79b9de53957174ade1a7ffc76e0090,shenxingwuying,Tue Jan 4 20:07:29 2022 +0800,"KUDU-3197 [tserver] optimal Schema's memory used, using std::shared_ptr",other,0,0,0
+cd48ce74025dd2d8287eb66b9d615a492b2267bb,Alexey Serbin,Tue Nov 23 16:37:46 2021 -0800,[tests] harmonize assertions on the expected status,other,0,0,0
+2de290d1b342696cd22c0a800aee5b1bf684a0fa,Zhang Yifan,Fri Jan 7 21:02:47 2022 +0800,KUDU-3344: catalog manager clean up metadata for deleted tables/tablets,other,5,0,0
+b18e07a18fec1ecc868e18acbf06a19f4d8a410f,Andrew Wong,Wed Feb 16 18:40:45 2022 -0800,[util] harmonize logging.h,logging_improvement,0,0,0
+9f164b3c542a2e44c963c43488b4fc5b0d0f0f65,shenxingwuying,Thu Jan 20 23:04:19 2022 +0800,"[tool] fix a command bug, cmd: kudu wal dump ...",bug_fix,1,0,0
+31a9b0158984fc000f35cff483856eaec5338132,Yingchun Lai,Sun Feb 13 23:53:49 2022 +0800,[thread] Small refactor to improve ThreadMgr performance,refactor,0,0,0
+205710c9246ea847b19d6d923297bcf5002cd70b,Alexey Serbin,Fri Feb 4 18:28:47 2022 -0800,[security] VerificationResult --> TokenVerificationResult,other,0,0,0
+f4fa4d22f2dc122c2c130fd08142317869729e28,shenxingwuying,Mon Jan 10 19:00:36 2022 +0800,"[asan] improve asan success rate, kerberos context init and destroy",refactor,0,0,1
+bac76fcf9d496995591e968dffa822fe0fb21d5d,Alexey Serbin,Mon Jan 31 15:42:09 2022 -0800,[util] optimized version of BitUtil::Ceil(),other,2,0,0
+3a5cc4409fac2e264da5553d7ec8defce9457397,Alexey Serbin,Mon Jan 31 21:47:38 2022 -0800,[benchmarks] updated RLE benchmark,other,0,0,2
+a760429a6479fdd71dd8e25bc35c39e46a9dd8f4,Alexey Serbin,Mon Nov 15 09:04:42 2021 -0800,[tests] don't build client-stress-test with ASAN/TSAN,other,0,0,0
+feaccee2b82ebd47d8244a1fdf346c1394c8ae91,Attila Bukor,Sun Jan 30 00:53:19 2022 +0100,[security] KUDU-3316 Add encrypted file keys,feature,1,0,0
+9f7c80d630ebd7a7e2da2edacd910bcbd00f29ee,zhangyifan27,Thu Dec 30 11:44:16 2021 +0800,[rebalancer_tool] refactor on IgnoredTserversRunner,refactor,0,0,1
+c9d7db6e48a4f32075363e33e412a16133b1e49b,Abhishek Chennaka,Thu Jan 13 18:49:52 2022 -0500,[tools] Kudu table schema in Avro format revisited,other,1,0,0
+1e5fadb029310f87193550126d8f6e448cddc27a,kedeng,Fri Nov 26 14:53:21 2021 +0800,KUDU-3340 [compaction] Disable compaction on the specified table,other,0,0,0
+b1fa1a65a008591475b95f8bc0c90b3283826c5d,Attila Bukor,Tue Oct 26 13:59:20 2021 +0200,[security] KUDU-3331 Encrypt file system,other,0,0,0
+a157dece2f7bd8636eb90148edeb202537c9b6a8,zhangyifan27,Fri Dec 3 22:00:22 2021 +0800,KUDU-3328: make rebalancer tool take into account maintenance mode,other,0,2,0
+5ef0168cf0ae4471632d63cad223d7301f415982,zhangyifan27,Thu Dec 30 00:32:39 2021 +0800,KUDU-3346: fix rebalancer tool fails to run with '--ignored_tservers',bug_fix,1,0,0
+67ba3cae45143d083bdac119f45278ce0d2bfefb,Attila Bukor,Wed Dec 29 12:48:55 2021 +0100,[java] Bump log4j to 2.17.1,other,0,0,0
+84600f495e8cff24aa8794d7974d0b6fe77b95db,Alexey Serbin,Mon Dec 20 11:17:09 2021 -0800,[java] bump log4j up to 2.17.0 version,other,0,0,0
+6908620821ab93cb964f0f7a3674abf9843a9b5f,Andrew Wong,Tue Dec 14 11:48:44 2021 -0800,[consensus] force fsync metadata on XFS,other,1,0,0
+0741fd3a3b6db561465840192888072762a0a926,Alexey Serbin,Fri Dec 10 22:25:59 2021 -0800,[consensus] reduce critical section in LogCache::ReadOps(),other,0,0,0
+21d25d23fc6d0696592668fa56a02a884458982f,Andrew Wong,Thu Dec 2 21:32:20 2021 -0800,[ranger] clarify error message from subprocess,other,0,0,0
+ea67260aad998db7d34a94d25261e121a668faec,Alexey Serbin,Mon Dec 13 17:22:16 2021 -0800,[java] bump log4j up to 2.16.0 version,other,0,0,0
+44e517519e1507eafe58bd9179940160e6934079,Alexey Serbin,Fri Dec 10 11:59:32 2021 -0800,[java] bump log4j up to 2.15.0 version,other,0,0,0
+d0243afe2ed93aeb18e318068df1bc02de72ad1a,Alexey Serbin,Thu Dec 9 19:49:23 2021 -0800,[consensus] minor clean-up on LogCache,other,0,0,0
+58ee81bcf8d1da1a10918deedf2a14ae9104bed6,Alexey Serbin,Thu Dec 9 21:17:41 2021 -0800,"[rpc] style cleanup on transfer.{cc,h}",refactor,0,0,0
+3779690f2eabe91da7f3c3abf5119579f2294ecf,Yingchun Lai,Mon Nov 22 21:39:45 2021 +0800,[bootstrap] Speedup tablet bootstrap,other,0,0,2
+0222c3163129b1d6c1c37b216482aa64f921c415,zhangyifan27,Sat Nov 27 23:25:47 2021 +0800,KUDU-3341: Stop retrying to DeleteTablet on wrong server,other,1,0,0
+e3bcd743d6c2d8791591c69260e7d9e6bc59fef9,Zoltan Chovan,Thu Oct 28 14:32:40 2021 +0200,[master] KUDU-3311 Allow to start with diff num of masters,other,1,0,0
+cb69bb12eb07104c7d7c5333484534d997d65195,Abhishek Chennaka,Wed Oct 27 12:55:49 2021 -0400,KUDU-1959 - Add test for /startup page for the Master,feature,0,0,0
+1754f517b279f349da8c648251ce47a552d54794,Alexey Serbin,Thu Nov 11 11:11:37 2021 -0800,[client] fix MetaCacheEntry::Contains(),bug_fix,4,0,0
+032d1d90147139db62a7cea8700d5373332bde9a,Yingchun Lai,Mon Oct 18 18:53:06 2021 +0800,[LBM] Speed up server bootstrap by using multi-thread to compact containers,other,0,0,1
+f334e6e083203c96e56957e3d331adbc33d3c8a4,Andrew Wong,Tue Nov 2 17:14:04 2021 -0700,[txns] fix UB in TxnSystemClient when adding max timeout to now,bug_fix,0,0,0
+a31b96edee11c08c909a717b9195c42b5e678a47,Yingchun Lai,Thu Oct 28 23:47:21 2021 +0800,KUDU-3332 [tools] Fix too large next_column_id after unsafe_rebuilding master,bug_fix,0,0,0
+b981b2305f8b4a92ed9394ac37ca659a1335c688,Yingchun Lai,Wed Sep 29 00:49:29 2021 +0800,[master] Validate extra config properties for a table,other,0,0,1
+5588962fb4e6acb54c1e5cab5edce4aa543a73a7,shenxingwuying,Thu Sep 16 16:07:16 2021 +0800,[ntp] improve two arithmetic operator,refactor,0,0,0
+a50091e2d4509feac2f29128107102ec52fcb7b0,Alexey Serbin,Tue Sep 28 18:18:10 2021 -0700,KUDU-2671 introduce PartitionKey,other,0,0,0
+3884a6388b2696a826b8903144ae555faa595473,Andrew Wong,Sat Sep 18 00:50:39 2021 -0700,[consensus] KUDU-1620: re-resolve consensus peers on network error,other,0,1,0
+4fe61a26ad5bbb0a41bb7be002a6b32d9c0ea916,Andrew Wong,Tue Sep 28 16:00:30 2021 -0700,[rpc] allow reuse of outbound request buffers when retrying,other,0,0,1
+acf6de866c878dc2f09fb5bd7cccf0312375e7c7,Andrew Wong,Wed Sep 15 19:36:16 2021 -0700,[mini-cluster] allow using aliases instead of addresses in EMC,feature,0,0,1
+35c1afbca639664f72c213f7a631b3d36f128efc,Alexey Serbin,Sun Sep 19 00:58:38 2021 -0700,[master] fix logic error in TableInfo::UpdateMetrics(),bug_fix,0,0,0
+41ebabf2eb618b33fd30ad1821ccbda9d6390010,Andrew Wong,Sat Aug 28 13:55:47 2021 -0700,[rpc] KUDU-75: refresh DNS entries if proxies hit a network error,other,2,0,0
+246505b538a6449eda7a9936609e9fec4632fe5d,Andrew Wong,Wed Sep 15 19:45:09 2021 -0700,[util] allow DnsResolver to refresh DNS addresses,feature,2,0,0
+49abc3a6788bc29c8c023cafff0f0955142a2409,Yingchun Lai,Fri Sep 10 01:27:37 2021 +0800,KUDU-3318 [fs] Add size limit for log block container metadata,feature,0,0,0
+eee765e8f9164f9b4a76b5fc98e7bae77dba83d9,Alexey Serbin,Fri Sep 10 22:23:43 2021 -0700,[master] fix misprint in VerifyMastersGetHostPorts(),bug_fix,0,0,0
+4d50656f867a6e68724e232609e4ff7d538af6eb,Yingchun Lai,Sun Aug 22 22:18:49 2021 +0800,[tool] Support to dump and edit pbc in JSON pretty format,feature,1,0,0
+47450aa5b637a8f273636b0d8d6496e82a0dc4fe,Yingchun Lai,Sat Aug 21 15:55:11 2021 +0800,[tool] Support to rewrite and print cmeta by batch,feature,1,0,1
+1b499ebe9978e7d77615255862f0cf8ca1054c69,Yingchun Lai,Mon Jul 12 17:57:25 2021 +0800,KUDU-3304: [Alter] Support to alter table's replication factor,feature,0,0,1
+25d71738c05972eba1383a9b93883a7f5617b7c9,Andrew Wong,Tue Aug 17 22:07:07 2021 -0700,[fuzz-itest] add WAL GCs,feature,0,0,0
+ab0421b13b81798548b7dc2f7acd8f7362d459c5,Will Berkeley,Thu Feb 22 23:53:32 2018 -0800,[tools] Add a tool to recover master data from tablet servers,feature,13,0,0
+607d9d0a7e95e220864f43b88a64644bb6402163,Alexey Serbin,Mon Aug 9 21:18:29 2021 -0700,[common] more generic API for IN list predicate pruning,other,2,0,0
+6be5282d09d3c9d4c465f43fd292c6914182e7d5,Andrew Wong,Mon Aug 9 15:50:16 2021 -0700,[consensus] remove ForTests suffix from WaitUntilLeader,bug_fix,0,0,0
+adb8fbd7b724b0a5c04ac967a917f610383a8a80,Alexey Serbin,Fri Aug 6 19:40:37 2021 -0700,[tests] clean-up on cluster_itest_util/ts_itest-base,other,0,1,0
+1ec8b209e6b81768c56223f89931e4aed56b1f50,Alexey Serbin,Thu Jul 29 18:26:37 2021 -0700,[util] introduce comparison operators for Slice,other,0,0,0
+d0734a1bf8bd45b016fbffa983fbb8c483ed94c9,Alexey Serbin,Mon Jul 26 16:40:35 2021 -0700,[net_util] workaround for VPN tunnel interfaces,other,0,0,0
+fad7dd457aa5a35dddfa0e6086b3dce9b03d42b7,Andrew Wong,Fri Jul 16 17:30:12 2021 -0700,[test] deflake dynamic_multi_master-test,other,0,0,0
+960e30055b12870ad425e746b907b9b7d9459194,Zoltan Chovan,Sat Jul 17 18:26:50 2021 +0200,KUDU-3189: log Hive Metatore URI when connecting,other,1,0,0
+5e895c642d28a1c5e3ee0845bb0775fe2e106d29,Andrew Wong,Thu Jul 15 16:41:43 2021 -0700,[master] make automatic AddMaster resilient to leadership changes,feature,2,0,0
+586b7913258df2d0ee75470ddfb2b88d472ba235,Alexey Serbin,Mon Jun 7 17:22:31 2021 -0700,[client] KUDU-2671 custom hash buckets API for table creation,other,0,0,0
+6cb15486cdbeacb722e69b81d563b6f05d840650,Alexey Serbin,Tue Jul 13 13:57:12 2021 -0700,[catalog_manager] introduce --min_num_replicas flag,other,6,0,1
+7e66534d0e62fb850bf300d52da4a0a76889f4b8,Andrew Wong,Tue Jun 22 18:52:21 2021 -0700,[master] AddMaster and copy sys catalog automatically,feature,14,0,1
+fc4daf6ee16b1939397718cc5f1cfc9d1ca4a31a,Alexey Serbin,Thu Jun 10 23:02:37 2021 -0700,[clock] change clock source selection for 'auto',other,1,0,0
+eb55189eec3cb30bf10a5f0778ac5bc46164de7b,Alexey Serbin,Sun Jul 11 18:53:15 2021 -0700,[client] actionable error message for KuduSession::Flush(),other,0,0,1
+422f1305ff9dab5d4bb0446aa6fe1e1c40c5b44c,Andrew Wong,Tue Jun 22 18:31:47 2021 -0700,[master] allow setting BlockCacheMetrics twice,other,0,0,0
+8f0020fe22bc9f026d563155503be981111b202a,Alexey Serbin,Sun Jun 20 23:50:38 2021 -0700,[tools] --replica_selection flag for 'table scan' and 'perf table_scan',other,0,0,1
+f26fa17968f4b323a42b61ebeace5be9e12057c0,Alexey Serbin,Tue Jun 15 16:59:42 2021 -0700,[tools] add --row_count_only and --report_scanner_stats flags,feature,2,0,0
+51b0e91232b25b676316a0dc724bc1b0e77f0e2e,Alexey Serbin,Tue Jun 15 23:46:43 2021 -0700,[tools] use --timeout_ms in tablet_scanner,other,0,0,1
+f9647149a49ddb87ea0ecf069eab3b5ec0217136,Andrew Wong,Wed Jun 9 11:55:36 2021 -0700,[consensus] KUDU-2302: don't crash if new leader can't resolve peer,feature,0,0,0
+c2f4cf7b8b3240feef6ec0060c99f78d3744d76d,Andrew Wong,Wed Jun 9 12:42:31 2021 -0700,[util] flag to specify hosts to fail DNS resolution,other,1,0,0
+7673e0a687a3584c30a341bd2a8aa1dc7fc9a9b4,Alexey Serbin,Fri Jun 11 13:11:35 2021 -0700,[clock] use GTEST_SKIP in BuiltinNtpWithMiniChronydTest,other,0,0,0
+3a1ce304b3762166ba069767b842a42ea9af1009,Andrew Wong,Sun Jun 6 21:02:38 2021 -0700,KUDU-3291: properly disambiguate between deltas of a row with the same timestamp,other,1,0,1
+79bd57546996c6e3c130960ba099fb637d58d51f,Alexey Serbin,Mon Jun 7 18:21:26 2021 -0700,[client] replace Equals() with operator==(),other,0,0,0
+e574903ace741a531c49aba15f97e856ea80ca4b,Alexey Serbin,Thu May 27 23:20:31 2021 -0700,KUDU-3265 txn-related options to 'kudu perf loadgen',other,2,0,0
+cae3ec8df5037f560defe5b121f197f27c7065f1,Abhishek Chennaka,Wed May 26 16:16:52 2021 -0400,[java] KUDU-3267 Improve logging on writes to non-existent partitions,refactor,0,0,0
+a0bda0989d97fac182f409ecaef3357a1fb5329f,Alexey Serbin,Tue May 25 00:28:57 2021 -0700,[test] minor clean up on TestUnsafeChangeConfigLeaderWithPendingConfig,other,0,5,0
+8ffa18196dcd3917ae624f9dc9679040e65967cb,Alexey Serbin,Sun May 23 09:00:15 2021 -0700,[consensus] a small optimisation on log prefix,bug_fix,0,0,0
+923245291fade95febc36265cfba8cc92ee457d5,Andrew Wong,Mon May 24 17:43:20 2021 -0700,KUDU-2612: disable TxnSystemClient initialization by default,other,1,0,0
+323d8ea7312678b7a910e55ed4f74acaf3813ffc,Hongjiang Zhang,Fri May 14 18:26:14 2021 +0800,KUDU-3223: management of per-table limit by kudu CLI,other,4,0,0
+48068c7cbf4066e3d2081960b50d466baf01543d,Alexey Serbin,Mon May 17 17:11:25 2021 -0700,[kserver] output info on server-wide size limit,other,1,0,0
+b2633cac57e171e1ee0d98e1ecc3e41b8a2f8cd2,Andrew Wong,Wed May 12 16:16:21 2021 -0700,[txns][tools] show details of a transaction,other,0,0,0
+990976d38ded648b39c1db2e4241d6eda82aee63,Andrew Wong,Thu Apr 29 16:49:54 2021 -0700,KUDU-2612: re-open TxnSystemTable if transaction is in new range,feature,0,0,0
+ba10e9266e3c609f5fffc94b24e797a0f53a7378,Andrew Wong,Wed May 12 14:57:57 2021 -0700,[txns][tools] add a state filter to `txns list` tool,feature,1,0,0
+a7018179125c49f519600c7f8b284e8bd83e0a38,Grant Henke,Tue May 4 16:50:13 2021 -0500,KUDU-3164: Add table comment support to Kudu,feature,1,0,0
+a9b8a772bfe4f7be827068b0cf571d8f5f1d362e,Hongjiang Zhang,Tue Apr 6 15:07:53 2021 +0800,KUDU-3223: Management of per-table level limit,other,5,0,0
+00c1b674545541a8a2a17aaca0738136540eb8b8,Grant Henke,Thu Apr 29 09:27:13 2021 -0500,KUDU-2754: Mark max_log_files as stable,other,0,0,0
+73310d955b4d5d7ec413217d99517cc4b7794975,Andrew Wong,Wed Apr 28 13:59:58 2021 -0700,KUDU-2612: retry abort task on timeout,other,0,0,0
+d21a0d38373b84f66fa2d37732b7ec7b8fee5f16,Andrew Wong,Thu Apr 1 17:51:21 2021 -0700,KUDU-2612: rollback txn on TXN_LOCKED_ABORT,other,1,0,0
+37cb2b378807e2025fbcab41d08f4eb5fa87a86a,Mahesh Reddy,Fri Apr 23 17:11:47 2021 -0700,[master] Clarify comment in SysCatalogTable::WaitUntilRunning().,other,0,0,0
+d5d8fadadac750bd9a71c4bc928dc7de05168a9a,Bankim Bhavsar,Wed Mar 31 10:40:06 2021 -0700,[master][tool] KUDU-2181 Tool to orchestrate adding a master,feature,5,0,7
+bdb6d0643ec7b68f11cefc038dc256824ce96f5e,Andrew Wong,Fri Apr 9 18:22:29 2021 -0700,[ksck] KUDU-3258: allow ksck and rebalancer to work on txn status table,other,1,0,0
+a354ce3dd7ed8aca88a372ba9a8b6b6f5d60979c,Bankim Bhavsar,Thu Apr 1 05:35:43 2021 -0700,[mini-cluster] Refactor to expose flags of ExternalMaster,refactor,0,0,0
+8093f95e6b8eb496043562f69df3a66e078ad731,hahao,Sun Mar 7 23:59:59 2021 -0800,KUDU-2612: acquire and release partition lock,other,3,0,0
+ccbbfb3006314f2c37f3a40bfec355db9fc90e02,Grant Henke,Fri Feb 26 09:32:17 2021 -0600,KUDU-3248: Match C++ replica selection behavior of Java client,other,0,0,0
+d546588da6d90c72a8dfcb8256e2a898ab55e96d,Attila Bukor,Wed Apr 7 14:30:01 2021 +0200,KUDU-1884 Make Kerberos principal customizable,other,0,0,0
+df6590d26de51d67e178c59b50dfcda6ea1244a7,Alexey Serbin,Mon Feb 22 21:08:37 2021 -0800,KUDU-2871 support TLSv1.3 in Kudu RPC (C++ part),feature,1,0,0
+7c99e8178f5d3edf7cae627a2403e59903360819,Alexey Serbin,Tue Apr 6 01:18:21 2021 -0700,[java] fix log message typo in KuduTransaction::startKeepaliveHeartbeating(),bug_fix,0,0,0
+78fb2047da74a1ebd051dbfa29c4d188056b47bc,Andrew Wong,Wed Mar 24 00:57:14 2021 -0700,KUDU-2612: route txn op dispatching errors to write ops,bug_fix,0,2,1
+1eb2a2fbca329721ec7152714b7c95374754044b,Alexey Serbin,Wed Mar 24 21:40:45 2021 -0700,[client] add logging on slow tablet opening,feature,0,0,0
+44d687caf3633d75b0cc64f1a25f444484ce43ad,Alexey Serbin,Tue Mar 23 14:08:46 2021 -0700,[client] add logging on slow metacache operations,feature,0,0,1
+6983d25c35df8569c1851bf27e2c75e98036c10d,hahao,Sat Feb 20 13:03:58 2021 -0800,KUDU-2612: add ScopedPartitionLock,feature,5,0,0
+058ec9a2baa9edb75904e8aa83716dd2734f3bbd,Andrew Wong,Tue Mar 2 17:07:39 2021 -0800,KUDU-2612: allow aborting after beginning to commit,other,5,0,2
+ac09d6205486908df05af4d64dc7618aae7c37bf,Bankim Bhavsar,Fri Mar 19 16:16:22 2021 -0700,[test] KUDU-3266 Fix flakiness in dynamic_multi_master test,bug_fix,1,0,0
+f8d060bd1d9066b0a6d4afa9bd7eb4d4f082037f,Grant Henke,Thu Mar 18 11:18:06 2021 -0500,KUDU-3142: Remove the deprecated kudu-mapreduce modules,other,0,0,0
+4b4a8c0f2fdfd15524510821b27fc9c3b5d26b6b,Bankim Bhavsar,Wed Feb 24 13:57:28 2021 -0800,[test][master] KUDU-3249 Recover dead master at the same HostPort,other,2,0,5
+29f294c3d6f998830b12fe675af70dba610ce34d,Attila Bukor,Tue Mar 9 15:23:55 2021 +0100,KUDU-3207 Switch RSA private key format to PKCS#8,other,0,1,0
+074e7e9a08d3aa392df068e23c425326161cf38b,Alexey Serbin,Wed Mar 3 21:49:56 2021 -0800,KUDU-3254 fix bug in meta-cache exposed by KUDU-1802,bug_fix,0,0,1
+c89ec08d6a9e92f15d7c6846fae57f82d0616eb8,Alexey Serbin,Sun Mar 7 10:52:53 2021 -0800,[gutil] use C++17's [[fallthrough]] attribute,other,0,0,1
+740e9150d7072d95599951ee998df58d8ffe55b6,Alexey Serbin,Fri Feb 26 23:43:09 2021 -0800,KUDU-2612 add perf scenario to TxnWriteOpsITest,feature,2,0,0
+ceca6abc506fc4c1012ced6e8a6564897b3af4ad,Alexey Serbin,Sat Jan 23 09:37:35 2021 -0800,KUDU-2612 tablet servers automatically register txn participants,other,8,0,0
+e9ea9840d30cc223e3a8f746169c11353e23ffa8,Andrew Wong,Wed Nov 11 17:16:16 2020 -0800,tablet: allow interleaving of row liveness between compaction input rows,other,6,0,0
+38bad954c2d903a8a61ddd728f8c58dc00412925,Alexey Serbin,Thu Feb 25 19:30:01 2021 -0800,[client-test] more robust TestRetrieveAuthzTokenInParallel,other,2,0,0
+930fe5bf8f02f97061bddcfa4199ab5a25f15419,Andrew Wong,Tue Feb 23 17:28:31 2021 -0800,test: add more natural test for KUDU-2233,feature,0,0,0
+1ba4a4b767ef62d1182d7091043a42cd0a1ac970,Alexey Serbin,Wed Feb 24 20:09:26 2021 -0800,[client-test] added WriteWhileRestartingMultipleTabletServers,feature,0,0,0
+f16973890c31042ec5770e2735708577b8192959,Bankim Bhavsar,Mon Feb 22 22:43:26 2021 -0800,[master] Fix validation for NON_VOTER on adding a master,bug_fix,1,0,0
+28f30f0eb70421feee8d4e7b775483d47e9ce888,Bankim Bhavsar,Fri Feb 19 10:40:41 2021 -0800,[test] Fix flakiness with detecting a master in FAILED_UNRECOVERABLE state,bug_fix,0,0,0
+78bd6c04ef37ca8906379a587140bc646433e28c,Bankim Bhavsar,Fri Feb 12 10:26:24 2021 -0800,[test] Start using GTEST_SKIP where applicable,other,0,68,1
+e74cdb3f8c33212618c090d90075b8d928f942f7,Bankim Bhavsar,Tue Feb 9 18:01:02 2021 -0800,[thirdparty] Upgrade gmock/gtest to 1.10.0,other,0,0,0
+645f9dc72f62bc4cca8f59f9e043c37586e87f63,Bankim Bhavsar,Wed Jan 27 15:44:02 2021 -0800,[tool] KUDU-2181 CLI to remove master,other,1,0,0
+df61b71f0093008f6f2cdc88b4380a575f42bf18,Bankim Bhavsar,Wed Sep 30 16:24:04 2020 -0700,[tool] KUDU-2181 CLI to add master,feature,5,0,1
+36c5a2e29e95e9133adbaf8e1b82d4bdc8d74435,Alexey Serbin,Mon Feb 15 18:50:32 2021 -0800,[test] enable hash partitioning for TestWorkload's table,other,1,0,0
+451a4c61eed132e00b6dc50dcaf4cfeca348be2a,Andrew Wong,Sun Jan 31 02:30:59 2021 -0800,KUDU-2612: add background task to abort transaction participants,feature,3,0,1
+7afdac0155f1c0730242594b6d13a549c3084d5d,Andrew Wong,Mon Feb 8 16:07:18 2021 -0800,txns: syntactically sweeten some tuple-like variables,other,0,0,0
+3c363d499ec5c0d675d78d871712e579d966548c,Bankim Bhavsar,Wed Dec 23 15:31:28 2020 -0800,[master] KUDU-2181 Raft ChangeConfig request to remove a master,other,6,0,1
+d49085093f3b01a9ee1da6c37bdce0924ee536f2,Alexey Serbin,Fri Feb 5 15:28:58 2021 -0800,[tablet_service] removed namespace prefixes,bug_fix,0,0,0
+4b0524f0bf8e81c004dd3f03a2467e9b0824b617,Andrew Wong,Fri Feb 5 19:45:00 2021 -0800,rpc: reduce logging when server is shutting down,logging_improvement,0,0,1
+b9a8f2e633af891b6e2b268a71e18a8e7e1ff34d,Andrew Wong,Sun Jan 31 02:30:25 2021 -0800,KUDU-2612: background task to commit transaction,other,5,0,0
+eba54241ab54fd8522fa7a48561000ec7917d7df,hahao,Mon Feb 1 14:46:42 2021 -0800,KUDU-2612: follow up of commit c033487,other,0,0,0
+c033487fd1765f9b3c5045d7c51719ed7e1c4418,hahao,Thu Jan 28 18:31:36 2021 -0800,KUDU-2612: restrict TxnStatusManager calls to be made by the leader only,other,10,0,0
+948f92e787136f12dbfb3e7195fef24db0be0088,Andrew Wong,Sat Jan 23 16:22:37 2021 -0800,KUDU-2612: add a TxnSystemClient to the tservers,feature,0,0,0
+c6a770ee54d5d5ef0861594476b40bb14cfe0623,Alexey Serbin,Sat Jan 9 00:25:12 2021 -0800,[util] extra test for MaintenanceManager,other,2,0,0
+9e4664d44ca994484d79d970e7c7e929d0dba055,Alexey Serbin,Thu Jan 7 16:40:45 2021 -0800,[util] fix another lock contention in MaintenanceManager,bug_fix,0,0,1
+83b8caf4f1d60c021ef1e5a5f930847fb96c5ff4,ningw,Thu Dec 24 13:13:32 2020 +0800,KUDU-1644 use range partition info for pruning,other,0,0,0
+47075a180ca46366a56af2ff97f65b199b4a1f4e,Bankim Bhavsar,Tue Dec 22 11:52:17 2020 -0800,[master] KUDU-2181 Procedure for copying sys catalog on adding master,feature,11,0,0
+7c2b003b1cf2a812be5d4de8d469ece27b2f3fc9,Andrew Wong,Sun Dec 13 23:35:57 2020 -0800,rpc: fix non-retriable error when starting up or shutting down,bug_fix,0,0,1
+59b3836a9a5b16fc68819a377cf8a5021a43b176,Andrew Wong,Sun Dec 13 23:33:54 2020 -0800,client: retry id-based lookups if there is no leader,other,0,0,0
+fcd737e6ccedd5a91367dc119e773f0b1904b4fa,Alexey Serbin,Fri Dec 11 22:46:02 2020 -0800,[rpc] add slow timing logging for WrapSaslCall,feature,0,0,0
+7ecc6c7505000e7934ad4687c5987b6b6f0949b1,Grant Henke,Sun Dec 13 17:07:13 2020 -0600,[thirdparty] Upgrade Ranger to 2.1.0,other,0,0,0
+e75aad09a8dbe295a11cc2042903b74faf72623e,Alexey Serbin,Sun Nov 22 18:46:03 2020 -0800,KUDU-2612 keep-alive txn heartbeating for C++ client,other,3,0,0
+9197e2d5c96b94f227407e5c135c53f1b0182a65,Andrew Wong,Mon Nov 2 22:58:35 2020 -0800,KUDU-2612: fuzz transactional inserts,other,3,0,2
+fa21bf61821199aedb4fbcdc1b09d0cf3ee56f51,Alexey Serbin,Thu Nov 12 22:28:33 2020 -0800,KUDU-2612 keep-alive tracking for transactions,other,4,0,0
+ae45cd15c2703e3cfaf62aabb20ba79b961b3135,Alexey Serbin,Tue Dec 8 20:33:21 2020 -0800,[client] make metacache reset safe,other,0,0,1
+be4fb8383eeda269234e99de07316b5ec422d403,Grant Henke,Thu Dec 3 15:27:18 2020 -0600,Replace boost::iequals with our own implementation,feature,0,0,0
+3e6d061c0eff0cdc15a72682527ea4b04895f30c,Alexey Serbin,Wed Dec 2 20:02:18 2020 -0800,[txn] update not-a-leader retry logic in TxnSystemClient,other,0,0,0
+e5ec5b50e1f762f20e0716db4ef1aba10125a842,Grant Henke,Mon Dec 7 10:22:30 2020 -0600,"Revert ""[thirdparty] Upgrade glog to 0.4.0""",other,0,0,0
+2a558768f8aa00068e72ccd1327081f07ba46b03,Andrew Wong,Sun Nov 29 22:41:36 2020 -0800,client: allow tablet ID lookups from the MetaCache,other,3,0,1
+2943aa701ee092158c2084c614a91f92513ef7c4,Grant Henke,Fri May 15 14:03:18 2020 -0500,[thirdparty] Upgrade glog to 0.4.0,other,0,0,0
+713fee390d0241bf466f490d5b2c678f7ebe5175,Grant Henke,Thu Dec 3 08:58:04 2020 -0600,[thirdparty] Upgrade to gperftools 2.8,other,0,0,0
+6f807b136dfc072b019bdb4a5f1719603096898f,Andrew Wong,Mon Nov 23 01:14:00 2020 -0800,KUDU-3108: fix invalid memory accesses in merge iterator,bug_fix,1,0,0
+802057f3f243a6fa92c90b4da4c229307761762f,Alexey Serbin,Sun Nov 22 20:10:51 2020 -0800,[CLI] introduce connection negotiation timeout,other,1,0,0
+fd7a40367a81555230eac62a1a8d1467433ed100,Andrew Wong,Tue Sep 22 00:31:37 2020 -0700,KUDU-2612: add txn memrowsets to tablet,feature,0,0,0
+38aee4b1407b04b8c299768be0ae40d84a8e2a3a,Alexey Serbin,Wed Oct 28 18:26:39 2020 -0700,KUDU-2612 C++ client transaction API,other,1,0,0
+6d9f257ad48c11a4546545dee096c484623cc392,Alexey Serbin,Fri Nov 13 11:23:33 2020 -0800,[catalog] logging for HMS-related operations,logging_improvement,9,0,0
+6a7cadc7eddeaaa374971d5ba16fec8422e33db9,ningw,Wed Oct 28 14:47:27 2020 +0800,KUDU-1644 hash-partition based in-list predicate optimization,other,0,0,0
+75bb0ea1b1a543a32d87b0f14671aa9eb7571dfb,Alexey Serbin,Mon Nov 9 12:19:09 2020 -0800,[client] use make_shared for a few call sites,other,0,0,0
+b3de5e38c128277a7e9e48bd8c1d0f0a691157a5,Andrew Wong,Fri Oct 30 18:30:42 2020 -0700,tablet: support merge compacting a MRS with invisible rows,feature,0,0,0
+6d2c79a4f266932b644f1cf7165ad3b6ccc49404,Attila Bukor,Tue Oct 20 19:58:25 2020 +0200,KUDU-3210 Add option to enforce FIPS approved mode,feature,0,0,3
+ea1695885067dc5d39ad1f794a91a9d9e0540b1a,Andrew Wong,Thu Oct 8 17:01:00 2020 -0700,KUDU-2612: persist commit MVCC op timestamp in txn metadata,other,0,0,0
+fe65185d9bc23489dc693d5214fb0d2172325737,Grant Henke,Mon Oct 26 22:28:16 2020 -0500,KUDU-1563. Add UPDATE_IGNORE and DELETE_IGNORE operations,feature,1,0,0
+7a347a7792a0dd317aece63f8a9d6aee0b2b680d,Alexey Serbin,Tue Oct 27 18:22:11 2020 -0700,[tserver] --scanner_max_wait_ms is a run-time flag,other,0,0,1
+c7dfac7b784984a13e0707bc391c057dd8122bf2,hahao,Fri Oct 23 16:43:54 2020 -0700,[catalog manager] fix the typo in the comment for 'leader_lock_',bug_fix,0,0,0
+63dbe6f9be3399ea83f6ffda5f6de1d84d5c8b96,Andrew Wong,Fri Oct 23 14:01:35 2020 -0700,tablet: fix handling of ghost rows when merging MRSs,bug_fix,0,0,0
+2ca437e25e93dba3d3678dd20d92ffa0b4ba2e29,Andrew Wong,Tue Sep 22 00:35:35 2020 -0700,KUDU-2612: have MRS iteration account for txn metadata,other,0,0,0
+b4c1775ed269cd86df81708a67f202127dfa9161,Grant Henke,Thu Oct 15 14:28:09 2020 -0500,[docs] Automatically generate a metrics reference page,other,0,0,0
+bd18cd1cf196e0fa4b9051e51deed789090b1721,Alexey Serbin,Tue Oct 13 23:35:31 2020 -0700,[kudu-admin-test] fix TestUnsafeChangeConfigWithFiveReplicaConfig,bug_fix,0,0,0
+9306e41c32c8a03e1aedd682b9e158066baba7f4,Alexey Serbin,Thu Aug 27 17:08:20 2020 -0700,KUDU-2612: initial implementation of TxnManager,feature,1,0,0
+640a84ecff857c3d0447c690c68e2361eb3e9c3b,Andrew Wong,Sun Oct 11 23:08:06 2020 -0700,KUDU-3195: flush when any DMS in the tablet is older than the time threshold,other,0,0,1
+a6c93313aae7f40fb8d6b87fb6f6d875b42c068b,Grant Henke,Tue Oct 13 13:53:14 2020 -0500,[subprocess] Avoid transitive log4j dependencies,other,0,0,0
+6208c01abbb29acd8306dfdd831fe56fe2cf2a30,Attila Bukor,Wed Oct 7 16:15:13 2020 +0200,Upgrade Bootstrap to 3.4.1 in web UI,other,0,0,0
+90aa4fa7d1527f376803440a4642668e3d798748,Andrew Wong,Tue Oct 6 00:06:49 2020 -0700,KUDU-2612 p11: persist txn metadata in superblock,other,0,0,0
+b2fae6d0aec813c9a82c4cd1cbb3e5d495d6e35a,Alexey Serbin,Fri Oct 2 22:54:54 2020 -0700,[catalog_manager] Status::AlreadyPresent for range duplicates,other,0,0,0
+e5579c9b7465f9d9a164d42709f1a9a07acdff59,Grant Henke,Tue Sep 29 16:36:08 2020 -0500,KUDU-3192: [hms] Leverage the cluster ID in HMS sync,other,2,0,0
+cc1e091904ceb6b6c527498d8ff849bb42412115,Grant Henke,Tue Sep 22 21:37:52 2020 -0500,KUDU-3192: [client] Expose the cluster ID in the client KuduTable,other,0,0,0
+9fc6c772aff2bbfa008f52da8e7ba6e2c2d9012f,Bankim Bhavsar,Fri Jul 24 16:33:25 2020 -0700,[master] KUDU-2181 Raft ChangeConfig request to add a master,feature,7,0,0
+d03448530b6c301dbaf242cce3553db716a8b58f,Grant Henke,Wed Sep 16 09:39:23 2020 -0500,Fix Unix socket usage on macOS,bug_fix,0,0,0
+fcceb8b1a20afff30e15b6248a56ab3e06b61e79,Andrew Wong,Thu Sep 17 18:22:21 2020 -0700,KUDU-3191: fail replicas when KUDU-2233 is detected,other,0,0,3
+851495c976681af54466d74d32f53c559be8a2d4,Alexey Serbin,Sun Sep 20 11:03:08 2020 -0700,[tablet] updated op-related messages,other,0,0,0
+c7bf1c140e00ba8895ec6a14fa918c190dff2e1f,Grant Henke,Tue Jul 28 10:20:15 2020 -0500,KUDU-2817: Upgrade boost to 1.74.0,other,0,0,0
+efb254e27448b1c18c124a7320913bce687e59b6,Alexey Serbin,Wed Sep 16 21:45:19 2020 -0700,[util] update on DirName() on BSD-derived system,other,1,0,0
+6b021dac1112e90488d1d6fb710d97a8f9085e76,Alexey Serbin,Wed Sep 16 20:37:28 2020 -0700,[util] fix BaseName() on BSD-derived systems,bug_fix,1,0,0
+7d6655d40a839bbd43f9472cb509e04ebb4f3fb8,Andrew Wong,Wed Sep 16 12:20:46 2020 -0700,test: fix file block manager tests following eaf1b6d,bug_fix,1,0,0
+eaf558527a9f996e68515bf190dc7cf1ab9931a3,Alexey Serbin,Sat Sep 12 20:27:41 2020 -0700,[tools] add --use-upsert option for 'perf loadgen',feature,1,0,1
+8fc3ce7040b485424d196e6f9032c7b22b43b122,Mahesh Reddy,Tue Sep 1 17:32:37 2020 -0700,KUDU-3012: Add a Log Throttler,feature,0,0,0
+bd966e2b99a2b5f2a9752f61c8fe84a56d5d2307,Grant Henke,Fri Sep 4 12:36:58 2020 -0500,KUDU-2884: [hms] Improve master address matching,feature,2,0,0
+c4997af4b90b4a102597775e575320c95eb3c1ba,Alexey Serbin,Sun Sep 6 17:15:41 2020 -0700,[threadpool] optimize queue overload detection,other,0,0,0
+45d1e6612f5cb273137f7240136f78b5a944d9e7,Alexey Serbin,Tue Sep 1 17:13:50 2020 -0700,[util] add performance test scenario for ThreadPool,feature,2,0,0
+6689ba3c81be193309afd27de016dd35c0db71de,Grant Henke,Tue Sep 1 15:00:43 2020 -0500,KUDU-2574: Add a unique cluster ID,feature,4,0,0
+a59d3821bfbc87ac3c910c602d2bdf037eeb9d9b,Bankim Bhavsar,Fri Aug 14 10:09:52 2020 -0700,[master] KUDU-3182 Allow single master to specify --master_addresses,feature,1,0,2
+68ee03c2bd0bae950c08582910e675cda54b6ca7,Andrew Wong,Fri Aug 7 18:16:46 2020 -0700,KUDU-2612 p9: anchor participant ops in WAL,other,1,0,0
+ee3bb83575a051c2feade1f8c159b2902a7160d5,Alexey Serbin,Thu Aug 13 22:43:32 2020 -0700,KUDU-1587 part 2: reject write ops if apply queue is overloaded,other,3,0,0
+e4c2cb91020d67a97195e0b7745cc2a98562e4c4,Andrew Wong,Thu Aug 27 18:03:56 2020 -0700,"tablet: replace MVCC ""commit"" with ""apply""",other,0,0,1
+fc8615c37eb4e28f3cc6bea0fcd5a8732451e883,Alexey Serbin,Mon Aug 10 18:16:53 2020 -0700,KUDU-1587 part 1: load meter for ThreadPool,other,4,0,0
+c6d438ab417009e8007a1de274178d0bcf0dfb63,Alexey Serbin,Fri Aug 7 20:51:04 2020 -0700,[tserver] add test to reproduce KUDU-1587 conditions,feature,2,0,0
+d1190c2b06a6eef91b21fd4a0b5fb76534b4e9f9,Jim Apple,Tue Jul 28 15:54:52 2020 -0700,Block Bloom filter false positive rate correction,bug_fix,0,0,0
+fb0f4bc3bf63614a831fedc6cc29cf860dddaf49,Todd Lipcon,Thu Apr 23 14:30:49 2020 -0700,KUDU-2844 (2/3): move RowBlock memory into a new RowBlockMemory struct,feature,0,0,0
+7b832c9c31975d691c4dc005631f1bb47aa6ed30,Todd Lipcon,Thu Apr 23 12:24:41 2020 -0700,KUDU-2844 (1/3): make BlockHandle ref-counted,other,0,0,6
+9a9ea0f2f8acb39b06cc49f0a3a53cba26f4aae9,zhangyifan27,Mon Jun 15 17:05:22 2020 +0800,[maintenance] use workload statistics to scale perf score of flushes/compactions,other,1,0,0
+162d7f5ded8f6cd62540b2d8ad2a2b7b5a8c887f,Todd Lipcon,Wed Jul 1 17:01:25 2020 -0700,Optimize GetTableLocations for better arena use,other,0,0,0
+924244c303edd2fc4917204fa0a30163feea0f99,Alexey Serbin,Tue Jul 28 20:03:12 2020 -0700,[rpc] per-method counter of dropped RPC requests,other,0,0,0
+36c251a99e2243beb6be5173eb9cdad6fb74e4ed,Andrew Wong,Fri Jun 26 15:53:09 2020 -0700,KUDU-2612 p4: mechanism to create a transaction status table,other,0,0,1
+0914eb527e82acc727828d951559981c905a7f0c,Alexey Serbin,Mon Jun 8 19:40:34 2020 -0700,[tests] add same_tablet_concurrent_writes test,feature,5,0,0
+713879ab3dfd055fbaede1741e05e2696081c497,Todd Lipcon,Thu Jul 9 17:51:43 2020 -0700,tablet: acquire/release locks in batches,other,1,0,0
+60db4aeea0c47e6d7b7557b850cf6378b5ad67ce,Grant Henke,Wed Jul 15 15:35:48 2020 -0500,[hms] Reduce noisy logging on non-leader masters.,logging_improvement,0,0,1
+6f0e858ba929deacf297a116e1d99a678a3d231c,Attila Bukor,Fri Jul 10 16:05:54 2020 +0200,KUDU-3090 Restrict changing ownership of a table,other,1,0,0
+0e94aa78465c6e7e83dca1da9015afb5ac95cb09,Attila Bukor,Fri Jul 10 16:05:46 2020 +0200,KUDU-3090 Add ownership privileges,feature,0,0,1
+fcdffd4c0e5d980341653bf180b8a234244c2f48,Attila Bukor,Fri Jul 10 15:59:45 2020 +0200,[ranger] Add refreshing Ranger policies,feature,1,0,0
+f7caae03dc61ef48cfcc86cc279b63c46adee46a,Todd Lipcon,Mon Jul 13 12:10:38 2020 -0700,client: allocate InFlightOp from a Batcher Arena,other,0,0,0
+f08d524ac73dbbac6962a8fa857eaaa5701a6809,Andrew Wong,Tue Jun 30 12:09:46 2020 -0700,KUDU-2612 p3: tserver mechanism to create txn status tablets,other,0,0,0
+e55ee9d38abeec9f80998c9af1c7864d5fef4e9b,Alexey Serbin,Tue May 19 08:32:28 2020 -0700,[master] cache for table locations,other,9,0,1
+a600f386aa2c341522638acb9af53fd45c469431,Todd Lipcon,Thu Jul 9 15:14:01 2020 -0700,KUDU-636. Use Arena for EncodedKeys,other,0,0,0
+880ffe4db635e11e45b22256c7626c80b81ccbc0,Attila Bukor,Fri Jun 5 12:01:50 2020 +0200,KUDU-3090 Add delegate admin privilege,feature,0,0,0
+9287bc2095bfea2713cd743dc3f5bb4cd0f41476,Todd Lipcon,Mon Jul 6 14:27:34 2020 -0700,KUDU-636. Use protobuf arenas for CommitMsgs,other,0,0,0
+f0446b73630d75f6bf9c11b3fcce8953c557b578,Attila Bukor,Tue Jun 30 16:36:54 2020 +0200,KUDU-3090: Native owner metadata in Kudu,other,1,0,1
+fe15af8496af524b6de3392772edeec88dc8a626,Todd Lipcon,Wed Jul 1 16:57:17 2020 -0700,Enable arenas for RPC request and response,other,0,0,0
+f8dcf3a14ac5f07babdad334f4e6307c851d9b81,Todd Lipcon,Wed Jul 1 16:18:02 2020 -0700,Upgrade C++ to protobuf 3.12,other,0,0,0
+19c0f7b19b623bc91ebcd7b6451300dc45364b0b,Andrew Wong,Mon Jul 6 12:49:02 2020 -0700,test: fix flakiness of TestDeletedRowsetGc,bug_fix,2,0,1
+d23ee5d38ddc4317f431dd65df0c825c00cc968a,Grant Henke,Wed Jun 3 20:56:19 2020 -0500,KUDU-1802: Avoid calls to master when using scan tokens,other,0,0,5
+f1905eb2713418294daf71f67b48ea67fb09403e,Bankim Bhavsar,Wed Jun 3 11:37:24 2020 -0700,[perf] KUDU-3140 Heuristics to disable predicate evaluation for Bloom filter,other,4,0,0
+51900735075fca92e67cd9dd290b304604d70a84,Alexey Serbin,Thu Jun 25 00:12:38 2020 -0700,[mini_ranger] search for bound port at loopback and wildcard addresses,feature,0,0,0
+27cf7d881f1ab68b7c022d88c5f28160a0d0e518,Alexey Serbin,Wed Jun 24 21:04:50 2020 -0700,"[test_util] multiple bind address for WaitFor{Tcp,Udp}Bind()",feature,1,0,1
+396b70b24b80b1b0b362910e56e4da3f09c441e0,Andrew Wong,Tue Jun 2 16:35:04 2020 -0700,KUDU-2612 p1: add initial transaction status storage,feature,3,0,0
+2bd3d8281fc6260c441657d378fd4d023d526b6b,Alexey Serbin,Tue Jun 23 11:43:24 2020 -0700,[autn_token_expire-itest] make one scenario more robust,other,0,0,0
+da1c66b61c4924a4726aaeb171e79cc0b03ca65c,Alexey Serbin,Fri Jun 5 17:01:53 2020 -0700,[consensus] KUDU-2727 lock-free CheckLeadershipAndBindTerm(),other,1,0,0
+8c633e2eb20fca9f45882b291069000c6451c97a,Alexey Serbin,Fri Jun 12 18:23:45 2020 -0700,[consensus] use move semantics for LogEntryBatchPB,other,0,0,0
+15af717e8c200d4e7a33a25171a6bfe58d70aa65,Alexey Serbin,Tue Jun 9 14:47:15 2020 -0700,[util] improved performance of BlockingQueue,refactor,0,0,0
+621cc24b19b0b1bf5f11d31791a3a115be62b5af,Alexey Serbin,Wed Jun 10 20:11:10 2020 -0700,[util] add BlockingQueueTest.MultiThreadPerf test scenario,feature,9,0,0
+7142a4f1c3f6d281968b1f4506a1a3007f00cad3,Alexey Serbin,Wed Jun 10 12:12:26 2020 -0700,[consensus] small clean-up on Log,other,0,0,0
+710bd6efaa796db4b95ab2c9a13b53abcf5174a2,Alexey Serbin,Mon Jun 1 19:20:57 2020 -0700,[consensus] small cleanup on Peer::SignalRequest(),refactor,0,0,1
+97d775ae883181645dfcbbf1c4c18affc130ea78,Andrew Wong,Tue Jun 2 16:34:29 2020 -0700,tablet_replica-test: refactor to pull out some useful code,refactor,0,0,1
+12d9a84b49675a20ad10f1f330cb3ed083ea4e92,Alexey Serbin,Tue Jun 2 12:18:56 2020 -0700,[maintenance_manager-test] small clean-up log retention scenario,other,0,0,0
+46d2cdf2b52a9511783d28b4fbecda847047070b,Alexey Serbin,Thu May 28 21:58:00 2020 -0700,[scanner] output the essential error message first,other,0,0,1
+72b3bf43e577fb060fed6e0e05b47ed24e237ac5,Alexey Serbin,Fri May 22 12:59:21 2020 -0700,replace shared_ptr(new T) with make_shared<T>(),feature,0,0,0
+84db20735f696212510a026d13656c9458009bb2,Alexey Serbin,Thu May 21 19:14:02 2020 -0700,[catalog] remove CatalogManager::CheckOnline(),other,0,0,0
+6ffac57ee0552880a4248329fc299dbfc61f844b,Andrew Wong,Thu May 21 22:12:32 2020 +0000,"Revert ""KUDU-2817: Upgrade glog to 0.4.0""",other,0,0,0
+b3d231cf5672dcd8e851253f02dbab243861987a,Andrew Wong,Thu May 14 16:38:04 2020 -0700,rebalancer: throttle logging when building cluster info,logging_improvement,0,3,1
+940f6d136286feef1e101e47f1d14e6ce5f95d61,Grant Henke,Fri May 15 14:03:18 2020 -0500,KUDU-2817: Upgrade glog to 0.4.0,other,0,0,0
+799ba6e61f7534d0c86765d8f6b7d5575c27f379,hahao,Mon May 18 15:54:14 2020 -0700,[docs] add blog post announcement as part of a release,feature,0,0,0
+af561c6f4e6ff08aea1bb7a6a30aff7892604978,Alexey Serbin,Thu May 14 12:38:36 2020 -0700,[mini_ranger] expect Ranger to bind at wildcard address,feature,0,0,0
+e70d806d1d410b3f1b623e21465061ebe0f62682,Alexey Serbin,Wed May 13 11:30:47 2020 -0700,[tools] add --ignore_nonexistent for 'local_replica delete',feature,1,0,0
+b7ef3d25db63c41a7cb08369ecec1bbfc82d553f,Alexey Serbin,Tue May 12 15:41:35 2020 -0700,[tools] multiple tablet ids in 'local_replica delete',other,2,0,2
+54b9a5987ef649806f830a4d1276902d145ab162,Andrew Wong,Tue May 12 18:40:55 2020 -0700,util: quell warning in sockaddr.cc,feature,1,0,0
+589620257b82fbb9c20fe6d6dfa7f5a97e6c06ae,Alexey Serbin,Sun May 10 21:47:08 2020 -0700,[tests] added more tests for GetTableLocations(),feature,5,0,1
+eae52ea669aa63f440d9e452fd01caed3f85330a,Andrew Wong,Fri Apr 17 18:11:16 2020 -0700,"replace ""transaction"" terminology with ""op""",other,0,0,8
+25408b18c4836ae01fd7fa2b649facec2492d931,Alexey Serbin,Sat May 9 20:36:57 2020 -0700,[master-test] updated GetTableSchema() microbenchmark,other,1,0,0
+d641d5dc596d9afc283554ac438033d686c77756,Grant Henke,Tue Aug 6 09:08:07 2019 -0500,[hms] Upgrade Hive to 3.1.1 and Hadoop to 3.2.0,other,0,0,0
+1ab6d50a891aa2efdb39d74af2ffe6f478c8b013,Grant Henke,Thu Apr 30 09:37:10 2020 -0500,[authorization] Remove the Sentry integration,other,0,33,0
+fda493d3038661ab2bfcd9d54ff67eef0de9fa9d,Alexey Serbin,Mon Apr 27 10:54:35 2020 -0700,[master-test] added GetTableSchema() microbenchmarks,feature,4,0,0
+92e95657b49d7d0a54590f2ddea3cea2cf1ac91f,Andrew Wong,Fri May 1 21:09:14 2020 -0700,KUDU-3113: fix auto-rebalancer move execution,bug_fix,0,0,0
+163cd256ae7ef8ef0d05c8595de5ebf7ae558cf7,Todd Lipcon,Tue Apr 7 14:00:56 2020 -0700,tserver: add locking around an RPC's usage of a Scanner,feature,3,0,0
+be68ce81beeb708edfc0545695e72282506f3845,Todd Lipcon,Thu Apr 9 16:42:44 2020 -0700,client/tserver: add support for connecting over unix domain sockets,feature,2,0,0
+c7c4d47ecca0ea0d90435dac736d22f4063d5507,Todd Lipcon,Tue Mar 31 12:03:09 2020 -0700,Avoid calling Schema::find_column() once per RowBlock in columnar serialization,other,0,0,1
+fbde23718211f9912067d33fd09b4177263263a1,Todd Lipcon,Thu Apr 9 14:04:20 2020 -0700,Add basic support for UNIX domain sockets,feature,2,0,0
+79079b6b64295b06c5a0f05ed200a55d89bccc47,Todd Lipcon,Wed Apr 8 14:31:11 2020 -0700,net: make Sockaddr more generic for other address families,feature,0,0,0
+57a4ea30931dc140c3cff25623cd0bd664122321,Todd Lipcon,Sat Apr 11 22:19:14 2020 -0700,rpc: avoid an extra epoll cycle when data can be sent immediately,other,0,0,0
+b2e4d952b6134a47db383fa2a0a88ac47cbaecc1,Alexey Serbin,Thu Apr 9 15:03:25 2020 -0700,[catalog manager] cache masters' addresses,feature,0,0,0
+8528ac70245efb6d7fec2d18dfa17e45b80421a9,Alexey Serbin,Fri Apr 10 11:06:02 2020 -0700,[common] update on HostPortFromPB()/HostPortToPB(),other,0,0,0
+e6c742ec72d5da84554f1ab5f0e5c5603ab6307b,Andrew Wong,Fri Apr 10 20:43:21 2020 -0700,KUDU-3078: parameterize ts_sentry-itest to use Ranger,other,2,0,0
+dacb8203f05ca2d873d524501214bfe5144ac9bb,Attila Bukor,Fri Apr 10 17:04:58 2020 +0200,KUDU-3078 Add Ranger tests to master_authz-itest,feature,1,0,0
+e7044a5cbe1d1f9d36204279c73901d37451a570,Attila Bukor,Thu Apr 9 14:58:31 2020 +0200,[ranger] Fix and refactor RangerClient,bug_fix,1,0,8
+14912a1fd78ba7cf4d62bf934ae64d6f6f229ee6,Alexey Serbin,Thu Apr 9 15:25:08 2020 -0700,[catalog_manager] reduce contention in ScopedLeaderSharedLock,other,0,0,0
+2d18e8dfa49d81431e670a807425e3a7ad37502a,Bankim Bhavsar,Fri Apr 3 23:21:09 2020 -0700,cfile: clean up encoding-test to use fewer templates,other,0,0,1
+40e4d4f52168690cfbeaeaccc8537558f29f28d2,Bankim Bhavsar,Thu Apr 2 22:01:08 2020 -0700,cfile: change BlockBuilder API to yield a vector of Slices,other,0,2,0
+ffa33473bb0c459ec35cbc68e1ea578938b0bd6b,Todd Lipcon,Sat Apr 4 20:34:00 2020 -0700,util: remove duplicate results from DNS resolution,other,0,0,0
+63776bcabf5f22f305e429620941a2958f6087d5,Alexey Serbin,Sun Apr 5 23:46:58 2020 -0700,[master] KUDU-2798 fix logging on deleted TSK entries,bug_fix,0,0,0
+b08fb2615ba58024b60fb177c2cc311ba96f189f,Andrew Wong,Fri Apr 3 20:27:56 2020 -0700,ranger: allow overwriting of the log4j2 properties file,other,0,0,0
+c0a9fdc7384ac24258411949303ae1881358c3f3,Andrew Wong,Fri Apr 3 00:38:52 2020 -0700,ranger: enable log4j2 logging to files,logging_improvement,2,0,3
+5739add189361ddf0607df84c258c542159719e8,Adar Dembo,Tue Mar 31 17:57:11 2020 -0700,"remove last vestiges of boost::bind, boost::function, and std::bind",other,0,0,0
+73934d2bbfa476261845e2817cc65b38f7cfc832,Attila Bukor,Wed Apr 1 22:59:13 2020 +0200,[postgres] Deflake MiniPostgres tests,other,0,0,1
+fc3db8fef17c600ea5cbe14f6f1fc2fe61a4063d,Attila Bukor,Tue Mar 31 20:43:25 2020 +0200,[ranger] Use unique loopback for MiniRanger,other,1,0,0
+897eb377ce91a19614626ac177f4315c5c5dac69,Attila Bukor,Tue Mar 31 00:25:46 2020 +0200,KUDU-3081 Add Kerberos support to MiniRanger,feature,0,1,0
+fa2d4c756646b3f8428d2931113e8dfc3bc5af79,Todd Lipcon,Thu Mar 26 22:28:06 2020 -0700,client: add support for columnar format scan,feature,0,0,1
+abd29cc98af31d57251f19de1b68037afce2aff1,Hao Hao,Mon Mar 30 17:49:32 2020 -0700,[ranger] authorize list tables should never throw NotAuthorized,other,0,1,0
+d16e7e149d941addb20064148ec4853e5b002fc8,Alexey Serbin,Mon Mar 30 21:02:36 2020 -0700,[thirdparty] root can run postgres,other,0,0,0
+263c3aa894c087691ef2c4463d46a52a94f12c2b,Adar Dembo,Mon Mar 30 15:10:18 2020 -0700,KUDU-3093: another band-aid for this DebugUtilTest.TestSignalStackTrace,bug_fix,0,0,0
+37bda7be50f5b0e280612c3dfa0cf10bd8cb6dcf,Adar Dembo,Mon Mar 30 11:40:31 2020 -0700,Remove return types from various lambdas,other,0,0,0
+56ee4225a304763cc6f5949e0b5497402860d614,Adar Dembo,Sat Mar 28 01:53:04 2020 -0700,gutil: remove callback and bind from the codebase,other,0,7,0
+1d28104cac0866c83b3022e3ddf3b7237962c1da,Todd Lipcon,Wed Mar 25 11:38:56 2020 -0700,Add functionality to serialize a RowBlock into columnar format,feature,1,0,2
+8d1b6e191011a7eb6aa52930e2f2f59dc80e3c44,Adar Dembo,Sat Mar 28 01:47:04 2020 -0700,consensus: remove kudu::Bind usage from dirty callbacks,other,0,0,0
+c497253f0d95313dc6ea5d3a6dbf64ef0787115b,Adar Dembo,Sat Mar 28 01:44:14 2020 -0700,tracing: remove kudu::Bind usage from various callbacks,other,0,0,0
+8d92905a472e5b010d8f1bdfbe1770fd564ce082,Adar Dembo,Sat Mar 28 01:25:43 2020 -0700,logging: remove kudu::Bind usage from LoggingCallback,logging_improvement,0,0,0
+5db82975fd9729d90551b7a4c8f4b28b5375deef,Adar Dembo,Sat Mar 28 01:22:31 2020 -0700,gutil: remove BASE_EXPORT,other,0,0,0
+5cd26cfad9a5796080d1242fff2090c05eaa1f4a,Andrew Wong,Sat Mar 28 02:40:10 2020 -0700,env: add a fifo class,feature,0,3,1
+697301fb076e9649e7f8eb4556c91e59ab9b185f,Andrew Wong,Fri Mar 27 22:21:21 2020 -0700,subprocess: use a fifo instead of stdout for IO,other,0,0,0
+daced7ec446ea8e7e1a8eeebe21e08ee038f285a,Adar Dembo,Fri Mar 27 13:04:31 2020 -0700,log: clean up entry batch append callback usage,other,0,0,0
+be2d7c5882a9f4842e6387c4c4cef50b2e4bae75,Adar Dembo,Thu Mar 26 00:10:25 2020 -0700,status_callback: replace Bind usage with lambdas,other,0,0,0
+5ce3a022f99ee3f99e086292487e390e3334d247,Adar Dembo,Fri Mar 27 16:31:31 2020 -0700,KUDU-3093: fix DebugUtilTest.TestSignalStackTrace in RELEASE mode,bug_fix,0,0,0
+092cecc26b8725a532a53a4bf50a5e6d19c769c2,Adar Dembo,Tue Mar 24 02:04:27 2020 -0700,iwyu: codebase-wide fixes based on libcpp,bug_fix,0,0,0
+0ba6cb8d6b38a992786e5027528349a43802fd31,Todd Lipcon,Tue Mar 24 14:59:54 2020 -0700,Add core algorithms for columnar serialization,feature,5,0,0
+b417479266ef0f09570d4536738ca18cf48d7ff2,Attila Bukor,Wed Mar 25 21:47:36 2020 +0100,KUDU-3079 Add MiniRanger,feature,11,0,0
+2612fc77bb4be1da0fba090e004217821e116a49,Alexey Serbin,Tue Mar 24 15:09:05 2020 -0700,[clock] hybrid_clock-test to run in different environments,other,1,0,0
+3ae02a92ccb99aa1a6b0c3d05deea75756aaa6e3,Todd Lipcon,Tue Mar 24 14:23:34 2020 -0700,wire_protocol: some simplification and optimization for rowwise encoding,other,0,0,0
+a4b28812f43e6b8a85e1d61b48a2dbba70d56d1b,Todd Lipcon,Tue Mar 24 10:42:14 2020 -0700,rpc: relax limit on number of sidecars,other,0,0,0
+6dd3fc104198ced9849711c1ed4c860eff75f3bd,huangtianhua,Thu Mar 12 11:01:22 2020 +0000,KUDU-3072 Add glog patch to support stacktrace for aarch64,bug_fix,0,0,0
+5b290cd4439d19ad8e5773cf69f7b994adc1f2e9,Todd Lipcon,Mon Mar 23 13:18:42 2020 -0700,bitmap: faster implementation of iteration over a bitmap,feature,0,1,0
+ee86f568cb405f8636ae56f3b69f8009f8f481da,Alexey Serbin,Sat Mar 21 12:41:33 2020 -0700,[util] GetBindIpForDaemon() consumes PID wider than 18 bit,other,1,0,0
+22c5402b0f0b9957e307a7ad032ab118b2399c49,Attila Bukor,Sun Mar 22 23:34:31 2020 +0100,KUDU-3079 Add MiniPostgres,feature,4,0,0
+647a3d2f18576ca4f17c0a80f10590ca0187e6b6,Andrew,Sat Mar 21 21:45:04 2020 -0700,server: make FS layout creation message less agressive,other,0,1,2
+84d23679905f6953a976f2baedcc1cb18c641cfc,Hao Hao,Fri Mar 13 23:44:27 2020 -0700,[ranger] fix incorrect authz enforcement in Ranger authz provider,bug_fix,1,0,1
+58f7a3015c967e7590e91d729cea5327d253d74d,Andrew Wong,Thu Mar 19 02:30:08 2020 -0700,tablet: plumb delta stats into delta compaction outputs,other,0,0,0
+705954872dc86238556456abed0a879bb1462e51,Andrew Wong,Thu Jan 30 22:03:07 2020 -0800,"KUDU-1625: background op to GC ancient, fully deleted rowsets",other,6,0,0
+664d7fec8e603d930e7ca2c8302130103f4fbcac,hannahvnguyen,Mon Feb 3 09:07:59 2020 -0800,KUDU-2780: create thread for auto-rebalancing,other,5,0,1
+1a21e92057f61bd3b0581ac590a84bc7d7a21ac6,Todd Lipcon,Thu Mar 5 12:49:07 2020 -0800,rpc: reduce context switches and receive calls,other,0,0,0
+802623741e163333e20ad57e059f4ce20701973e,Hao Hao,Wed Mar 11 16:57:23 2020 -0700,[ranger] pass 'principal' and 'keytab' to the subprocess,other,0,0,2
+332d4bb0bcda04276be1ec25123f204877664966,Hao Hao,Fri Mar 13 22:19:43 2020 -0700,[ranger] validate the JAR file path of the subprocess,other,1,0,1
+a80d7472110ae2349a82c2150aad61079969b337,Alexey Serbin,Wed Mar 18 16:09:58 2020 -0700,[util] KUDU-3067 add OpenStack metadata detector,feature,0,0,0
+f37e7a6e0a249d32568707bdd2f5305c3663e0b3,Adar Dembo,Sat Mar 14 02:07:20 2020 -0700,thread: simplify Thread::Create API,refactor,0,0,1
+9a0ad9569286dedc3ba699d37f95e96070b548cc,Adar Dembo,Sat Mar 14 02:05:16 2020 -0700,remove kudu::Thread from tests,other,0,1,1
+2bfc1b03c59eae95423faa97d8c7715247e19bc7,Hao Hao,Wed Mar 11 16:50:09 2020 -0700,[ranger] parameterize the Java binary path for the subprocess,other,1,0,0
+1c60956335675ea0b6ba87a5548cce37634e8306,Bankim Bhavsar,Fri Mar 13 23:04:22 2020 -0700,[util] Minor changes in BlockBloomFilter requested by Impala,other,0,0,1
+30c8287d7b1c8790fda0b6acadbb649178c212a3,zhangyifan27,Fri Mar 13 19:02:21 2020 +0800,[backup] fix log info,bug_fix,0,0,0
+de2bf2177926c66001853d3de555a297bafa2bb9,yeyuqiang,Fri Feb 28 10:23:00 2020 +0800,KUDU-3063: Set a ratio as multiplication factor for memkind_malloc_usable_size,other,3,0,0
+e13315794e911556fc1702247d169c5aa29786c5,Adar Dembo,Tue Mar 10 14:44:59 2020 -0700,threadpool: simplify Submit API,refactor,0,0,0
+a9afbce14454f9b03b9cc5a699a09f4f9935da58,Alexey Serbin,Tue Feb 25 18:48:05 2020 -0800,[ksck] report on misconfiguration for flag categories,other,2,0,0
+d74ad32df7e41f6c9b03edb8b7be27706b507c2c,Tim Armstrong,Thu Feb 6 18:05:35 2020 -0800,KUDU-3050: recover from corrupt kerberos ccache,other,3,0,0
+39bd47462d7c3d57f7207e9eebd4a8102484f568,Andrew Wong,Tue Mar 10 15:23:58 2020 -0700,subprocess: maintain a thread for fork/exec,other,1,0,0
+eaed5fb514e70a837cdd1ef8f39f371fddabc25a,Adar Dembo,Mon Mar 9 00:06:25 2020 -0700,replace gscoped_ptr with std::unique_ptr,other,0,0,1
+fb0411f1d0810e896f18ebb92f7547e630bb12c0,zhangyifan27,Wed Mar 4 22:54:43 2020 +0800,[tserver] report the newly bootstrapped tablet after OpenTablet completes,feature,1,0,0
+05dd6f8d8c9ea8c10012bc7e90b19beabc74d303,Alexey Serbin,Fri Mar 6 16:09:55 2020 -0800,[test-util] set OpenSSL security level for kudu CLI,other,0,0,0
+f4bab12093a527ea6d6ba71cedc6c86ae37db561,Adar Dembo,Thu Mar 5 22:05:57 2020 -0800,common/tserver: replace gscoped_ptr with unique_ptr,other,0,0,0
+fd4c4771d1a146b75c4648f1807b0e3417c42bf9,Adar Dembo,Wed Mar 4 18:37:09 2020 -0800,util: remove all gscoped_ptr,other,0,0,0
+0d29977c688ffeffb80785fe8966a4ffc3ee6a43,Attila Bukor,Thu Mar 5 22:44:22 2020 +0100,KUDU-2972 Add Ranger authorization provider,feature,2,0,0
+6f016678cbf8fa32714685cd5166bced87eb28e9,Andrew Wong,Tue Mar 3 20:22:11 2020 -0800,subprocess: add server-side metrics,feature,0,0,0
+0702fc5e099478ceba9e3f6f6b25f2ffae2afc82,Andrew Wong,Wed Mar 4 16:50:55 2020 -0800,subprocess: report metrics even when calls fail,other,0,0,0
+e13fd4a489bb252ae80f1a2d8dd39991cfdc2a88,Attila Bukor,Thu Mar 5 00:38:13 2020 +0100,KUDU-2972 Add Ranger client,feature,10,0,0
+bc2efa1ae97fcc4e592c93d38592206d48d6f8f5,Andrew Wong,Fri Feb 28 00:15:33 2020 -0800,ksck: display quiecing-related info,other,1,0,0
+f4176b1ad00c3fa01b808bbdd58f08f0aa4ab471,Andrew Wong,Mon Mar 2 21:18:41 2020 -0800,subprocess: plumb Java metrics into C++,other,1,0,0
+e2301c04e40eb55d81435327efa44ccefccc807d,Andrew Wong,Fri Feb 28 19:11:11 2020 -0800,"util: deadline for BlockingQueue::Blocking{Put,Get}",other,0,0,0
+93e85876f472b2668604ce5c15eafb17ce303989,Alexey Serbin,Fri Feb 28 15:36:22 2020 -0800,[security] introduce security level override for OpenSSL,other,2,0,0
+386b04a8b0c8a3b9ff2db8b13bf7bedd8800d14f,Grant Henke,Mon Mar 2 12:33:51 2020 -0600,[scripts] Update parse_metrics_log.py to make it usable in other scripts,other,0,0,0
+01b667407f0f36732c67451825ea6e0434b191de,Grant Henke,Thu Feb 27 09:41:42 2020 -0600,[test] Add logging to help debug testInsertIntoUnavailableTablet flakes,bug_fix,0,0,0
+7648cb9e8f17ba2b22a58f229fc3c3e0ebdb4414,Alexey Serbin,Mon Feb 24 16:52:27 2020 -0800,[webserver] add information on time source,feature,0,0,0
+3adc2882a15af4e777cb8cd0bc7785f002a9402a,Alexey Serbin,Sat Feb 22 21:35:10 2020 -0800,[clock] record maximum error in microseconds,other,0,0,0
+8057eed03487da642f0fb40d6159dca82fde40f2,Alexey Serbin,Sat Feb 22 01:21:28 2020 -0800,[clock] relax version constraint for NTP response,other,0,0,0
+bdb991a6b3ed2c989248dbbcfda983bda4d488bf,Alexey Serbin,Fri Feb 21 18:52:34 2020 -0800,[clock] safer handling of metrics-related endpoints,other,0,0,2
+7cfcab629c51df521aff688d111b3691a317011b,Alexey Serbin,Fri Feb 21 21:09:56 2020 -0800,[util] move PeriodWebUIChecker into a separate header file,other,0,1,2
+9cb3224333e88d56232fae97a4bef02069c67ac9,Andrew Wong,Sat Feb 22 23:48:26 2020 -0800,"mvcc: remove ""safe time"" terminology",other,0,0,1
+26188671cc305757ac34f7c58105a6eea72cc430,Andrew Wong,Sat Feb 22 21:21:26 2020 -0800,mvcc: clean up public API,other,0,0,0
+b0a819e52ba9d04ae3d561e2e611628c5b40c033,Andrew Wong,Fri Feb 21 18:50:46 2020 -0800,[subprocess] use a CountDownLatch,other,0,0,0
+20be5d957ab80c7c0ed8eaf62324ac70940d7543,Andrew Wong,Wed Feb 19 16:02:48 2020 -0800,[cpp] KUDU-2971: protobuf-based wrapper for subprocesses,other,6,0,0
+16ad354482151e8cc27f4640250b0337e5219fd7,Alexey Serbin,Thu Feb 20 18:30:51 2020 -0800,[master] call Shutdown() in destructor,other,0,0,2
+7d9d7009ac288327a54ea694d171f8c2ad23165d,Alexey Serbin,Wed Feb 19 10:57:06 2020 -0800,[clock] KUDU-3048 add builtin-NTP-specific metrics,feature,0,0,0
+3e6d6221e1149a9a068f7d3668fddee5967e196a,Bankim Bhavsar,Wed Feb 5 12:13:35 2020 -0800,[client] KUDU-2483 Add IN Bloom filter predicate to C++ client,feature,2,0,0
+961888dd14e5bd306d3e5b741bc4443620617664,Bankim Bhavsar,Thu Jan 9 10:33:39 2020 -0800,KUDU-2483 Integrate BlockBloomFilter with ColumnPredicate on server side,other,1,0,2
+731f5f3b144e93fdc5b55313a71cc9cec920692e,Brock Noland,Sat Dec 1 22:54:58 2018 +0000,KUDU-1563. Add an INSERT_IGNORE operation,feature,2,0,0
+b984851f704808f5ee07182811527e811389aa57,Alexey Serbin,Fri Feb 14 11:24:17 2020 -0800,[test] fix flake in TsTabletManagerITest::TestTableStats,bug_fix,1,0,0
+0a7787f6563ae316a4a6207a9244c19ba8a7731f,Todd Lipcon,Thu Feb 13 00:38:13 2020 -0800,rpc: allow a sidecar to append multiple slices,other,0,0,0
+bd8e8f8b805bec5673590dffa67e48fbc9cfe208,Alexey Serbin,Mon Feb 3 14:53:16 2020 -0800,[clock] introduce time source auto selection,other,2,0,3
+9c84920811881873733655d6c95fc7740456c4d7,Alexey Serbin,Wed Feb 12 22:55:19 2020 -0800,[clock] cleanup on accessing HybridClock::next_timestamp_,refactor,0,0,2
+de3b76466ff8dc8cd85ce2f218f54e71067d013b,Tim Armstrong,Mon Feb 10 10:10:32 2020 -0800,KUDU-2996: trace when rpc_duration_too_long_ms exceeded,logging_improvement,0,1,1
+995c9a76cc4aaeb7e91b0f894a13e5d1ac1f8fe4,Alexey Serbin,Fri Feb 7 16:20:14 2020 -0800,[clock] declare 'system_unsync' time source as unsafe,other,1,0,0
+e97e8947f7edced314a9e22084a2738e8474451b,Thomas Tauber-Marshall,Thu Feb 6 11:08:20 2020 -0800,[rpc-test] fix flaky TestCancellation,bug_fix,0,0,0
+d941dd5c4f1caba6c105ce1137bd18cc789d5bc2,Alexey Serbin,Wed Feb 5 18:20:37 2020 -0800,[clock] ntp_gettime(): STA_NANO bites again,other,0,0,1
+79a856aa2500061573096b155c17d01c0a47fcb2,Alexey Serbin,Wed Feb 5 16:35:39 2020 -0800,[util] remove timeout parameter for cloud::InstanceDetector,other,1,0,1
+6f626f2baef0519cbae6546ec15f939419c489b6,Alexey Serbin,Tue Feb 4 21:27:56 2020 -0800,[clock] fix on SystemNtp::Init(),bug_fix,1,0,0
+6e4dd49a4716f1aed4f533a85b794dfd04f3ab96,Andrew Wong,Mon Jan 27 18:58:50 2020 -0800,KUDU-3046: deflake TabletServerQuiescingITest,other,1,0,0
+3ba5ec5d0ab3e56428d990afbff92e3dde241578,Alexey Serbin,Mon Jan 27 18:45:02 2020 -0800,[tests] simpler wait-for-crash in TestFillMultipleDisks,other,0,1,0
+eb48992c27a490ca30d740f82f3da6995a2855e4,Andrew Wong,Thu Jan 23 15:26:11 2020 -0800,tools: add tool to get the quiescing status of a tablet server,feature,0,0,0
+eb7fb1f40dd4c700aae83b21e4a2e4d4cbf4b41c,Alexey Serbin,Thu Jan 23 17:01:44 2020 -0800,[tests] minor clean up on linked_list test,other,0,0,1
+14cbaeea009d5787dbf1b830a7e62964dad7a53a,Andrew Wong,Wed Jan 8 23:29:44 2020 -0800,KUDU-3011 p7: add tool to quiesce server,feature,4,0,0
+fc4ab691a502067bc4d5bdff30507cac7feb7cfe,Adar Dembo,Mon Jan 20 21:40:38 2020 -0800,log: start using file cache,other,0,0,0
+21073b06ce30171b10ed09bee133fcafe650f022,Adar Dembo,Mon Jan 20 21:18:08 2020 -0800,file cache: support alternate open modes,feature,0,0,0
+69cf2065805163799d85dc38b812eb73388d3a02,Alexey Serbin,Sat Jan 18 00:04:10 2020 -0800,[clock] auto-config of built-in NTP client in cloud,other,3,0,0
+53533bbc88183710329285789db5572e173a9abb,Alexey Serbin,Tue Nov 26 18:33:50 2019 -0800,[utility] auto-detection of cloud VM instance type,other,4,0,0
+0f22f1268c4fda855456d6245c28024daf881d00,Adar Dembo,Sun Jan 19 15:54:25 2020 -0800,file cache: evict open fd when descriptor goes out of scope,other,0,0,0
+37c3a960e9b0f86069876f049e9a073d4b5fd907,Adar Dembo,Mon Jan 20 00:43:07 2020 -0800,compression: fix handling of NO_COMPRESSION,bug_fix,0,0,0
+3f52d9ae0bde7bacf61d52ea82a898e035d4402e,Todd Lipcon,Tue Dec 10 09:43:34 2019 -0800,memrowset: small optimizations for scanning,other,0,0,0
+0bd417b40e4dfea9bb454414c836ce589a16ca5d,Thomas Tauber-Marshall,Tue Jan 14 12:57:30 2020 -0800,KUDU-3042: Fix invalid DCHECK when rpc is cancelled then times out,bug_fix,0,0,0
+6325c4edcc389aa2ee1d8f028f367978047b8be6,Todd Lipcon,Wed Jan 15 15:23:00 2020 -0800,tools: avoid extra 100ms sleep at end of table scan,other,0,0,1
+c8384a04029c3e1b4ce23888355a850721d0f8e7,Alexey Serbin,Wed Jan 15 19:32:42 2020 -0800,[tserver] replace gscoped_ptr with unique_ptr in Scanner,other,0,0,2
+54db215511e84785a8649ba1e52911f8adfb11e4,Andrew Wong,Wed Jan 8 23:28:12 2020 -0800,KUDU-3011 p5: transfer leadership when quiescing,other,0,0,1
+c235ba188d282ebba6c83e19a0aab07846d4b91a,Alexey Serbin,Tue Jan 14 11:39:22 2020 -0800,[tablet] KUDU-3023 validate RPC vs transaction size limit,other,2,0,0
+3a30cc22684512e3f2934cde57bc10bebf7dd156,Alexey Serbin,Mon Jan 13 17:58:07 2020 -0800,[master] KUDU-3016 flag for chunking tablet report updates,other,1,0,7
+4f82a46da97d9987139aee26614e904118bce4a9,Grant Henke,Sun Feb 17 14:48:15 2019 -0600,[tools] Support running the master and tablet server via the kudu binary,feature,0,1,2
+b4c317299f39ae0530cb10702e540cd22393656c,Alexey Serbin,Mon Jan 13 17:09:39 2020 -0800,[master] KUDU-3036 reject DDLs which would lead to DoS,other,0,0,0
+0d7ce6906d42a17a7cfabc958e672ddc39e9ea7b,Andrew Wong,Mon Jan 13 16:56:40 2020 -0800,[tablet_copy] KUDU-2496: fail tablet when concurrent IO fails copy,other,0,3,1
+c0bf8cab5263b2cd2c3b847d2188c0647098e445,Alexey Serbin,Fri Jan 10 21:02:04 2020 -0800,[server] validate RPC vs Raft maximum message size flags,other,1,0,0
+ef0d3bdd7ff823a7c84f072b3e4476a864d1c17f,Yingchun Lai,Wed Jan 1 10:32:25 2020 +0800,[tools] Add 'run_cleanup' option for 'kudu perf loadgen',feature,1,0,0
+69172e80ce2c1c1eaed19242d08037372f38ed19,Adar Dembo,Fri Jan 10 16:49:36 2020 -0800,fs: move file cache to server,other,0,1,0
+76cba44964be5e50a8c9a8d009580939b2515fb6,Adar Dembo,Fri Jan 10 11:52:53 2020 -0800,catalog_manager: rename HMS catalog accessor,other,0,0,0
+9c7d955c828be6eb4d4a2bf9c1e648be8590377b,Adar Dembo,Thu Jan 9 17:19:04 2020 -0800,rpc: replace gscoped_ptr with unique_ptr,other,0,0,0
+e11f0151a2d22d2658995e27c8dcde4d3441f561,Adar Dembo,Thu Jan 9 17:17:51 2020 -0800,clock: remove shared ownership,other,0,0,0
+c9182296186205bb0bfca06173f2e1095a57c6dc,Alexey Serbin,Fri Jan 10 12:56:18 2020 -0800,[master] cleanup on SysCatalogTable::SysWrite(),refactor,0,0,1
+4dca6b02a5e7b2e589646e79bc6e509f27c13c3d,Adar Dembo,Tue Jan 7 17:22:00 2020 -0800,file cache: unify across file types,other,0,1,2
+5bf1f73f71175a7d7903c4f1f991f94d615258f9,Adar Dembo,Wed Dec 18 23:32:52 2019 -0800,env: add common File base class,feature,0,0,0
+5b4085619747b074d89c2762f39ac1eae3580ace,Andrew Wong,Fri Jan 3 16:57:24 2020 -0800,KUDU-3011 p2: mechanism to quiesce leadership,other,2,0,0
+4f22c0f9a6e8d41ec5efa0bba25aed55936a9f91,Andrew Wong,Fri Jan 3 16:34:14 2020 -0800,KUDU-3011 p1: metric to count tablet leaders,other,0,0,0
+80e1d82c6ff10d5b6e507b68c6f5149dd65bb525,Alexey Serbin,Fri Dec 20 22:41:16 2019 -0800,[consensus] short-circuit response path for RequestVote(),other,0,0,1
+b6ac4c7aa3e2bdc04d85135b8eac06ec215cbbcc,Alexey Serbin,Mon Dec 23 13:40:11 2019 -0800,[consensus] respond lock-free to RequestVote() if busy,other,0,0,1

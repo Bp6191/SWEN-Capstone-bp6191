@@ -1,11 +1,5 @@
 # Capstone Project: Logging Practices in C++ Distributed Systems
 
-## Quick Start
-
-### 1. Send Response Email
-- Open `response_email.txt`
-- Copy and send to Dr. Tang today
-
 ### 2. Compile LaTeX Document
 - Upload `methodology_revised.tex` to Overleaf
 - Compile to PDF

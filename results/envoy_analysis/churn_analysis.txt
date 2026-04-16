@@ -1,0 +1,9 @@
+LOGGING CHURN ANALYSIS
+==================================================
+
+Total logs added: 4756
+Total logs removed: 973
+Total logs modified: 2890
+Total changes: 8619
+Net change: 3783
+Churn rate: 33.53%

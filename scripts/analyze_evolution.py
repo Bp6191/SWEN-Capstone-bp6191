@@ -5,16 +5,25 @@ Usage: python analyze_evolution.py <input_csv> <output_dir>
 """
 
 import csv
+import re
 import sys
 from datetime import datetime
 from collections import defaultdict
 import os
 
+# def parse_date(date_str):
+#     """Parse git date string to datetime."""
+#     try:
+#         # Git date format: "Day Mon DD HH:MM:SS YYYY +ZZZZ"
+#         return datetime.strptime(date_str.split('+')[0].strip(), "%a %b %d %H:%M:%S %Y")
+#     except:
+#         return None
 def parse_date(date_str):
     """Parse git date string to datetime."""
     try:
-        # Git date format: "Day Mon DD HH:MM:SS YYYY +ZZZZ"
-        return datetime.strptime(date_str.split('+')[0].strip(), "%a %b %d %H:%M:%S %Y")
+        # Remove timezone offset (e.g., +0800 or -0700)
+        cleaned = re.sub(r'[+-]\d{4}$', '', date_str).strip()
+        return datetime.strptime(cleaned, "%a %b %d %H:%M:%S %Y")
     except:
         return None
 
