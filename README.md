@@ -1,5 +1,11 @@
 # Capstone Project: Logging Practices in C++ Distributed Systems
 
+## Quick Start
+
+### 1. Send Response Email
+- Open `response_email.txt`
+- Copy and send to Dr. Tang today
+
 ### 2. Compile LaTeX Document
 - Upload `methodology_revised.tex` to Overleaf
 - Compile to PDF
@@ -7,38 +13,31 @@
 
 ### 3. Run Git Mining Analysis
 ```bash
-# Install Python 3
-# Clone repositories and run analysis
-chmod +x run_analysis.sh
-./run_analysis.sh
+python scripts/analyze_evolution.py results/clickhouse_commits.csv results/clickhouse_analysis
 ```
 
-This will:
-- Clone all 5 systems
-- Extract logging commits
-- Analyze evolution trends
-- Generate CSV files and statistics
+**Output Files:**
+- `temporal_trends.csv` - Monthly statistics (commits, logs added/removed)
+- `category_distribution.csv` - Commit category breakdown
+- `churn_analysis.txt` - Churn rate and net change metrics
 
-### 4. Review Results
+--
+## License
 
-Results will be in `./results/` directory:
-- `{system}_commits.csv` - All logging commits
-- `{system}_analysis/temporal_trends.csv` - Monthly statistics
-- `{system}_analysis/category_distribution.csv` - Commit categories
-- `{system}_analysis/churn_analysis.txt` - Churn metrics
+This project is for academic purposes as part of a graduate capstone requirement at Rochester Institute of Technology.
 
-## Timeline
+---
 
-- **Week 1 (NOW)**: Send email, finalize systems
-- **Week 2**: Run git mining, collect data
-- **Week 3-4**: Static analysis (RQ1)
-- **Week 5-6**: Evolution analysis (RQ2)
-- **Week 7-8**: Cross-system comparison (RQ3)
-- **Week 9-10**: Writing
-- **Week 11-12**: Revision, presentation
+## Acknowledgments
 
-## Questions for Advisor
+- **Advisor:** Dr. Yiming Tang, for guidance and feedback throughout the project
+- **RIT Software Engineering Department:** For providing resources and support
+- **Open Source Communities:** Apache Kudu, ClickHouse, RocksDB, Envoy, and Scylladb for maintaining excellent distributed systems that made this research possible
+---
 
-1. Analyze entire git history or last 5 years?
-2. Incorporate smells into evolution study?
-3. Minimum star count for system selection?
+## Known Issues
+
+- **Unicode encoding errors:** Some commits with non-English characters may be skipped during git mining (affects <1% of commits)
+- **Large repositories:** ClickHouse analysis may take 6-8 hours due to repository size (80,000+ commits)
+
+**Workarounds:** Scripts include error handling to continue processing despite encoding issues.
