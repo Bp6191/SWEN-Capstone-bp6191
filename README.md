@@ -59,19 +59,19 @@ A graduate capstone research project at Rochester Institute of Technology (RIT) 
 - Git (accessible on `PATH`)
 - PowerShell 5+ (for `.ps1` scripts on Windows)
 
-No external Python packages are required — the scripts use only the standard library.
+No external Python packages are required - the scripts use only the standard library.
 
 ---
 
 ## Running the Analysis
 
-### Step 1 — Mine commits from a repository
+### Step 1 - Mine commits from a repository
 
 ```bash
 python scripts/extract_log_commits.py repos/<system> results/<system>_commits.csv
 ```
 
-### Step 2 — Analyze the mined data
+### Step 2 - Analyze the mined data
 
 ```bash
 python scripts/analyze_evolution.py results/<system>_commits.csv results/<system>_analysis
@@ -95,7 +95,7 @@ This produces three output files in the specified directory:
 
 ## Key Results
 
-### RQ1 — Current Logging Practices
+### RQ1 - Current Logging Practices
 
 **Log Statement Counts and Density:**
 
@@ -103,16 +103,16 @@ This produces three output files in the specified directory:
 |--------|-----------|-----------|-------|------|------|-------|-------|
 | ClickHouse | 8,863 | 7.39 | 358 | 903 | 606 | 1,172 | 5,824 |
 | RocksDB | 1,013 | 4.05 | 120 | 338 | 186 | 40 | 329 |
-| Envoy | 3,082 | 7.71 | 584 | 356 | 359 | 2,068 | — |
+| Envoy | 3,082 | 7.71 | 584 | 356 | 359 | 2,068 | - |
 | Kudu | 3,369 | 11.23 | 214 | 1,320 | 363 | 0 | 1,472 |
 | ScyllaDB | 2,625 | 17.50 | 187 | 578 | 389 | 991 | 480 |
 
 **Key findings:**
-- Logging density ranges from 4.05 to 17.50 Logs/KLOC — comparable to Yuan et al. (2012) findings from a decade ago
-- Each system uses a completely different logging framework — no C++ logging standard exists
+- Logging density ranges from 4.05 to 17.50 Logs/KLOC - comparable to Yuan et al. (2012) findings from a decade ago
+- Each system uses a completely different logging framework - no C++ logging standard exists
 - RocksDB employs unique domain-specific levels: `ROCKS_LOG_HEADER` (219) and `ROCKS_LOG_BUFFER` (92)
 
-### RQ2 — Logging Evolution (2020–2025)
+### RQ2 - Logging Evolution (2020–2025)
 
 | System | Commits | Bug Fix % | Feature % | Refactor % | Log Imp. % | Net Growth |
 |--------|---------|-----------|-----------|------------|------------|------------|
@@ -123,11 +123,11 @@ This produces three output files in the specified directory:
 | ScyllaDB | 4,299 | 9.3% | 21.9% | 3.0% | 2.4% | −1 |
 
 **Key findings:**
-- ClickHouse added +4,515 net log statements while ScyllaDB changed by only −1 — a **4,500× difference**
+- ClickHouse added +4,515 net log statements while ScyllaDB changed by only −1 - a **4,500× difference**
 - Only 1.9–3.5% of commits are dedicated logging improvements; most logging changes are reactive (within bug fixes or features)
 - ClickHouse's logging growth has accelerated over time, with 2025 showing the highest annual net additions
 
-### RQ3 — Cross-System Comparison
+### RQ3 - Cross-System Comparison
 
 **Key findings:**
 - **The ScyllaDB Paradox:** Highest logging density (17.50 Logs/KLOC) yet zero evolution, suggesting logging maturity before 2020
