@@ -167,7 +167,6 @@ This produces three output files in the specified directory:
 3. Fu, Q. et al. (2014). Where do developers log? An empirical study on logging practices in industry. *ICSE '14 Companion*, pp. 24–33.
 4. He, S. et al. (2021). A survey on automated log analysis for reliability engineering. *ACM Computing Surveys*, 54(6), 1–37.
 5. Shang, W., Nagappan, M., & Hassan, A. E. (2015). Studying the relationship between logging characteristics and the code quality of platform software. *Empirical Software Engineering*, 20(1), 1–27.
-
 --- -->
 
 ## License
