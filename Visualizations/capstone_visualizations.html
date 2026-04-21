@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone Visualizations - Logging Practices in C++ Distributed Systems</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --border: #e2e0dc;
+    --text: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --accent-clickhouse: #f59e0b;
+    --accent-rocksdb: #3b82f6;
+    --accent-envoy: #8b5cf6;
+    --accent-kudu: #10b981;
+    --accent-scylladb: #ef4444;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2.5rem 0 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid { display: grid; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid-1 { grid-template-columns: 1fr; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .chart-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .chart-container.tall { height: 400px; }
+  .chart-container.medium { height: 320px; }
+  .chart-container.short { height: 260px; }
+
+  .stat-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    flex: 1;
+    box-shadow: var(--shadow);
+  }
+
+  .stat-box .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .stat-box .value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+  }
+
+  .stat-box .detail {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+
+  .finding-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .finding-box strong { color: #92400e; }
+
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  table.data-table th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+  }
+
+  table.data-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid #f0eeeb;
+  }
+
+  table.data-table td.mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  .print-break { page-break-before: always; }
+
+  @media print {
+    body { padding: 0.5rem; }
+    .card { break-inside: avoid; }
+  }
+
+  .legend-custom {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .legend-custom span {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .fig-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Empirical Study of Logging Practices in Modern C++ Distributed Systems</h1>
+  <p>Bharathi Pandurangan &middot; RIT SWEN Capstone &middot; Advisor: Dr. Yiming Tang &middot; April 2026</p>
+</div>
+
+<!-- Summary Stats -->
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="label">Systems Analyzed</div>
+    <div class="value">5</div>
+    <div class="detail">C++ distributed systems</div>
+  </div>
+  <div class="stat-box">
+    <div class="label">Total Log Statements</div>
+    <div class="value">16,882</div>
+    <div class="detail">Across all systems</div>
+  </div>
+  <div class="stat-box">
+    <div class="label">Commits Mined</div>
+    <div class="value">39,626</div>
+    <div class="detail">2020–2025 (5 years)</div>
+  </div>
+  <div class="stat-box">
+    <div class="label">Max Evolution Gap</div>
+    <div class="value">4,516×</div>
+    <div class="detail">ClickHouse vs ScyllaDB</div>
+  </div>
+</div>
+
+<!-- ===== RQ1: CURRENT PRACTICES ===== -->
+<div class="section-title">RQ1 — Current Logging Practices</div>
+<div class="section-subtitle">What logging practices are prevalent in modern C++ distributed systems?</div>
+
+<!-- Chart 1: Total Log Counts -->
+<div class="grid grid-2">
+  <div class="card">
+    <h3>Fig 1. Total Log Statements by System</h3>
+    <div class="chart-container medium">
+      <canvas id="chart-total-logs"></canvas>
+    </div>
+    <div class="fig-label">RQ1 — Raw count of log statements in current codebase</div>
+  </div>
+
+  <!-- Chart 2: Logging Density -->
+  <div class="card">
+    <h3>Fig 2. Logging Density (Logs per KLOC)</h3>
+    <div class="chart-container medium">
+      <canvas id="chart-density"></canvas>
+    </div>
+    <div class="fig-label">RQ1 — Normalized by codebase size (lines of code)</div>
+  </div>
+</div>
+
+<!-- Chart 3: Log Level Distribution Stacked -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 3. Log Level Distribution by System</h3>
+    <div class="chart-container medium">
+      <canvas id="chart-levels-stacked"></canvas>
+    </div>
+    <div class="fig-label">RQ1 — Distribution of ERROR, INFO, WARN, DEBUG across systems</div>
+  </div>
+</div>
+
+<!-- Chart 4: Log Level Percentages Table -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 4. Log Level Proportions (%)</h3>
+    <table class="data-table" id="level-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Total Logs</th>
+          <th>LOC</th>
+          <th>Logs/KLOC</th>
+          <th>ERROR %</th>
+          <th>INFO %</th>
+          <th>WARN %</th>
+          <th>DEBUG %</th>
+          <th>Other %</th>
+          <th>Logging Framework</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="fig-label">RQ1 — Summary of current logging practices across all five systems</div>
+  </div>
+</div>
+
+<!-- Chart 5: Pie charts -->
+<div class="section-title print-break">RQ1 — Log Level Breakdown per System</div>
+<div class="section-subtitle">Individual distribution of log severity levels</div>
+
+<div class="grid grid-3">
+  <div class="card">
+    <h3>Fig 5a. ClickHouse</h3>
+    <div class="chart-container short"><canvas id="pie-clickhouse"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Fig 5b. RocksDB</h3>
+    <div class="chart-container short"><canvas id="pie-rocksdb"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Fig 5c. Envoy</h3>
+    <div class="chart-container short"><canvas id="pie-envoy"></canvas></div>
+  </div>
+</div>
+<div class="grid grid-2">
+  <div class="card">
+    <h3>Fig 5d. Kudu</h3>
+    <div class="chart-container short"><canvas id="pie-kudu"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Fig 5e. ScyllaDB</h3>
+    <div class="chart-container short"><canvas id="pie-scylladb"></canvas></div>
+  </div>
+</div>
+
+<!-- ===== RQ2: EVOLUTION ===== -->
+<div class="section-title print-break">RQ2 — Logging Evolution Over Time</div>
+<div class="section-subtitle">How do logging practices evolve over time? (Git mining, 2020–2025)</div>
+
+<!-- Chart 6: Net Growth Bar -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 6. Net Logging Growth (2020–2025)</h3>
+    <div class="chart-container medium">
+      <canvas id="chart-net-growth"></canvas>
+    </div>
+    <div class="finding-box">
+      <strong>Key Finding:</strong> ClickHouse added 4,515 net log statements over 5 years while ScyllaDB had virtually zero change (−1), a 4,516× difference — suggesting fundamentally different logging philosophies.
+    </div>
+    <div class="fig-label">RQ2 — Net change in log statements (added − removed) over study period</div>
+  </div>
+</div>
+
+<!-- Chart 7: Commit Category Distribution -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 7. Logging-Related Commit Categories</h3>
+    <div class="chart-container medium">
+      <canvas id="chart-categories"></canvas>
+    </div>
+    <div class="fig-label">RQ2 — Percentage of logging-related commits by category</div>
+  </div>
+</div>
+
+<!-- Chart 8: Temporal Trends - ClickHouse -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 8. Monthly Logging Evolution — ClickHouse (2020–2025)</h3>
+    <div class="chart-container tall">
+      <canvas id="chart-temporal-clickhouse"></canvas>
+    </div>
+    <div class="fig-label">RQ2 — Monthly logs added, removed, and net change for ClickHouse</div>
+  </div>
+</div>
+
+<!-- Chart 9: Temporal Trends - Envoy -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 9. Monthly Logging Evolution — Envoy (2020–2025)</h3>
+    <div class="chart-container tall">
+      <canvas id="chart-temporal-envoy"></canvas>
+    </div>
+    <div class="fig-label">RQ2 — Monthly logs added, removed, and net change for Envoy</div>
+  </div>
+</div>
+
+<!-- Chart 10: Temporal Trends - Kudu -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 10. Monthly Logging Evolution — Kudu (2020–2025)</h3>
+    <div class="chart-container tall">
+      <canvas id="chart-temporal-kudu"></canvas>
+    </div>
+    <div class="fig-label">RQ2 — Monthly logs added, removed, and net change for Kudu</div>
+  </div>
+</div>
+
+<!-- Chart 11: Yearly Aggregated Comparison -->
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 11. Yearly Net Log Growth — All Systems (2020–2025)</h3>
+    <div class="chart-container tall">
+      <canvas id="chart-yearly-all"></canvas>
+    </div>
+    <div class="fig-label">RQ2 — Yearly aggregated net change in log statements across all systems</div>
+  </div>
+</div>
+
+<!-- ===== RQ3 PREVIEW ===== -->
+<div class="section-title print-break">RQ3 — Cross-System Comparison (Preview)</div>
+<div class="section-subtitle">How do practices vary across different types of distributed systems?</div>
+
+<div class="grid grid-1">
+  <div class="card">
+    <h3>Fig 12. System Comparison Summary</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Domain</th>
+          <th>Stars</th>
+          <th>LOC</th>
+          <th>Total Logs</th>
+          <th>Logs/KLOC</th>
+          <th>Net Growth</th>
+          <th>Commits</th>
+          <th>Bug Fix %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ClickHouse</td><td>Analytical DB</td><td class="mono">37K</td><td class="mono">1.2M</td><td class="mono">8,863</td><td class="mono">7.39</td><td class="mono">+4,515</td><td class="mono">26,373</td><td class="mono">30.5%</td></tr>
+        <tr><td>RocksDB</td><td>Storage Engine</td><td class="mono">28K</td><td class="mono">250K</td><td class="mono">1,013</td><td class="mono">4.05</td><td class="mono">+691</td><td class="mono">3,958</td><td class="mono">20.4%</td></tr>
+        <tr><td>Envoy</td><td>Service Mesh</td><td class="mono">25K</td><td class="mono">400K</td><td class="mono">3,082</td><td class="mono">7.71</td><td class="mono">+3,783</td><td class="mono">4,276</td><td class="mono">14.0%</td></tr>
+        <tr><td>Kudu</td><td>Distributed DB</td><td class="mono">1.9K</td><td class="mono">300K</td><td class="mono">3,369</td><td class="mono">11.23</td><td class="mono">+571</td><td class="mono">720</td><td class="mono">14.9%</td></tr>
+        <tr><td>ScyllaDB</td><td>NoSQL DB</td><td class="mono">13K</td><td class="mono">150K</td><td class="mono">2,625</td><td class="mono">17.50</td><td class="mono">−1</td><td class="mono">4,299</td><td class="mono">9.3%</td></tr>
+      </tbody>
+    </table>
+    <div class="finding-box">
+      <strong>Key Finding:</strong> ScyllaDB has the highest logging density (17.5 logs/KLOC) yet near-zero evolution, suggesting logging maturity was achieved before 2020. In contrast, ClickHouse's continuous growth indicates ongoing debugging needs in a rapidly-evolving analytical database.
+    </div>
+    <div class="fig-label">RQ3 — Cross-system comparison of logging characteristics</div>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+const systems = ['ClickHouse', 'RocksDB', 'Envoy', 'Kudu', 'ScyllaDB'];
+const colors = {
+  clickhouse: '#f59e0b',
+  rocksdb: '#3b82f6',
+  envoy: '#8b5cf6',
+  kudu: '#10b981',
+  scylladb: '#ef4444'
+};
+const systemColors = [colors.clickhouse, colors.rocksdb, colors.envoy, colors.kudu, colors.scylladb];
+
+const totalLogs = [8863, 1013, 3082, 3369, 2625];
+const loc = [1200, 250, 400, 300, 150]; // in K
+const density = totalLogs.map((l, i) => +(l / loc[i]).toFixed(2));
+
+const levels = {
+  ERROR: [358, 120, 584, 214, 187],
+  INFO:  [903, 338, 356, 1320, 578],
+  WARN:  [606, 186, 359, 363, 389],
+  DEBUG: [1172, 40, 2068, 0, 991]
+};
+
+const netGrowth = [4515, 691, 3783, 571, -1];
+
+const categories = {
+  'Bug Fix':     [30.5, 20.4, 14.0, 14.9, 9.3],
+  'Feature':     [14.8, 22.2, 33.2, 22.2, 21.9],
+  'Refactor':    [4.0, 4.4, 5.3, 3.9, 3.0],
+  'Log Improve': [3.3, 2.0, 3.5, 2.2, 2.4]
+};
+
+// Temporal data - ClickHouse 2020-2025
+const clickhouseMonths = [];
+const clickhouseAdded = [];
+const clickhouseRemoved = [];
+const clickhouseNet = [];
+const chRaw = `2020-01,196,68,16,41,52
+2020-02,163,100,74,297,26
+2020-03,191,103,112,73,-9
+2020-04,186,57,13,61,44
+2020-05,355,147,46,1914,101
+2020-06,248,64,32,147,32
+2020-07,196,50,25,50,25
+2020-08,164,40,17,45,23
+2020-09,211,56,23,34,33
+2020-10,191,138,43,57,95
+2020-11,195,89,38,55,51
+2020-12,173,63,20,37,43
+2021-01,201,112,12,131,100
+2021-02,271,170,134,106,36
+2021-03,299,126,26,86,100
+2021-04,350,103,80,250,23
+2021-05,323,254,169,132,85
+2021-06,193,96,41,202,55
+2021-07,227,91,32,37,59
+2021-08,269,89,30,79,59
+2021-09,285,120,49,73,71
+2021-10,345,95,34,66,61
+2021-11,211,122,13,95,109
+2021-12,211,53,94,82,-41
+2022-01,144,29,15,24,14
+2022-02,160,47,22,113,25
+2022-03,167,16,6,19,10
+2022-04,259,92,64,94,28
+2022-05,283,119,111,150,8
+2022-06,275,111,59,113,52
+2022-07,266,62,69,66,-7
+2022-08,276,106,45,101,61
+2022-09,321,120,54,118,66
+2022-10,183,55,43,69,12
+2022-11,199,59,17,42,42
+2022-12,220,53,16,84,37
+2023-01,287,85,48,118,37
+2023-02,257,108,41,87,67
+2023-03,281,120,40,64,80
+2023-04,246,59,28,62,31
+2023-05,236,43,18,76,25
+2023-06,307,102,64,66,38
+2023-07,243,72,43,64,29
+2023-08,316,107,58,80,49
+2023-09,208,120,60,44,60
+2023-10,164,53,10,47,43
+2023-11,300,92,33,85,59
+2023-12,246,92,35,83,57
+2024-01,217,51,32,205,19
+2024-02,268,84,37,63,47
+2024-03,255,99,60,72,39
+2024-04,201,63,14,54,49
+2024-05,327,99,52,137,47
+2024-06,237,85,60,68,25
+2024-07,409,227,129,130,98
+2024-08,326,92,69,54,23
+2024-09,255,144,76,151,68
+2024-10,379,193,121,116,72
+2024-11,343,129,102,96,27
+2024-12,336,111,97,81,14
+2025-01,322,153,71,151,82
+2025-02,400,198,180,142,18
+2025-03,480,222,164,215,58
+2025-04,323,135,124,106,11
+2025-05,339,136,62,85,74
+2025-06,440,171,61,119,110
+2025-07,557,418,272,92,146
+2025-08,490,237,162,62,75
+2025-09,437,199,154,65,45
+2025-10,459,246,59,70,187
+2025-11,423,141,82,74,59
+2025-12,435,188,50,49,138`;
+
+chRaw.split('\n').forEach(line => {
+  const parts = line.split(',');
+  const ym = parts[0];
+  if (ym >= '2020-01' && ym <= '2025-12') {
+    clickhouseMonths.push(ym);
+    clickhouseAdded.push(+parts[2]);
+    clickhouseRemoved.push(-Math.abs(+parts[3]));
+    clickhouseNet.push(+parts[5]);
+  }
+});
+
+// Envoy temporal
+const envoyMonths = [];
+const envoyAdded = [];
+const envoyRemoved = [];
+const envoyNet = [];
+const envoyRaw = `2020-01,4,4,0,1,4
+2020-02,9,6,0,9,6
+2020-03,10,7,0,2,7
+2020-04,7,77,0,2,77
+2020-05,5,4,0,7,4
+2020-06,7,2,1,0,1
+2020-07,26,23,0,6,23
+2020-08,19,4,0,9,4
+2020-09,19,15,0,5,15
+2020-10,13,58,0,3,58
+2020-11,17,25,1,0,24
+2020-12,14,28,0,3,28
+2021-01,8,3,0,1,3
+2021-02,6,6,8,6,-2
+2021-03,14,45,0,30,45
+2021-04,16,36,0,27,36
+2021-05,14,4,0,3,4
+2021-06,22,6,0,0,6
+2021-07,19,7,0,20,7
+2021-08,12,0,0,5,0
+2021-09,20,59,4,7,55
+2021-10,12,17,3,4,14
+2021-11,16,4,0,3,4
+2021-12,6,2,0,1,2
+2022-01,12,18,0,17,18
+2022-02,15,76,0,30,76
+2022-03,23,11,5,43,6
+2022-04,16,14,0,18,14
+2022-05,24,3,8,34,-5
+2022-06,18,20,2,4,18
+2022-07,18,7,1,5,6
+2022-08,8,10,1,1,9
+2022-09,10,21,1,2,20
+2022-10,15,7,1,3,6
+2022-11,13,2,30,1,-28
+2022-12,7,1,0,5,1
+2023-01,12,103,1,1,102
+2023-02,18,6,0,8,6
+2023-03,18,35,0,3,35
+2023-04,24,15,0,10,15
+2023-05,21,8,0,1,8
+2023-06,19,76,0,5,76
+2023-07,24,18,0,9,18
+2023-08,28,32,5,18,27
+2023-09,24,27,1,5,26
+2023-10,21,21,3,6,18
+2023-11,31,37,1,1,36
+2023-12,19,23,0,8,23
+2024-01,18,15,0,5,15
+2024-02,21,13,1,5,12
+2024-03,27,99,51,21,48
+2024-04,13,9,0,16,9
+2024-05,31,62,1,16,61
+2024-06,14,18,11,56,7
+2024-07,21,9,2,16,7
+2024-08,15,28,22,13,6
+2024-09,14,4,1,3,3
+2024-10,16,1,1,11,0
+2024-11,10,6,1,2,5
+2024-12,17,33,4,10,29
+2025-01,17,1,0,6,1
+2025-02,15,27,0,5,27
+2025-03,15,29,0,70,29
+2025-04,6,4,0,0,4
+2025-05,18,34,2,6,32
+2025-06,19,27,0,30,27
+2025-07,23,19,0,4,19
+2025-08,16,34,11,6,23
+2025-09,8,2,13,4,-11
+2025-10,25,17,12,1,5
+2025-11,20,21,0,1,21
+2025-12,54,81,6,10,75`;
+
+envoyRaw.split('\n').forEach(line => {
+  const parts = line.split(',');
+  const ym = parts[0];
+  if (ym >= '2020-01' && ym <= '2025-12') {
+    envoyMonths.push(ym);
+    envoyAdded.push(+parts[2]);
+    envoyRemoved.push(-Math.abs(+parts[3]));
+    envoyNet.push(+parts[5]);
+  }
+});
+
+// Kudu temporal
+const kuduMonths = [];
+const kuduAdded = [];
+const kuduRemoved = [];
+const kuduNet = [];
+const kuduRaw = `2020-01,1,1,0,0,1
+2020-02,1,3,0,0,3
+2020-03,9,29,1,0,28
+2020-04,3,2,0,9,2
+2020-05,1,0,0,0,0
+2020-06,3,2,0,1,2
+2020-07,3,2,0,1,2
+2020-10,3,0,0,3,0
+2020-12,1,0,0,0,0
+2021-03,1,0,1,0,-1
+2021-04,2,5,0,0,5
+2021-05,1,4,0,0,4
+2021-07,2,1,0,1,1
+2021-08,2,2,0,1,2
+2021-09,4,2,0,1,2
+2021-10,5,9,0,2,9
+2021-11,3,1,0,2,1
+2021-12,4,1,2,1,-1
+2022-01,5,7,0,1,7
+2022-02,2,0,0,0,0
+2022-03,3,13,0,0,13
+2022-04,5,9,0,1,9
+2022-05,7,26,0,2,26
+2022-06,2,2,0,0,2
+2022-07,7,11,0,8,11
+2022-08,6,5,0,0,5
+2022-09,1,1,0,0,1
+2022-10,2,0,0,0,0
+2022-11,3,1,0,1,1
+2022-12,6,7,0,1,7
+2023-01,5,4,1,2,3
+2023-02,3,1,0,2,1
+2023-03,11,47,0,8,47
+2023-04,1,2,0,0,2
+2023-05,3,0,0,1,0
+2023-06,2,5,0,1,5
+2023-07,5,10,0,10,10
+2023-08,2,3,0,2,3
+2023-09,1,1,0,3,1
+2023-10,3,4,0,1,4
+2023-11,2,1,0,0,1
+2023-12,2,1,0,0,1
+2024-01,4,1,25,3,-24
+2024-02,2,0,4,2,-4
+2024-03,1,1,0,0,1
+2024-04,3,2,0,0,2
+2024-05,4,0,0,1,0
+2024-06,1,1,0,0,1
+2024-07,3,2,0,0,2
+2024-08,5,4,0,0,4
+2024-09,1,1,0,0,1
+2024-10,1,0,0,1,0
+2024-11,1,0,0,0,0
+2024-12,1,0,0,0,0
+2025-01,1,3,0,3,3
+2025-02,1,0,0,0,0
+2025-03,1,0,0,0,0
+2025-05,1,1,0,0,1
+2025-06,2,2,1,1,1
+2025-07,1,1,0,0,1
+2025-08,3,3,0,0,3
+2025-09,1,0,0,1,0
+2025-10,1,0,0,1,0
+2025-11,2,1,0,1,1
+2025-12,1,3,0,0,3`;
+
+kuduRaw.split('\n').forEach(line => {
+  const parts = line.split(',');
+  const ym = parts[0];
+  if (ym >= '2020-01' && ym <= '2025-12') {
+    kuduMonths.push(ym);
+    kuduAdded.push(+parts[2]);
+    kuduRemoved.push(-Math.abs(+parts[3]));
+    kuduNet.push(+parts[5]);
+  }
+});
+
+// ===== CHART DEFAULTS =====
+Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#5a5a5a';
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth = 12;
+
+// ===== CHART 1: Total Log Counts =====
+new Chart(document.getElementById('chart-total-logs'), {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: [{
+      data: totalLogs,
+      backgroundColor: systemColors,
+      borderRadius: 4,
+      barPercentage: 0.65
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.raw.toLocaleString() + ' log statements' } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'Log Statements' }, grid: { color: '#f0eeeb' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ===== CHART 2: Density =====
+new Chart(document.getElementById('chart-density'), {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: [{
+      data: density,
+      backgroundColor: systemColors,
+      borderRadius: 4,
+      barPercentage: 0.65
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.raw + ' logs per KLOC' } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'Logs / KLOC' }, grid: { color: '#f0eeeb' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ===== CHART 3: Stacked Log Levels =====
+const levelColors = { ERROR: '#ef4444', INFO: '#3b82f6', WARN: '#f59e0b', DEBUG: '#8b5cf6' };
+new Chart(document.getElementById('chart-levels-stacked'), {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: Object.entries(levels).map(([level, data]) => ({
+      label: level,
+      data: data,
+      backgroundColor: levelColors[level],
+      borderRadius: 2
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { stacked: true, grid: { display: false } },
+      y: { stacked: true, title: { display: true, text: 'Log Statements' }, grid: { color: '#f0eeeb' } }
+    }
+  }
+});
+
+// ===== CHART 4: Table =====
+const tableData = [
+  { sys: 'ClickHouse', total: 8863, loc: '1.2M', density: 7.39, e: 358, i: 903, w: 606, d: 1172, other: 8863-358-903-606-1172, fw: 'LOG_* macros' },
+  { sys: 'RocksDB', total: 1013, loc: '250K', density: 4.05, e: 120, i: 338, w: 186, d: 40, other: 1013-120-338-186-40, fw: 'ROCKS_LOG_LEVEL()' },
+  { sys: 'Envoy', total: 3082, loc: '400K', density: 7.71, e: 584, i: 356, w: 359, d: 2068, other: 3082-584-356-359-2068, fw: 'ENVOY_LOG()' },
+  { sys: 'Kudu', total: 3369, loc: '300K', density: 11.23, e: 214, i: 1320, w: 363, d: 0, other: 3369-214-1320-363-0, fw: 'LOG() / glog' },
+  { sys: 'ScyllaDB', total: 2625, loc: '150K', density: 17.50, e: 187, i: 578, w: 389, d: 991, other: 2625-187-578-389-991, fw: 'logger.level()' }
+];
+
+const tbody = document.querySelector('#level-table tbody');
+tableData.forEach(r => {
+  const sumKnown = r.e + r.i + r.w + r.d;
+  const pct = (v) => sumKnown > 0 ? (v / r.total * 100).toFixed(1) + '%' : '—';
+  const otherPct = r.other > 0 ? (r.other / r.total * 100).toFixed(1) + '%' : '—';
+  tbody.innerHTML += `<tr>
+    <td><strong>${r.sys}</strong></td>
+    <td class="mono">${r.total.toLocaleString()}</td>
+    <td class="mono">${r.loc}</td>
+    <td class="mono">${r.density}</td>
+    <td class="mono">${pct(r.e)}</td>
+    <td class="mono">${pct(r.i)}</td>
+    <td class="mono">${pct(r.w)}</td>
+    <td class="mono">${pct(r.d)}</td>
+    <td class="mono">${otherPct}</td>
+    <td style="font-size:0.8rem">${r.fw}</td>
+  </tr>`;
+});
+
+// ===== CHART 5: Pie Charts =====
+function makePie(id, data, extraLabels, extraColors) {
+  const lbls = ['ERROR', 'INFO', 'WARN', 'DEBUG'];
+  const cols = ['#ef4444', '#3b82f6', '#f59e0b', '#8b5cf6'];
+  if (extraLabels) { lbls.push(...extraLabels); cols.push(...extraColors); }
+  new Chart(document.getElementById(id), {
+    type: 'doughnut',
+    data: { labels: lbls, datasets: [{ data: data, backgroundColor: cols, borderWidth: 2, borderColor: '#fff' }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 } } },
+        tooltip: { callbacks: { label: ctx => { const t = ctx.dataset.data.reduce((a,b) => a+b, 0); return ctx.label + ': ' + ctx.raw + ' (' + (ctx.raw/t*100).toFixed(1) + '%)'; } } }
+      }
+    }
+  });
+}
+
+makePie('pie-clickhouse', [358, 903, 606, 1172, 8863-358-903-606-1172], ['Other'], ['#94a3b8']);
+makePie('pie-rocksdb', [120, 338, 186, 40, 17, 219, 92], ['FATAL', 'HEADER', 'BUFFER'], ['#dc2626', '#06b6d4', '#a3a3a3']);
+makePie('pie-envoy', [584, 356, 359, 2068, 3082-584-356-359-2068], ['Other'], ['#94a3b8']);
+makePie('pie-kudu', [214, 1320, 363, 0, 3369-214-1320-363], ['Other'], ['#94a3b8']);
+makePie('pie-scylladb', [187, 578, 389, 991, 2625-187-578-389-991], ['Other'], ['#94a3b8']);
+
+// ===== CHART 6: Net Growth =====
+new Chart(document.getElementById('chart-net-growth'), {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: [{
+      data: netGrowth,
+      backgroundColor: netGrowth.map(v => v >= 0 ? '#10b981' : '#ef4444'),
+      borderRadius: 4,
+      barPercentage: 0.65
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { title: { display: true, text: 'Net Log Statements Added' }, grid: { color: '#f0eeeb' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ===== CHART 7: Categories =====
+const catColors = ['#ef4444', '#3b82f6', '#8b5cf6', '#10b981'];
+new Chart(document.getElementById('chart-categories'), {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: Object.entries(categories).map(([cat, data], i) => ({
+      label: cat,
+      data: data,
+      backgroundColor: catColors[i],
+      borderRadius: 2
+    }))
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { title: { display: true, text: '% of Logging Commits' }, grid: { color: '#f0eeeb' } }
+    }
+  }
+});
+
+// ===== TEMPORAL CHART HELPER =====
+function makeTemporalChart(id, months, added, removed, net, color) {
+  // Show every 6th label
+  const labels = months.map((m, i) => i % 6 === 0 ? m : '');
+  new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [
+        { label: 'Added', data: added, backgroundColor: color + 'cc', borderRadius: 1, order: 2 },
+        { label: 'Removed', data: removed, backgroundColor: '#ef444499', borderRadius: 1, order: 2 },
+        { label: 'Net Change', data: net, type: 'line', borderColor: '#1a1a1a', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 0, tension: 0.3, order: 1 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        x: { grid: { display: false }, ticks: { callback: (val, i) => i % 6 === 0 ? months[i] : '', maxRotation: 45, font: { size: 10 } } },
+        y: { title: { display: true, text: 'Log Statements' }, grid: { color: '#f0eeeb' } }
+      }
+    }
+  });
+}
+
+makeTemporalChart('chart-temporal-clickhouse', clickhouseMonths, clickhouseAdded, clickhouseRemoved, clickhouseNet, colors.clickhouse);
+makeTemporalChart('chart-temporal-envoy', envoyMonths, envoyAdded, envoyRemoved, envoyNet, colors.envoy);
+makeTemporalChart('chart-temporal-kudu', kuduMonths, kuduAdded, kuduRemoved, kuduNet, colors.kudu);
+
+// ===== CHART 11: Yearly All Systems =====
+function yearlyAggregate(months, net) {
+  const yearly = {};
+  months.forEach((m, i) => {
+    const y = m.substring(0, 4);
+    if (y >= '2020' && y <= '2025') {
+      yearly[y] = (yearly[y] || 0) + net[i];
+    }
+  });
+  return yearly;
+}
+
+const years = ['2020', '2021', '2022', '2023', '2024', '2025'];
+const chYearly = yearlyAggregate(clickhouseMonths, clickhouseNet);
+const envYearly = yearlyAggregate(envoyMonths, envoyNet);
+const kuYearly = yearlyAggregate(kuduMonths, kuduNet);
+
+new Chart(document.getElementById('chart-yearly-all'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      { label: 'ClickHouse', data: years.map(y => chYearly[y] || 0), borderColor: colors.clickhouse, backgroundColor: colors.clickhouse + '22', fill: true, tension: 0.3, pointRadius: 4, borderWidth: 2.5 },
+      { label: 'Envoy', data: years.map(y => envYearly[y] || 0), borderColor: colors.envoy, backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, borderWidth: 2.5 },
+      { label: 'Kudu', data: years.map(y => kuYearly[y] || 0), borderColor: colors.kudu, backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, borderWidth: 2.5 },
+      { label: 'ScyllaDB', data: [0, 0, 0, 0, 0, 0], borderColor: colors.scylladb, backgroundColor: 'transparent', borderDash: [5, 5], tension: 0.3, pointRadius: 4, borderWidth: 2 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { title: { display: true, text: 'Net Log Statements Added' }, grid: { color: '#f0eeeb' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+</script>
+</body>
+</html>

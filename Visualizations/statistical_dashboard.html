@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistical Analysis Dashboard - Capstone</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #0f1419;
+  --panel: #1a2027;
+  --panel-hi: #232a33;
+  --border: #2d3742;
+  --text: #e8eaed;
+  --text-dim: #9aa5b1;
+  --accent-sig: #10b981;
+  --accent-ns: #f59e0b;
+  --accent-danger: #ef4444;
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-cyan: #22d3ee;
+  --accent-pink: #ec4899;
+  --accent-amber: #fbbf24;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 2rem;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(at 20% 0%, rgba(96,165,250,0.08) 0%, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(167,139,250,0.08) 0%, transparent 50%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 0.6rem;
+}
+
+.header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+  line-height: 1.1;
+}
+
+.header .sub {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* Hero stat cards */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent-color, var(--accent-blue));
+}
+
+.hero-card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.hero-card .value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.hero-card .value.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.hero-card .detail {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.hero-card.sig { --accent-color: var(--accent-sig); }
+.hero-card.purple { --accent-color: var(--accent-purple); }
+.hero-card.pink { --accent-color: var(--accent-pink); }
+.hero-card.amber { --accent-color: var(--accent-amber); }
+
+.sig-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.sig-badge.highly-sig { background: rgba(16,185,129,0.15); color: var(--accent-sig); }
+.sig-badge.sig { background: rgba(16,185,129,0.15); color: var(--accent-sig); }
+.sig-badge.ns { background: rgba(245,158,11,0.15); color: var(--accent-ns); }
+
+/* Section grid */
+.grid {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid-1 { grid-template-columns: 1fr; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.4rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.card-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-top: 0.3rem;
+}
+
+.chart-wrap {
+  position: relative;
+  width: 100%;
+}
+.chart-wrap.s { height: 220px; }
+.chart-wrap.m { height: 280px; }
+.chart-wrap.l { height: 340px; }
+
+/* Test result callout */
+.test-result {
+  background: var(--panel-hi);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.test-result .stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.test-result .stat .key {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  margin-right: 0.35rem;
+}
+
+.test-result .verdict {
+  color: var(--accent-sig);
+  font-weight: 600;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.test-result .verdict.ns {
+  color: var(--accent-ns);
+}
+
+/* Correlation strip */
+.corr-strip {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+  background: var(--panel-hi);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.corr-label {
+  font-size: 0.85rem;
+}
+
+.corr-bar {
+  width: 140px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.corr-bar .fill {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  background: var(--accent-blue);
+  transition: all 0.3s;
+}
+
+.corr-bar .fill.positive {
+  background: var(--accent-sig);
+}
+
+.corr-bar .fill.negative {
+  background: var(--accent-danger);
+}
+
+.corr-values {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-align: right;
+  min-width: 120px;
+}
+
+.corr-values .rho { color: var(--text); font-weight: 600; }
+.corr-values .p { color: var(--text-dim); margin-left: 0.5rem; }
+.corr-values .p.sig { color: var(--accent-sig); font-weight: 600; }
+
+/* CV bars */
+.cv-item {
+  margin-bottom: 1rem;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+.cv-header .metric {
+  font-weight: 500;
+}
+
+.cv-header .value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.cv-bar {
+  height: 10px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cv-bar .fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s;
+}
+
+.cv-bar .threshold {
+  position: absolute;
+  top: -4px;
+  height: 18px;
+  width: 2px;
+  background: var(--accent-danger);
+  left: 50%;
+}
+
+.cv-bar .threshold::after {
+  content: 'CV=100%';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent-danger);
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+@media print {
+  body { background: white; color: black; padding: 1rem; }
+  .card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="eyebrow">Statistical Analysis Dashboard</div>
+  <h1>Logging Practices in Modern C++ Distributed Systems</h1>
+  <div class="sub">Non-parametric tests &middot; n=5 systems &middot; 39,675 commits &middot; 2020–2025</div>
+</div>
+
+<!-- Hero stat cards -->
+<div class="hero">
+  <div class="hero-card sig">
+    <div class="label">Mann-Whitney U</div>
+    <div class="value mono">p &lt; 10⁻²³</div>
+    <div class="detail">ClickHouse vs ScyllaDB monthly change</div>
+    <div class="sig-badge highly-sig">● HIGHLY SIGNIFICANT</div>
+  </div>
+  <div class="hero-card purple">
+    <div class="label">Spearman ρ</div>
+    <div class="value mono">+0.900</div>
+    <div class="detail">LOC ↔ Net logging growth</div>
+    <div class="sig-badge sig">● p = 0.037</div>
+  </div>
+  <div class="hero-card pink">
+    <div class="label">Chi-Square</div>
+    <div class="value mono">χ² = 1,652</div>
+    <div class="detail">Commit categories differ by system</div>
+    <div class="sig-badge highly-sig">● p &lt; 10⁻⁶</div>
+  </div>
+  <div class="hero-card amber">
+    <div class="label">Coefficient of Variation</div>
+    <div class="value mono">100.7%</div>
+    <div class="detail">Net growth across systems</div>
+    <div class="sig-badge ns">● Extreme variability</div>
+  </div>
+</div>
+
+<!-- Test 1 and Test 2 -->
+<div class="grid grid-2">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Test 1 · Mann-Whitney U Test</div>
+        <div class="card-meta">Monthly net log change: ClickHouse vs ScyllaDB (72 months)</div>
+      </div>
+    </div>
+    <div class="chart-wrap m"><canvas id="mw-chart"></canvas></div>
+    <div class="test-result">
+      <div class="stat"><span class="key">U=</span>4,968.0</div>
+      <div class="stat"><span class="key">p=</span>3.42×10⁻²⁴</div>
+      <div class="verdict">Reject H₀ ✓</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Test 2 · Spearman Correlations</div>
+        <div class="card-meta">Pairwise rank correlations (n=5)</div>
+      </div>
+    </div>
+    <div id="corr-container"></div>
+  </div>
+</div>
+
+<!-- Test 3 and Test 4 -->
+<div class="grid grid-2">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Test 3 · Coefficient of Variation</div>
+        <div class="card-meta">Cross-system variability by metric</div>
+      </div>
+    </div>
+    <div id="cv-container" style="margin-top:1rem"></div>
+    <div style="font-size:0.75rem;color:var(--text-dim);margin-top:0.8rem;font-style:italic">
+      CV &gt; 100% (red line) = standard deviation exceeds the mean; indicates extreme heterogeneity across systems.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Test 4 · Chi-Square Independence</div>
+        <div class="card-meta">Do commit category distributions differ across systems?</div>
+      </div>
+    </div>
+    <div class="chart-wrap m"><canvas id="chi-chart"></canvas></div>
+    <div class="test-result">
+      <div class="stat"><span class="key">χ²=</span>1,652.20</div>
+      <div class="stat"><span class="key">df=</span>12</div>
+      <div class="verdict">p &lt; 10⁻⁶ ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- Test 5: Trend -->
+<div class="grid grid-1">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Test 5 · Linear Regression — ClickHouse Yearly Trend</div>
+        <div class="card-meta">Is the logging growth accelerating? (2020–2025)</div>
+      </div>
+    </div>
+    <div class="chart-wrap l"><canvas id="trend-chart"></canvas></div>
+    <div class="test-result">
+      <div class="stat"><span class="key">slope=</span>+59.86 logs/yr</div>
+      <div class="stat"><span class="key">R²=</span>0.250</div>
+      <div class="verdict ns">p=0.313 · Trend positive, not yet significant</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Bharathi Pandurangan &middot; Capstone · RIT SWEN &middot; Advisor: Dr. Yiming Tang
+</div>
+
+<script>
+// ===== DATA =====
+const clickhouse_monthly = [52,26,-9,44,101,32,25,23,33,95,51,43,100,36,100,23,85,55,59,59,71,61,109,-41,14,25,10,28,8,52,-7,61,66,12,42,37,37,67,80,31,25,38,29,49,60,43,59,57,19,47,39,49,47,25,98,23,68,72,27,14,82,18,58,11,74,110,146,75,45,187,59,138];
+const scylladb_monthly = Array(72).fill(0);
+
+// ===== CHART DEFAULTS =====
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#9aa5b1';
+
+// ===== TEST 1: Mann-Whitney box-like comparison (as distribution dots) =====
+const mwCtx = document.getElementById('mw-chart').getContext('2d');
+new Chart(mwCtx, {
+  type: 'bar',
+  data: {
+    labels: ['ClickHouse (n=72)', 'ScyllaDB (n=72)'],
+    datasets: [
+      {
+        label: 'Median',
+        data: [47, 0],
+        backgroundColor: ['#60a5fa', '#ef4444'],
+        borderRadius: 4,
+        barPercentage: 0.4,
+      },
+      {
+        label: 'Mean',
+        data: [
+          clickhouse_monthly.reduce((a,b)=>a+b,0)/72,
+          0
+        ],
+        backgroundColor: ['rgba(96,165,250,0.4)', 'rgba(239,68,68,0.4)'],
+        borderRadius: 4,
+        barPercentage: 0.4,
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#e8eaed', usePointStyle: true, pointStyle: 'rect' }, position: 'top' },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + ' logs/month' } }
+    },
+    scales: {
+      y: { title: { display: true, text: 'Net log change / month', color: '#9aa5b1' }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9aa5b1' } },
+      x: { grid: { display: false }, ticks: { color: '#e8eaed', font: { size: 11, weight: '500' } } }
+    }
+  }
+});
+
+// ===== TEST 2: Spearman correlations =====
+const correlations = [
+  { var1: 'LOC', var2: 'Net growth',     rho: 0.900, p: 0.037, sig: true },
+  { var1: 'Density', var2: 'Bug fix %',  rho: -0.800, p: 0.104, sig: false },
+  { var1: 'Bug fix %', var2: 'Net growth', rho: 0.700, p: 0.188, sig: false },
+  { var1: 'Density', var2: 'Net growth', rho: -0.700, p: 0.188, sig: false },
+  { var1: 'LOC', var2: 'Density',        rho: -0.400, p: 0.505, sig: false },
+  { var1: 'Commits', var2: 'Net growth', rho: 0.400, p: 0.505, sig: false },
+];
+const corrContainer = document.getElementById('corr-container');
+correlations.forEach(c => {
+  const div = document.createElement('div');
+  div.className = 'corr-strip';
+  const barFill = document.createElement('div');
+  barFill.className = 'fill ' + (c.rho > 0 ? 'positive' : 'negative');
+  const pct = Math.abs(c.rho) * 50;
+  if (c.rho > 0) {
+    barFill.style.left = '50%';
+    barFill.style.width = pct + '%';
+  } else {
+    barFill.style.left = (50 - pct) + '%';
+    barFill.style.width = pct + '%';
+  }
+  div.innerHTML = `
+    <div class="corr-label">${c.var1} ↔ ${c.var2}</div>
+    <div class="corr-bar"></div>
+    <div class="corr-values">
+      <span class="rho">ρ = ${c.rho >= 0 ? '+' : ''}${c.rho.toFixed(3)}</span>
+      <span class="p ${c.sig ? 'sig' : ''}">p=${c.p.toFixed(3)}${c.sig ? ' ✓' : ''}</span>
+    </div>
+  `;
+  div.querySelector('.corr-bar').appendChild(barFill);
+  corrContainer.appendChild(div);
+});
+
+// ===== TEST 3: CV bars =====
+const cvData = [
+  { metric: 'Net growth', value: 100.7, color: '#ef4444' },
+  { metric: 'Logs/KLOC', value: 53.3, color: '#f59e0b' },
+  { metric: 'Bug fix %', value: 45.5, color: '#f59e0b' },
+  { metric: 'Feature %', value: 28.9, color: '#10b981' },
+  { metric: 'Log improvement %', value: 26.4, color: '#10b981' },
+];
+const cvContainer = document.getElementById('cv-container');
+const maxCv = 150;
+cvData.forEach(c => {
+  const div = document.createElement('div');
+  div.className = 'cv-item';
+  const pct = Math.min(100, (c.value / maxCv) * 100);
+  const threshold = (100 / maxCv) * 100;
+  div.innerHTML = `
+    <div class="cv-header">
+      <span class="metric">${c.metric}</span>
+      <span class="value" style="color:${c.color}">${c.value.toFixed(1)}%</span>
+    </div>
+    <div class="cv-bar">
+      <div class="fill" style="width:${pct}%;background:${c.color}"></div>
+      <div class="threshold" style="left:${threshold}%"></div>
+    </div>
+  `;
+  cvContainer.appendChild(div);
+});
+
+// ===== TEST 4: Chi-square - stacked commit categories =====
+const chiCtx = document.getElementById('chi-chart').getContext('2d');
+const systems = ['ClickHouse', 'RocksDB', 'Envoy', 'Kudu', 'ScyllaDB'];
+new Chart(chiCtx, {
+  type: 'bar',
+  data: {
+    labels: systems,
+    datasets: [
+      { label: 'Bug fix',    data: [30.5, 20.2, 14.0, 14.9, 9.3],  backgroundColor: '#ef4444', borderRadius: 2 },
+      { label: 'Feature',    data: [14.8, 22.1, 33.2, 22.2, 21.9], backgroundColor: '#60a5fa', borderRadius: 2 },
+      { label: 'Refactor',   data: [4.0, 4.4, 5.3, 3.9, 3.0],      backgroundColor: '#a78bfa', borderRadius: 2 },
+      { label: 'Log imp.',   data: [3.3, 1.9, 3.5, 2.2, 2.4],      backgroundColor: '#10b981', borderRadius: 2 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { color: '#e8eaed' }, position: 'top' } },
+    scales: {
+      x: { stacked: false, grid: { display: false }, ticks: { color: '#e8eaed' } },
+      y: { stacked: false, title: { display: true, text: '% of logging commits', color: '#9aa5b1' }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9aa5b1' } }
+    }
+  }
+});
+
+// ===== TEST 5: ClickHouse yearly trend with regression line =====
+const years = [2020, 2021, 2022, 2023, 2024, 2025];
+const yearlyTotals = [516, 717, 348, 575, 528, 1003];
+const slope = 59.86;
+const intercept = -120500; // computed: y = slope*x + intercept
+// recompute intercept from mean
+const meanY = yearlyTotals.reduce((a,b)=>a+b,0) / years.length;
+const meanX = years.reduce((a,b)=>a+b,0) / years.length;
+const actualIntercept = meanY - slope * meanX;
+const regressionLine = years.map(y => slope * y + actualIntercept);
+
+const trendCtx = document.getElementById('trend-chart').getContext('2d');
+new Chart(trendCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Actual yearly net change',
+        data: yearlyTotals,
+        borderColor: '#60a5fa',
+        backgroundColor: 'rgba(96,165,250,0.1)',
+        borderWidth: 2.5,
+        pointRadius: 6,
+        pointBackgroundColor: '#60a5fa',
+        fill: true,
+        tension: 0.25
+      },
+      {
+        label: 'Regression line (slope=+59.86)',
+        data: regressionLine,
+        borderColor: '#f59e0b',
+        borderWidth: 2,
+        borderDash: [6, 4],
+        pointRadius: 0,
+        fill: false,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#e8eaed', usePointStyle: true }, position: 'top' },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw.toFixed(0) + ' logs' } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#e8eaed' } },
+      y: { title: { display: true, text: 'Net log change (ClickHouse)', color: '#9aa5b1' }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9aa5b1' } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
